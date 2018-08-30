@@ -16,8 +16,13 @@ Route::get('/', function () {
    return redirect('/admin');
 });
 
+Route::get('/home', function () {
+    //return view('welcome');
+   return redirect('/admin');
+});
+/*
 Route::get('/home', 'HomeController@index')->name('home');
-
+*/
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

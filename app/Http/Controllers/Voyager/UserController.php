@@ -286,7 +286,11 @@ class userController extends VoyagerBaseController
             $view = "voyager::$slug.edit-add";
         }
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
+        $state = DB::table('states')
+                        ->orderBy('estado','asc')
+                        ->get();
+
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'state'));
     }
 
     /**
