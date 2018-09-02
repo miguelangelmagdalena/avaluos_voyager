@@ -15,7 +15,7 @@ class Municipio extends Model
         return $this->hasMany('App\Parroquia', 'municipio_parroquia_fk', 'id_municipio');
     }
     public function state(){
-        return $this->belongsTo('App\State', 'estado_municipio_fk', 'id_estado');
+        return $this->belongsTo('App\Estado', 'estado_municipio_fk', 'id_estado');
     }
     
 }

@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 
-class State extends Model
+class Estado extends Model
 {
     public function user(){
         return $this->hasMany('App\User', 'user_state_fk', 'id_estado');

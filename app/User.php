@@ -28,7 +28,7 @@ class User extends \TCG\Voyager\Models\User
     ];
 
     public function state(){
-        return $this->belongsTo('App\State', 'user_state_fk', 'id_estado');
+        return $this->belongsTo('App\Estado', 'user_state_fk', 'id_estado');
     }
     public function municipio(){
         return $this->hasMany('App\Municipio', 'user_municipio_fk', 'id_municipio');
