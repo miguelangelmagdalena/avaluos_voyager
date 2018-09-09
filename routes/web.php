@@ -20,9 +20,7 @@ Route::get('/home', function () {
     //return view('welcome');
    return redirect('/admin');
 });
-/*
-Route::get('/home', 'HomeController@index')->name('home');
-*/
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
@@ -41,5 +39,15 @@ Route::post('/register/fetchAddress', 'Auth\RegisterController@fetchAddress')->n
 
 Route::post('/user_edit/fetchAddress', 'Voyager\userController@fetchAddress')->name('user_edit.fetchAddress');
 
+/*
+|--------------------------------------------------------------------------
+| Rutas para navegacion entre secciones del avaluo
+|--------------------------------------------------------------------------
+|
+| Secciones
+|
+*/
 
+Route::get('/next_content', 'Voyager\GeneralController@next_content');
 
+Route::get('/previous_content', 'Voyager\GeneralController@previous_content');

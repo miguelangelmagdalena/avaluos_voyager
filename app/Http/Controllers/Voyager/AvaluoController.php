@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Voyager;
 use App\Avaluo;
 use App\Contenido;
 use App\AvaluoContenido;
+use App\Solicitude;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use TCG\Voyager\Database\Schema\SchemaManager;
@@ -69,7 +70,7 @@ class AvaluoController extends VoyagerBaseController
         $avaluos = Avaluo::find($id);
         $avaluo_contenido = $avaluos->contenidos()->get();
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','contenidos','avaluo_contenido'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','contenidos','avaluo_contenido','id'));
     }
 
     // POST BR(E)AD
@@ -162,9 +163,11 @@ class AvaluoController extends VoyagerBaseController
         $contenidos =  DB::table('contenidos')
                                     ->get();
 
-        //Verificar contenidos vacio
+        //vacio
         $avaluo_contenido = collect([]);
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','contenidos','avaluo_contenido'));
+        $id = collect([]);
+
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','contenidos','avaluo_contenido','id'));
     }
 
     /**
@@ -212,7 +215,10 @@ class AvaluoController extends VoyagerBaseController
         }
     }
 
-    protected function insertAvaluoContenido(Request $request, $id){
+    
+
+    protected function insertAvaluoContenido(Request $request, $id)
+    {
         if ($request->contenido){
             foreach ($request->contenido as $content){
                 $nuevo_contenido = new AvaluoContenido;

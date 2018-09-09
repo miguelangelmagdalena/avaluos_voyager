@@ -97,8 +97,28 @@
                         </div><!-- panel-body -->
 
                         <div class="panel-footer">
-                            <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
+                            <button type="submit" class="btn btn-primary save ">{{ __('voyager::generic.save') }}</button>
+                            
+                            <!--@can('add',app('App\Solicitude'))
+                                <a href="{{ route('voyager.solicitudes.create') }}" class="btn btn-success btn-add-new">
+                                    <i class="voyager-plus"></i> <span>Siguiente</span>
+                                </a>
+                            @endcan-->
+                            @can('add',app('App\Solicitude'))
+                                <a href="{{ action('Voyager\GeneralController@next_content', ['id' => $id]) }}" class="btn btn-sm btn-success pull-right edit">
+                                    <i class="voyager-plus"></i> <span>Siguiente</span>
+                                </a>
+                            @endcan
+                            <!--<a href="{{ action('Voyager\GeneralController@next_content', ['id' => $id]) }}" title="Editar" class="btn btn-sm btn-primary pull-right edit">
+                                <i class="voyager-edit"></i> <span class="">Siguiente</span>
+                            </a>-->
+                            <a href="/previous_content" title="Editar" class="btn btn-sm btn-primary pull-right edit">
+                                <i class="voyager-edit"></i> <span class="">Anterior</span>
+                            </a>
                         </div>
+
+
+
                     </form>
 
                     <iframe id="form_target" name="form_target" style="display:none"></iframe>

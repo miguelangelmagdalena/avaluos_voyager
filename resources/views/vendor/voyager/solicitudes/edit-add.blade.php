@@ -20,7 +20,7 @@
         <!-- form start -->
         <form role="form"
             class="form-edit-add"
-            action="@if(!is_null($dataTypeContent->getKey())){{ route('voyager.'.$dataType->slug.'.update', $dataTypeContent->getKey()) }}@else{{ route('voyager.'.$dataType->slug.'.store') }}@endif"
+            action="@if(!is_null($dataTypeContent->getKey())){{ route('voyager.'.$dataType->slug.'.update', $dataTypeContent->getKey()) }}@else{{ route('voyager.'.$dataType->slug.'.store', ['avaluo' => Request::get('avaluo_id')] ) }}@endif"
             method="POST" enctype="multipart/form-data">
         <!-- PUT Method if we are editing -->
         @if(!is_null($dataTypeContent->getKey()))
@@ -32,10 +32,10 @@
             <div class="row">
             
                 <div class="col-md-4">
-                    <!-- ### test ### -->
+                    <!-- ### solicitante ### -->
                     <div class="panel panel-bordered panel-warning">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="icon wb-image"></i> {{ $dataType2->display_name_singular }}</h3>
+                            <h3 class="panel-title"><i class="icon wb-image"></i> {{ $dataType2->display_name_singular }} </h3>
                             <div class="panel-actions">
                                 <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
                             </div>
@@ -76,17 +76,18 @@
                                             @if($row->type == 'relationship')
                                                 @include('voyager::formfields.relationship')
                                             @else
-                                                {!! app('voyager')->formField($row, $dataType, $dataTypeContent2) !!}
+                                                {!! app('voyager')->formField($row, $dataType2, $dataTypeContent2) !!}
                                             @endif
 
-                                            @foreach (app('voyager')->afterFormFields($row, $dataType, $dataTypeContent2) as $after)
-                                                {!! $after->handle($row, $dataType, $dataTypeContent2) !!}
+                                            @foreach (app('voyager')->afterFormFields($row, $dataType2, $dataTypeContent2) as $after)
+                                                {!! $after->handle($row, $dataType2, $dataTypeContent2) !!}
                                             @endforeach
                                         </div>
                                     @endif
                                 @endforeach
                         </div>
                     </div>
+
                 </div>
 
                 <div class="col-md-8">
