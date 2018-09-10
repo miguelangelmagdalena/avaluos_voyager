@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-09-2018 a las 19:07:49
+-- Tiempo de generación: 10-09-2018 a las 20:03:42
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -50,10 +50,14 @@ CREATE TABLE `avaluos` (
 --
 
 INSERT INTO `avaluos` (`id`, `logo`, `num_expediente`, `num_planilla`, `lugar`, `fecha`, `nombre_avaluo`, `ubicacion`, `tipo_informe`, `referencia_informe`, `pie_pagina_informe`, `created_at`, `updated_at`, `encabezado`) VALUES
-(1, 'informe-avaluos\\August2018\\cB7DjkgPpqkCGqLckRJO.png', 'hgfhfgh', 'fghgfh', 'fghgfh', '2018-08-17', 'ghgfhfghfgh\r\nfgbhgfh\r\nfghgfh', 'sdfsdf\r\nsdfsdf\r\nsdf', 'option1', NULL, '<p>ghjghjg</p>', '2018-08-31 20:03:01', '2018-08-31 20:03:01', '<p>gfhfghfgh</p>'),
-(2, 'informe-avaluos\\August2018\\j4DKA1qRaH9P9ZQYmiAT.png', '212', '14dsf', 'Caracas', '2018-08-31', 'as', 'as', 'option2', 'asas', '<p>as</p>', '2018-08-31 23:53:04', '2018-08-31 23:53:04', '<p>fdsfds</p>'),
-(3, 'informe-avaluos\\August2018\\P8U81Lsa7DttQIyKytAX.jpg', '1212', '1212', '12', '2018-08-31', 'fsdf', 'sdfs', 'option1', 'dfrwerr', '<p>wrygf</p>', '2018-08-31 23:55:37', '2018-08-31 23:55:37', '<p>sdfsdf</p>'),
-(4, 'avaluos\\September2018\\coYh0Sq34fZHlUlGouZc.png', '566767ghj', '678679ghjgh', 'jghj67', '2018-09-02', 'ghjghj', 'ghj', 'option2', 'ghjghjiuy', '<p>hjjh</p>', '2018-09-02 20:31:30', '2018-09-02 20:31:30', '<p>hjk</p>');
+(6, 'avaluos\\September2018\\XJ5KTdeliAfdRIUGOhWl.png', 'yth', 'fgh', 'fgh', NULL, 'fgh', NULL, 'option1', NULL, '<p>gh</p>', '2018-09-02 22:14:05', '2018-09-02 22:14:05', '<p>gh</p>'),
+(7, 'avaluos\\September2018\\GpGiQU1Kw1zLYwf8nA4t.png', 'yth', 'fgh', 'fgh', NULL, 'fgh', NULL, 'option1', NULL, '<p>gh</p>', '2018-09-02 22:14:53', '2018-09-02 22:15:12', '<p>gh</p>'),
+(8, 'avaluos\\September2018\\cCDViVzU6IFRKPOFiz5N.png', 'otra', 'fghfgh', 'fgh', '2018-09-06', 'sd', 'sd', 'option1', 'sd', '<p>sd</p>', '2018-09-07 06:56:21', '2018-09-07 06:56:21', '<p>sd</p>'),
+(9, 'avaluos\\September2018\\VbpU8znqQfloRM9W5wpV.jpg', '1', '1', '1', '2018-09-09', '1', '1', 'option2', '1', '<p>1</p>', '2018-09-09 22:31:25', '2018-09-09 22:31:25', '<p>1</p>'),
+(10, NULL, 'xxxxxxxxxxx', 'xxxxxxxxxxxxxxx', NULL, NULL, 'xxx', 'xxx', 'option1', NULL, '<p>x</p>', '2018-09-10 20:33:55', '2018-09-10 20:33:55', '<p>x</p>'),
+(11, NULL, 'aaaaaaaaaaaaaa', 'aaaaaaaaaaa', NULL, NULL, 'aaaa', NULL, 'option1', NULL, '<p>aaa</p>', '2018-09-10 20:35:23', '2018-09-10 20:35:23', '<p>aaaa</p>'),
+(12, 'avaluos\\September2018\\6hefwoCqSAkIUoGo1r2N.png', 'zzzzzzzzzzz', 'zzzzz', NULL, NULL, 'zzz', 'zz', 'option1', NULL, '<p>zz</p>', '2018-09-10 20:36:59', '2018-09-10 20:36:59', '<p>zzz</p>'),
+(13, NULL, '99999999999', '999999999', '999', NULL, NULL, '9', 'option1', '9', '<p>9</p>', '2018-09-10 21:22:25', '2018-09-10 21:22:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -87,7 +91,26 @@ INSERT INTO `avaluo_contenido` (`id`, `avaluo_id`, `contenido_id`, `created_at`,
 (17, 4, 1, '2018-09-02 20:31:30', '2018-09-02 20:31:30', NULL),
 (18, 4, 2, '2018-09-02 20:31:30', '2018-09-02 20:31:30', NULL),
 (19, 4, 3, '2018-09-02 20:31:30', '2018-09-02 20:31:30', NULL),
-(20, 4, 4, '2018-09-02 20:31:30', '2018-09-02 20:31:30', NULL);
+(20, 4, 4, '2018-09-02 20:31:30', '2018-09-02 20:31:30', NULL),
+(21, 5, 1, '2018-09-02 21:52:16', '2018-09-02 21:52:16', NULL),
+(22, 5, 2, '2018-09-02 21:52:16', '2018-09-02 21:52:16', NULL),
+(25, 7, 1, '2018-09-02 22:18:31', '2018-09-02 22:18:31', NULL),
+(26, 7, 2, '2018-09-02 22:18:31', '2018-09-02 22:18:31', NULL),
+(27, 8, 1, '2018-09-07 06:56:21', '2018-09-07 06:56:21', NULL),
+(28, 8, 2, '2018-09-07 06:56:21', '2018-09-07 06:56:21', NULL),
+(29, 8, 3, '2018-09-07 06:56:21', '2018-09-07 06:56:21', NULL),
+(30, 6, 1, '2018-09-07 17:34:28', '2018-09-07 17:34:28', NULL),
+(31, 9, 1, '2018-09-09 22:31:25', '2018-09-09 22:31:25', NULL),
+(32, 9, 2, '2018-09-09 22:31:25', '2018-09-09 22:31:25', NULL),
+(33, 10, 1, '2018-09-10 20:33:55', '2018-09-10 20:33:55', NULL),
+(34, 10, 2, '2018-09-10 20:33:55', '2018-09-10 20:33:55', NULL),
+(35, 11, 1, '2018-09-10 20:35:23', '2018-09-10 20:35:23', NULL),
+(36, 11, 2, '2018-09-10 20:35:23', '2018-09-10 20:35:23', NULL),
+(37, 11, 3, '2018-09-10 20:35:23', '2018-09-10 20:35:23', NULL),
+(38, 12, 1, '2018-09-10 20:36:59', '2018-09-10 20:36:59', NULL),
+(39, 12, 2, '2018-09-10 20:36:59', '2018-09-10 20:36:59', NULL),
+(40, 13, 1, '2018-09-10 21:22:25', '2018-09-10 21:22:25', NULL),
+(41, 13, 3, '2018-09-10 21:22:25', '2018-09-10 21:22:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -255,10 +278,10 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (190, 29, 'ubicacion', 'text_area', 'Ubicacion', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 8),
 (191, 29, 'tipo_informe', 'select_dropdown', 'Tipo Informe', 0, 1, 1, 1, 1, 1, '{\"default\":\"option1\",\"options\":{\"option1\":\"Narrativo sistematizado\",\"option2\":\"Narrativo\"},\"display\":{\"width\":\"6\"}}', 10),
 (192, 29, 'referencia_informe', 'text', 'Referencia Informe', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 9),
-(193, 29, 'pie_pagina_informe', 'rich_text_box', 'Pie Pagina Informe', 0, 1, 1, 1, 1, 1, NULL, 12),
+(193, 29, 'pie_pagina_informe', 'rich_text_box', 'Pie Pagina Informe', 0, 1, 1, 1, 1, 1, '{\"default\":\"ghfghgf\"}', 12),
 (194, 29, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 13),
 (195, 29, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 14),
-(196, 29, 'encabezado', 'rich_text_box', 'Encabezado', 0, 1, 1, 1, 1, 1, NULL, 11),
+(196, 29, 'encabezado', 'rich_text_box', 'Encabezado', 0, 1, 1, 1, 1, 1, '{\"default\":\"<p>ghjghjg</p>\"}', 11),
 (197, 30, 'id', 'hidden', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
 (198, 30, 'nombre_seccion', 'text', 'Nombre Seccion', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"4\"}}', 2),
 (199, 30, 'nombre_titulo', 'text', 'Nombre Titulo', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"4\"}}', 3),
@@ -267,12 +290,58 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (202, 30, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 6),
 (203, 30, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 7),
 (204, 30, 'deleted_at', 'timestamp', 'Deleted At', 0, 0, 0, 0, 0, 0, NULL, 8),
-(205, 31, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
-(206, 31, 'avaluos_id', 'text', 'Avaluos Id', 0, 1, 1, 1, 1, 1, NULL, 2),
-(207, 31, 'contenidos_id', 'text', 'Contenidos Id', 0, 1, 1, 1, 1, 1, NULL, 3),
-(208, 31, 'created_at', 'timestamp', 'Created At', 0, 1, 1, 1, 0, 1, NULL, 4),
-(209, 31, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 5),
-(210, 31, 'deleted_at', 'timestamp', 'Deleted At', 0, 1, 1, 1, 1, 1, NULL, 6);
+(227, 34, 'id', 'hidden', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(228, 34, 'nombre', 'text', 'Nombre', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"12\"}}', 2),
+(229, 34, 'cedula', 'number', 'Cédula', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"},\"validation\":{\"rule\":\"unique:solicitantes,cedula\"}}', 3),
+(230, 34, 'rif', 'number', 'Rif', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"},\"validation\":{\"rule\":\"unique:solicitantes,rif\"}}', 4),
+(231, 34, 'domicilio_fiscal', 'text_area', 'Domicilio Fiscal', 0, 1, 1, 1, 1, 1, NULL, 7),
+(232, 34, 'codigo_postal', 'text', 'Codigo Postal', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 5),
+(233, 34, 'zona_postal', 'text', 'Zona Postal', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 6),
+(234, 34, 'telefono_fijo', 'number', 'Teléfono Fijo', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 8),
+(235, 34, 'celular', 'number', 'Celular', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 9),
+(236, 34, 'celular2', 'number', 'Otro Celular', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 10),
+(237, 34, 'fax', 'number', 'Fax', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 11),
+(238, 34, 'email', 'text', 'Email', 0, 1, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"email|unique:solicitantes,email\"},\"display\":{\"width\":\"6\"}}', 12),
+(239, 34, 'sitio_web', 'text', 'Sitio Web', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 13),
+(241, 34, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 21),
+(242, 34, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 20),
+(246, 35, 'id', 'hidden', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(247, 35, 'requerimiento_informe', 'text_area', 'Lo que requiere valuarse', 0, 1, 1, 1, 1, 1, NULL, 2),
+(248, 35, 'finalidad_informe', 'text', 'IA requerido para', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":6}}', 3),
+(249, 35, 'necesidad_informe', 'text', 'IA necesario por', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":6}}', 4),
+(250, 35, 'pais', 'text', 'País', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":3}}', 5),
+(251, 35, 'estado', 'text', 'Estado', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":3}}', 6),
+(252, 35, 'ciudad', 'text', 'Ciudad', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":2}}', 7),
+(253, 35, 'municipio', 'text', 'Municipio', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":2}}', 8),
+(254, 35, 'parroquia', 'text', 'Parroquia', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":2}}', 9),
+(255, 35, 'urbanizacion', 'text', 'Urbanización', 0, 0, 1, 1, 1, 1, NULL, 10),
+(256, 35, 'calle', 'text', 'Calle', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":4}}', 11),
+(257, 35, 'edificio', 'text', 'Edificio', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":4}}', 12),
+(258, 35, 'piso', 'text', 'Piso', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":4}}', 13),
+(259, 35, 'local', 'text', 'Local', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":4}}', 14),
+(260, 35, 'parcela', 'text', 'Parcela', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":4}}', 15),
+(261, 35, 'catastro', 'text', 'Catastro', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":4}}', 16),
+(262, 35, 'uso_potencial', 'text_area', 'Uso Potencial', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":6}}', 17),
+(263, 35, 'uso_factico', 'text_area', 'Uso Fáctico', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":6}}', 18),
+(264, 35, 'orden_trabajo', 'text', 'Orden de Trabajo', 0, 0, 1, 1, 1, 1, NULL, 19),
+(265, 35, 'periodo_entrevistas_inicio', 'date', 'Periodo Entrevistas Del', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":6}}', 20),
+(266, 35, 'periodo_entrevistas_fin', 'date', 'Periodo Entrevistas Hasta', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":6}}', 21),
+(267, 35, 'periodo_revision_inicio', 'date', 'Periodo Revisión Del', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":6}}', 22),
+(268, 35, 'periodo_revision_fin', 'date', 'Periodo Revisión Hasta', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":6}}', 23),
+(269, 35, 'periodo_inspeccion_inicio', 'date', 'Periodo Inspección Del', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":6}}', 24),
+(270, 35, 'periodo_inspeccion_fin', 'date', 'Periodo Inspección Hasta', 0, 0, 1, 1, 1, 1, '{\"display\":{\"width\":6}}', 25),
+(271, 35, 'moneda', 'select_dropdown', 'Moneda', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":6},\"default\":\"option1\",\"options\":{\"option1\":\"Bs. Bolívares (Venezuela) equivalente a USD Euros\",\"option2\":\"USD Euros\",\"option3\":\"Otra moneda\"}}', 26),
+(272, 35, 'solicitante_id', 'hidden', 'Solicitado por', 0, 1, 1, 1, 1, 1, NULL, 27),
+(274, 35, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 29),
+(275, 35, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 30),
+(276, 34, 'representante', 'text', 'Representado por', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"12\"}}', 14),
+(277, 34, 'estatus', 'select_dropdown', 'Estatus del Representante', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":12},\"default\":\"option1\",\"options\":{\"option1\":\"Asesor Legal\",\"option2\":\"Otro\"}}', 15),
+(278, 34, 'rep_telefono_fijo', 'number', 'Representante Telefono Fijo', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 16),
+(279, 34, 'rep_celular', 'number', 'Representante Celular', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 17),
+(280, 34, 'rep_celular2', 'number', 'Representante Otro Celular', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 18),
+(281, 34, 'rep_email', 'text', 'Representante Email', 0, 1, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"nullable|email\"},\"display\":{\"width\":\"6\"}}', 19),
+(283, 30, 'solicitud_id', 'hidden', 'Solicitud Id', 0, 1, 1, 1, 1, 1, NULL, 9),
+(284, 35, 'avaluo_id', 'hidden', 'Avaluo', 0, 1, 1, 1, 1, 1, NULL, 30);
 
 -- --------------------------------------------------------
 
@@ -317,8 +386,9 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (24, 'informe_contenidos', 'informe-contenidos', 'Informe Contenido', 'Informe Contenidos', NULL, '\\App\\InformeContenido', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-08-31 20:15:21', '2018-09-01 19:07:24'),
 (27, 'avaluos_contenidos', 'avaluos-contenidos', 'Avaluos Contenido', 'Avaluos Contenidos', NULL, 'App\\AvaluosContenido', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-08-31 22:36:18', '2018-08-31 22:36:18'),
 (29, 'avaluos', 'avaluos', 'Avaluo', 'Avaluos', NULL, 'App\\Avaluo', NULL, '\\App\\Http\\Controllers\\Voyager\\AvaluoController', NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-02 20:06:11', '2018-09-02 20:15:08'),
-(30, 'contenidos', 'contenidos', 'Contenido', 'Contenidos', NULL, 'App\\Contenido', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-02 20:12:42', '2018-09-02 20:12:42'),
-(31, 'avaluo_contenido', 'avaluo-contenido', 'Avaluo Contenido', 'Avaluo Contenidos', NULL, 'App\\AvaluoContenido', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-02 20:21:12', '2018-09-02 20:21:12');
+(30, 'contenidos', 'contenidos', 'Contenido', 'Contenidos', NULL, 'App\\Contenido', NULL, '\\App\\Http\\Controllers\\Voyager\\ContenidoController', NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-02 20:12:42', '2018-09-06 00:36:03'),
+(34, 'solicitantes', 'solicitantes', 'Solicitante', 'Solicitantes', NULL, 'App\\Solicitante', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-04 17:48:17', '2018-09-04 17:48:17'),
+(35, 'solicitudes', 'solicitudes', 'Solicitud', 'Solicitudes', NULL, 'App\\Solicitude', NULL, '\\App\\Http\\Controllers\\Voyager\\SolicitudController', NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-04 18:24:50', '2018-09-04 19:10:40');
 
 -- --------------------------------------------------------
 
@@ -413,17 +483,17 @@ CREATE TABLE `menu_items` (
 
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
 (1, 1, 'Panel de Control', '', '_self', 'voyager-home', '#000000', NULL, 1, '2018-08-13 17:29:11', '2018-08-22 00:58:01', 'voyager.dashboard', 'null'),
-(2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 5, '2018-08-13 17:29:11', '2018-08-31 19:24:04', 'voyager.media.index', NULL),
-(3, 1, 'Usuarios', '', '_self', 'voyager-person', '#000000', NULL, 3, '2018-08-13 17:29:11', '2018-08-22 00:57:28', 'voyager.users.index', 'null'),
-(4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 4, '2018-08-13 17:29:11', '2018-08-22 00:57:28', 'voyager.roles.index', NULL),
-(5, 1, 'Herramientas', '', '_self', 'voyager-tools', '#000000', NULL, 6, '2018-08-13 17:29:11', '2018-09-02 20:21:44', NULL, ''),
+(2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 5, '2018-08-13 17:29:11', '2018-09-05 21:40:24', 'voyager.media.index', NULL),
+(3, 1, 'Usuarios', '', '_self', 'voyager-person', '#000000', NULL, 3, '2018-08-13 17:29:11', '2018-09-05 21:40:24', 'voyager.users.index', 'null'),
+(4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 4, '2018-08-13 17:29:11', '2018-09-05 21:40:24', 'voyager.roles.index', NULL),
+(5, 1, 'Herramientas', '', '_self', 'voyager-tools', '#000000', NULL, 6, '2018-08-13 17:29:11', '2018-09-05 21:40:24', NULL, ''),
 (6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 1, '2018-08-13 17:29:11', '2018-08-31 20:20:49', 'voyager.menus.index', NULL),
 (7, 1, 'Base de Datos', '', '_self', 'voyager-data', '#000000', 5, 2, '2018-08-13 17:29:11', '2018-08-31 20:20:51', 'voyager.database.index', 'null'),
 (8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 3, '2018-08-13 17:29:11', '2018-08-31 20:20:51', 'voyager.compass.index', NULL),
 (9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 4, '2018-08-13 17:29:11', '2018-08-31 20:20:51', 'voyager.bread.index', NULL),
 (10, 1, 'Configuración del Sitio', '', '_self', 'voyager-settings', '#000000', 22, 1, '2018-08-13 17:29:11', '2018-08-21 16:58:36', 'voyager.settings.index', 'null'),
 (14, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 5, '2018-08-13 17:29:14', '2018-08-31 20:20:51', 'voyager.hooks', NULL),
-(22, 1, 'Configuración', '', '_self', 'voyager-settings', '#000000', NULL, 7, '2018-08-14 01:41:36', '2018-09-02 20:21:44', NULL, ''),
+(22, 1, 'Configuración', '', '_self', 'voyager-settings', '#000000', NULL, 7, '2018-08-14 01:41:36', '2018-09-05 21:40:24', NULL, ''),
 (23, 1, 'Estados', '', '_self', NULL, '#000000', 26, 1, '2018-08-14 03:18:04', '2018-08-21 16:34:45', 'voyager.states.index', 'null'),
 (24, 1, 'Municipios', '', '_self', NULL, NULL, 26, 2, '2018-08-14 04:33:28', '2018-08-21 16:34:46', 'voyager.municipios.index', NULL),
 (25, 1, 'Parroquias', '', '_self', NULL, NULL, 26, 3, '2018-08-14 05:04:41', '2018-08-21 16:34:47', 'voyager.parroquias.index', NULL),
@@ -431,9 +501,10 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (29, 1, 'Parroquias', '/admin/parroquias', '_self', NULL, '#000000', 22, 4, '2018-08-21 16:43:48', '2018-08-21 16:48:46', NULL, ''),
 (30, 1, 'Planilla de datos PD', '', '_self', 'voyager-documentation', '#ffff00', NULL, 2, '2018-08-22 00:57:04', '2018-08-22 00:57:42', NULL, ''),
 (33, 1, 'Estados', '', '_self', NULL, NULL, 22, 2, '2018-08-31 00:34:28', '2018-08-31 00:42:26', 'voyager.estados.index', NULL),
-(39, 1, 'Avaluos', '', '_self', NULL, NULL, 30, 1, '2018-09-02 20:06:11', '2018-09-02 20:13:41', 'voyager.avaluos.index', NULL),
-(40, 1, 'Contenidos', '', '_self', NULL, NULL, 30, 2, '2018-09-02 20:12:42', '2018-09-02 20:13:49', 'voyager.contenidos.index', NULL),
-(41, 1, 'Avaluo Contenidos', '', '_self', NULL, NULL, 30, 3, '2018-09-02 20:21:12', '2018-09-02 20:21:44', 'voyager.avaluo-contenido.index', NULL);
+(39, 1, 'Avaluos', '', '_self', 'voyager-file-text', '#0080ff', 30, 1, '2018-09-02 20:06:11', '2018-09-09 22:40:20', 'voyager.avaluos.index', 'null'),
+(40, 1, 'Contenidos', '', '_self', 'voyager-list', '#000000', 30, 2, '2018-09-02 20:12:42', '2018-09-09 22:42:59', 'voyager.contenidos.index', 'null'),
+(43, 1, 'Clientes', '', '_self', 'voyager-people', '#000000', 30, 4, '2018-09-04 17:48:17', '2018-09-09 22:40:53', 'voyager.solicitantes.index', 'null'),
+(44, 1, 'Solicitudes', '', '_self', 'voyager-pen', '#000000', 30, 3, '2018-09-04 18:24:51', '2018-09-09 22:42:28', 'voyager.solicitudes.index', 'null');
 
 -- --------------------------------------------------------
 
@@ -2158,11 +2229,16 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (119, 'edit_contenidos', 'contenidos', '2018-09-02 20:12:42', '2018-09-02 20:12:42'),
 (120, 'add_contenidos', 'contenidos', '2018-09-02 20:12:42', '2018-09-02 20:12:42'),
 (121, 'delete_contenidos', 'contenidos', '2018-09-02 20:12:42', '2018-09-02 20:12:42'),
-(122, 'browse_avaluo_contenido', 'avaluo_contenido', '2018-09-02 20:21:12', '2018-09-02 20:21:12'),
-(123, 'read_avaluo_contenido', 'avaluo_contenido', '2018-09-02 20:21:12', '2018-09-02 20:21:12'),
-(124, 'edit_avaluo_contenido', 'avaluo_contenido', '2018-09-02 20:21:12', '2018-09-02 20:21:12'),
-(125, 'add_avaluo_contenido', 'avaluo_contenido', '2018-09-02 20:21:12', '2018-09-02 20:21:12'),
-(126, 'delete_avaluo_contenido', 'avaluo_contenido', '2018-09-02 20:21:12', '2018-09-02 20:21:12');
+(132, 'browse_solicitantes', 'solicitantes', '2018-09-04 17:48:17', '2018-09-04 17:48:17'),
+(133, 'read_solicitantes', 'solicitantes', '2018-09-04 17:48:17', '2018-09-04 17:48:17'),
+(134, 'edit_solicitantes', 'solicitantes', '2018-09-04 17:48:17', '2018-09-04 17:48:17'),
+(135, 'add_solicitantes', 'solicitantes', '2018-09-04 17:48:17', '2018-09-04 17:48:17'),
+(136, 'delete_solicitantes', 'solicitantes', '2018-09-04 17:48:17', '2018-09-04 17:48:17'),
+(137, 'browse_solicitudes', 'solicitudes', '2018-09-04 18:24:51', '2018-09-04 18:24:51'),
+(138, 'read_solicitudes', 'solicitudes', '2018-09-04 18:24:51', '2018-09-04 18:24:51'),
+(139, 'edit_solicitudes', 'solicitudes', '2018-09-04 18:24:51', '2018-09-04 18:24:51'),
+(140, 'add_solicitudes', 'solicitudes', '2018-09-04 18:24:51', '2018-09-04 18:24:51'),
+(141, 'delete_solicitudes', 'solicitudes', '2018-09-04 18:24:51', '2018-09-04 18:24:51');
 
 -- --------------------------------------------------------
 
@@ -2257,11 +2333,16 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (119, 1),
 (120, 1),
 (121, 1),
-(122, 1),
-(123, 1),
-(124, 1),
-(125, 1),
-(126, 1);
+(132, 1),
+(133, 1),
+(134, 1),
+(135, 1),
+(136, 1),
+(137, 1),
+(138, 1),
+(139, 1),
+(140, 1),
+(141, 1);
 
 -- --------------------------------------------------------
 
@@ -2318,6 +2399,107 @@ INSERT INTO `settings` (`id`, `key`, `display_name`, `value`, `details`, `type`,
 (8, 'admin.loader', 'Admin Loader', 'settings\\August2018\\RN7kVe7c3G7y7iol54xC.png', '', 'image', 3, 'Admin'),
 (9, 'admin.icon_image', 'Admin Icon Image', '', '', 'image', 4, 'Admin'),
 (10, 'admin.google_analytics_client_id', 'Google Analytics Client ID (used for admin dashboard)', NULL, '', 'text', 1, 'Admin');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `solicitantes`
+--
+
+CREATE TABLE `solicitantes` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cedula` int(11) DEFAULT NULL,
+  `rif` int(11) DEFAULT NULL,
+  `domicilio_fiscal` text COLLATE utf8mb4_unicode_ci,
+  `codigo_postal` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `zona_postal` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `telefono_fijo` double DEFAULT NULL,
+  `celular` double DEFAULT NULL,
+  `celular2` double DEFAULT NULL,
+  `fax` double DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sitio_web` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `representante` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `estatus` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `rep_telefono_fijo` double DEFAULT NULL,
+  `rep_celular` double DEFAULT NULL,
+  `rep_celular2` double DEFAULT NULL,
+  `rep_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `solicitantes`
+--
+
+INSERT INTO `solicitantes` (`id`, `nombre`, `cedula`, `rif`, `domicilio_fiscal`, `codigo_postal`, `zona_postal`, `telefono_fijo`, `celular`, `celular2`, `fax`, `email`, `sitio_web`, `created_at`, `updated_at`, `representante`, `estatus`, `rep_telefono_fijo`, `rep_celular`, `rep_celular2`, `rep_email`) VALUES
+(1, 'Miguel Magdalena', 25409863, 254098631, 'Caracas', '1030', '1030', 4168239481, 4168239481, 8725355, 4168239481, 'miguelangelmagdalena@gmail.com', 'l', '2018-09-04 17:51:19', '2018-09-04 17:51:19', NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'Miguel Magdalena', 25409864, 25409864, NULL, '1030', '1030', 4168239481, NULL, NULL, NULL, 'perro@gmail.com', NULL, '2018-09-05 07:16:11', '2018-09-05 07:16:11', NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'Miguel Magdalena', 25409865, 25409865, 'eee', '1030', '1030', 4168239481, NULL, NULL, NULL, 'ga@gmail.com', NULL, '2018-09-05 07:27:11', '2018-09-05 07:27:11', NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 'Miguel Magdalena', 25409866, 25409866, 'eee', '1030', '1030', 4168239481, NULL, NULL, NULL, 'gau@gmail.com', NULL, '2018-09-05 07:29:56', '2018-09-05 07:29:56', NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 'Junior Magdalena', 25409873, 25409873, NULL, '1030', '1030', 4168239481, NULL, NULL, NULL, 'miguelangelmagdalena@gmail.com7', NULL, '2018-09-05 16:46:20', '2018-09-05 16:46:20', NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'Tete Magdalena', 12456123, 12456122, NULL, '1030', '1030', 4168239481, NULL, NULL, NULL, 'pepe@gmail.com', NULL, '2018-09-05 17:08:44', '2018-09-05 18:37:34', NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 'Silena Ybarra', 745754, 745754, '11', '1031', '1030', 2128725355, NULL, NULL, NULL, 'silenaybarra@yahoo.com', NULL, '2018-09-05 21:37:08', '2018-09-05 21:37:22', NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 'Miguel Magdalena', 25408, 25408, NULL, '1030', '1030', 4168239481, NULL, NULL, NULL, 'miguelangelmagdalena25408@gmail.com', NULL, '2018-09-07 06:11:19', '2018-09-07 06:11:19', NULL, 'option1', NULL, NULL, NULL, 'miguelangelmagdalenasdfsdf@gmail.com'),
+(10, 'Miguel Magdalena', 254098633, 254098633, NULL, '1030', '1030', 4168239481, NULL, NULL, NULL, 'miguelangelmagdalena2@gmail.com', NULL, '2018-09-07 06:25:10', '2018-09-07 06:25:10', NULL, 'option1', NULL, NULL, NULL, 'miguelangghelmagdalena@gmail.com'),
+(11, 'Miguel Magdalena2', 21, 21, NULL, '1030', '1030', 4168239481, NULL, NULL, NULL, 'miguelangelmagdalena2@gmail.com2', NULL, '2018-09-09 19:50:40', '2018-09-09 19:51:06', NULL, 'option1', NULL, NULL, NULL, 'miguelangelmagdalena2@gmail.com'),
+(12, 'Carlos ubarra', 1111, 1111, '1', '1030', '1030', 2128725355, NULL, NULL, NULL, 'z@gmail.com', NULL, '2018-09-10 20:38:07', '2018-09-10 21:21:46', NULL, 'option1', NULL, NULL, NULL, NULL),
+(13, 'Miguel Magdalena2f', 254098639, NULL, NULL, '1030', '1030', 4168239481, NULL, NULL, NULL, 'miguelangelmagdalena1@gmail.com', NULL, '2018-09-10 21:23:07', '2018-09-10 21:51:13', NULL, 'option1', NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `solicitudes`
+--
+
+CREATE TABLE `solicitudes` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `requerimiento_informe` text COLLATE utf8mb4_unicode_ci,
+  `finalidad_informe` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `necesidad_informe` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pais` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `estado` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ciudad` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `municipio` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `parroquia` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `urbanizacion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `calle` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `edificio` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `piso` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `local` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `parcela` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `catastro` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `uso_potencial` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `uso_factico` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `orden_trabajo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `periodo_entrevistas_inicio` date DEFAULT NULL,
+  `periodo_entrevistas_fin` date DEFAULT NULL,
+  `periodo_revision_inicio` date DEFAULT NULL,
+  `periodo_revision_fin` date DEFAULT NULL,
+  `periodo_inspeccion_inicio` date DEFAULT NULL,
+  `periodo_inspeccion_fin` date DEFAULT NULL,
+  `moneda` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `solicitante_id` int(11) DEFAULT NULL,
+  `avaluo_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `solicitudes`
+--
+
+INSERT INTO `solicitudes` (`id`, `requerimiento_informe`, `finalidad_informe`, `necesidad_informe`, `pais`, `estado`, `ciudad`, `municipio`, `parroquia`, `urbanizacion`, `calle`, `edificio`, `piso`, `local`, `parcela`, `catastro`, `uso_potencial`, `uso_factico`, `orden_trabajo`, `periodo_entrevistas_inicio`, `periodo_entrevistas_fin`, `periodo_revision_inicio`, `periodo_revision_fin`, `periodo_inspeccion_inicio`, `periodo_inspeccion_fin`, `moneda`, `created_at`, `updated_at`, `solicitante_id`, `avaluo_id`) VALUES
+(8, 'sdfsdf', NULL, NULL, 'Venezuela', 'Distrito Capital', 'Caracas', 'Caracas', 'Caracas', NULL, 'Catia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'option1', '2018-09-07 06:11:19', '2018-09-07 06:11:19', 9, 6),
+(9, 'fghfgh', 'tryrty', NULL, 'fghfgh', 'Distrito Capital', 'Caracas', 'Caracas', 'Caracas', NULL, 'Catia', NULL, NULL, 'fgh', NULL, NULL, 'fgh', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'option1', '2018-09-07 06:25:10', '2018-09-07 06:25:10', 10, NULL),
+(10, 'xxxxxxxxxxxxx', 'ghjghjh', 'ert', 'ert', 'ert', 'Caracas', 'Caracas', 'Caracas', 'hjhg', 'Catia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-09-08', NULL, 'option1', '2018-09-09 19:50:40', '2018-09-09 19:51:06', 11, 8),
+(11, 'aaaaaaaaaaaaaaaa', 'aaaaaaaaa', NULL, 'fg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'aaa', 'aa', NULL, NULL, NULL, NULL, NULL, '2018-09-10', NULL, 'option1', '2018-09-10 20:25:38', '2018-09-10 20:25:38', 1, 9),
+(13, 'qqqqqqqqqqqqqqq', 'qqqqq', NULL, NULL, NULL, NULL, NULL, NULL, 'qqq', NULL, NULL, NULL, NULL, NULL, NULL, 'qqq', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'option1', '2018-09-10 20:34:38', '2018-09-10 20:34:38', 3, 10),
+(14, 'aaaaaa', NULL, NULL, 'aaaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'aaaaaa', NULL, NULL, NULL, NULL, NULL, NULL, '2018-09-10', '2018-09-10', 'option1', '2018-09-10 20:35:56', '2018-09-10 20:35:56', 3, 11),
+(15, 'zzzzzzzzzzzzzzz', 'zzz', 'zzz', 'zzz', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'zzzz', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'option1', '2018-09-10 20:38:07', '2018-09-10 20:38:07', 12, 12),
+(16, 'fffffffffffffffffffff', 'fffffffffffffffffffffff', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'option1', '2018-09-10 21:23:07', '2018-09-10 21:56:45', 13, 13);
 
 -- --------------------------------------------------------
 
@@ -2542,6 +2724,21 @@ ALTER TABLE `settings`
   ADD UNIQUE KEY `settings_key_unique` (`key`);
 
 --
+-- Indices de la tabla `solicitantes`
+--
+ALTER TABLE `solicitantes`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `solicitantes_cedula_unique` (`cedula`),
+  ADD UNIQUE KEY `solicitantes_rif_unique` (`rif`);
+
+--
+-- Indices de la tabla `solicitudes`
+--
+ALTER TABLE `solicitudes`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `solicitudes_contenido_id_unique` (`avaluo_id`);
+
+--
 -- Indices de la tabla `translations`
 --
 ALTER TABLE `translations`
@@ -2575,13 +2772,13 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT de la tabla `avaluos`
 --
 ALTER TABLE `avaluos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `avaluo_contenido`
 --
 ALTER TABLE `avaluo_contenido`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `contenidos`
@@ -2593,13 +2790,13 @@ ALTER TABLE `contenidos`
 -- AUTO_INCREMENT de la tabla `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=285;
 
 --
 -- AUTO_INCREMENT de la tabla `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `estados`
@@ -2617,7 +2814,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT de la tabla `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
@@ -2647,7 +2844,7 @@ ALTER TABLE `parroquias`
 -- AUTO_INCREMENT de la tabla `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -2660,6 +2857,18 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `settings`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `solicitantes`
+--
+ALTER TABLE `solicitantes`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `solicitudes`
+--
+ALTER TABLE `solicitudes`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `translations`

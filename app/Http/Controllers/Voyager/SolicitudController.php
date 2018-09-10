@@ -456,8 +456,7 @@ class SolicitudController extends VoyagerBaseController
                 return response()->json(['success' => true, 'data' => $data]);
             }
 
-            return redirect()
-                ->back()
+            return redirect('/admin/'.$dataType->slug.'/'.$data->id.'/edit')
                 ->with([
                         'message'    => __('voyager::generic.successfully_added_new')." {$dataType->display_name_singular}",
                         'alert-type' => 'success',
