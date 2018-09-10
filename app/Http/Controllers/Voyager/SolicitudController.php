@@ -316,7 +316,7 @@ class SolicitudController extends VoyagerBaseController
     public function create(Request $request)
     {//dd($request);
         $slug = $this->getSlug($request);
-
+        
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
 
         // Check permission

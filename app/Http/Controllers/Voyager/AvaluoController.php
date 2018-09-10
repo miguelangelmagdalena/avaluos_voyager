@@ -70,7 +70,7 @@ class AvaluoController extends VoyagerBaseController
         $avaluos = Avaluo::find($id);
         $avaluo_contenido = $avaluos->contenidos()->get();
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','contenidos','avaluo_contenido','id'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','contenidos','avaluo_contenido'));
     }
 
     // POST BR(E)AD
@@ -165,9 +165,8 @@ class AvaluoController extends VoyagerBaseController
 
         //vacio
         $avaluo_contenido = collect([]);
-        $id = collect([]);
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','contenidos','avaluo_contenido','id'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','contenidos','avaluo_contenido'));
     }
 
     /**

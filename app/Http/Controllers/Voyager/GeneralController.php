@@ -22,27 +22,44 @@ class GeneralController extends VoyagerBreadController
 
 
     public function next_content(Request $request)
-    {   
-        $avaluo_id = $request->id;
-
-        //Consultamos el avaluo
-        $avaluo = Avaluo::find($avaluo_id);
-
-        //Buscamos las relaciones
-        $solicitud = $avaluo->solicitud()->get();
-        $solicitud_id = -1;
-        foreach ($solicitud as $row) {
-            $solicitud_id = $row->id ;
+    {  //dd($request->all());  
+        
+        //Obtenemos los parametros del request
+        $slug = $request->slug;
+        
+        if($request->avaluo_id){
+            $avaluo_id = $request->avaluo_id;
         }
-        if($solicitud_id != -1){
-            return redirect('/admin/solicitudes/'.$solicitud_id.'/edit');
-        }
-            
         else{
-            return redirect()->route('voyager.solicitudes.create', ['avaluo_id' =>  $avaluo_id]);
-            //return redirect()->route('voyager.solicitudes.create');
-            //return redirect('/admin');
+            $avaluo_id = $request->id;
         }
+        
+        if($avaluo_id){
+            //Consultamos el avaluo
+            $avaluo = Avaluo::find($avaluo_id);
+
+            //Consultamos los contenidos
+            $avaluo_contenido = $avaluo->contenidos()->get();
+
+            //Buscamos las relaciones
+            $solicitud = $avaluo->solicitud()->get();
+            $solicitud_id = -1;
+            foreach ($solicitud as $row) {
+                $solicitud_id = $row->id ;
+            }
+            if($solicitud_id != -1){
+                return redirect('/admin/solicitudes/'.$solicitud_id.'/edit');
+            }
+                
+            else{
+                return redirect()->route('voyager.solicitudes.create', ['avaluo_id' =>  $avaluo_id]);
+                //return redirect()->route('voyager.solicitudes.create');
+                //return redirect('/admin');
+            }
+        }else{
+            return redirect()->back();
+        }
+        
             
 
     }
