@@ -108,7 +108,7 @@ class AvaluoController extends VoyagerBaseController
             $this->insertAvaluoContenido($request, $id);
 
             return redirect()
-                ->route("voyager.{$dataType->slug}.index")
+                ->back()
                 ->with([
                     'message'    => __('voyager::generic.successfully_updated')." {$dataType->display_name_singular}",
                     'alert-type' => 'success',
@@ -206,7 +206,7 @@ class AvaluoController extends VoyagerBaseController
             }
 
             return redirect()
-                ->route("voyager.{$dataType->slug}.index")
+                ->back()
                 ->with([
                         'message'    => __('voyager::generic.successfully_added_new')." {$dataType->display_name_singular}",
                         'alert-type' => 'success',

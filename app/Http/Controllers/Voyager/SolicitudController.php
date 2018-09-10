@@ -236,12 +236,16 @@ class SolicitudController extends VoyagerBaseController
         // Check if BREAD is Translatable
         $isModelTranslatable2 = is_bread_translatable($dataTypeContent2);
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','dataType2', 'dataTypeContent2', 'isModelTranslatable2'));
+        //Consultamos todos los solicitantes/ clientes existentes
+        $solicitantes_list =  DB::table($slug2)
+                           ->get();
+
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','dataType2', 'dataTypeContent2', 'isModelTranslatable2','solicitantes_list'));
     }
 
     // POST BR(E)AD
     public function update(Request $request, $id)
-    {
+    {//dd($request);
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
@@ -257,42 +261,50 @@ class SolicitudController extends VoyagerBaseController
         // Validate fields with ajax
         $val = $this->validateBread($request->all(), $dataType->editRows, $dataType->name, $id);
 
-        //TABLA SOLICITANTES
-        $slug2 = "solicitantes";
+        //**************************************** TABLA SOLICITANTES
+        $new_solicitante = $request->input('new_solicitante');
+        if($new_solicitante=="true"){
+            $slug2 = "solicitantes";
 
-        $dataType2 = Voyager::model('DataType')->where('slug', '=', $slug2)->first();
+            $dataType2 = Voyager::model('DataType')->where('slug', '=', $slug2)->first();
 
-        // ID de solicitante
-        $id2 = $data->solicitante_id;
+            // ID de solicitante
+            $id2 = $data->solicitante_id;
 
-        $data2 = call_user_func([$dataType2->model_name, 'findOrFail'], $id2);
+            $data2 = call_user_func([$dataType2->model_name, 'findOrFail'], $id2);
 
-        // Check permission
-        $this->authorize('edit', $data2);
+            // Check permission
+            $this->authorize('edit', $data2);
 
-        // Validate fields with ajax
-        $val2 = $this->validateBread($request->all(), $dataType2->editRows, $dataType2->name, $id2);
+            // Validate fields with ajax
+            $val2 = $this->validateBread($request->all(), $dataType2->editRows, $dataType2->name, $id2);
+
+        
+
+            if ($val2->fails()) {
+                return response()->json(['errors' => $val2->messages()]);
+            }
+        }
 
         if ($val->fails()) {
             return response()->json(['errors' => $val->messages()]);
         }
-        if ($val2->fails()) {
-            return response()->json(['errors' => $val2->messages()]);
-        }
-
-
 
         if (!$request->ajax()) {
+            if($new_solicitante=="true"){
+                $this->insertUpdateData($request, $slug2, $dataType2->editRows, $data2);
+                event(new BreadDataUpdated($dataType2, $data2));
+            }else{
+                $request->merge(['solicitante_id' => $request->input('old_solicitante')]);
+            }
+
             $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
-
-            $this->insertUpdateData($request, $slug2, $dataType2->editRows, $data2);
-
             event(new BreadDataUpdated($dataType, $data));
 
-            event(new BreadDataUpdated($dataType2, $data2));
+            
 
             return redirect()
-                ->route("voyager.{$dataType->slug}.index")
+                ->back()
                 ->with([
                     'message'    => __('voyager::generic.successfully_updated')." {$dataType->display_name_singular}",
                     'alert-type' => 'success',
@@ -365,8 +377,13 @@ class SolicitudController extends VoyagerBaseController
 
         // Check if BREAD is Translatable
         $isModelTranslatable2 = is_bread_translatable($dataTypeContent2);
+
+        //Consultamos todos los solicitantes/ clientes existentes
+        $solicitantes_list =  DB::table($slug2)
+                           ->get();
+        //dd($solicitantes_list);
         
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','dataType2', 'dataTypeContent2', 'isModelTranslatable2'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','dataType2', 'dataTypeContent2', 'isModelTranslatable2','solicitantes_list'));
     }
 
     /**
@@ -377,7 +394,8 @@ class SolicitudController extends VoyagerBaseController
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
-    { //dd($request->input('avaluo'));  
+    { //dd($request->input('avaluo')); 
+        //dd($request->input('old_solicitante')); 
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
@@ -389,19 +407,22 @@ class SolicitudController extends VoyagerBaseController
         $val = $this->validateBread($request->all(), $dataType->addRows);
 
         //**************************************** Buscamos el solicitante               (Poner id de consulta)
-        $slug2 = "solicitantes";
+        $new_solicitante = $request->input('new_solicitante');
+        if($new_solicitante=="true"){
+            $slug2 = "solicitantes";
+            $dataType2 = Voyager::model('DataType')->where('slug', '=', $slug2)->first();
 
-        $dataType2 = Voyager::model('DataType')->where('slug', '=', $slug2)->first();
+            // Check permission
+            $this->authorize('add', app($dataType2->model_name));
 
-        // Check permission
-        $this->authorize('add', app($dataType2->model_name));
+            // Validate fields with ajax
+            $val2 = $this->validateBread($request->all(), $dataType2->addRows);
 
-        // Validate fields with ajax
-        $val2 = $this->validateBread($request->all(), $dataType2->addRows);
-
-        if ($val2->fails()) {
-            return response()->json(['errors' => $val2->messages()]);
+            if ($val2->fails()) {
+                return response()->json(['errors' => $val2->messages()]);
+            }
         }
+        
         if ($val->fails()) {
             return response()->json(['errors' => $val->messages()]);
         }
@@ -409,11 +430,17 @@ class SolicitudController extends VoyagerBaseController
 
         if (!$request->has('_validate')) 
         {
-            //Insertamos solicitante
-            $data2 = $this->insertUpdateData($request, $slug2, $dataType2->addRows, new $dataType2->model_name());
+            if($new_solicitante=="true"){
+                //Insertamos solicitante
+                $data2 = $this->insertUpdateData($request, $slug2, $dataType2->addRows, new $dataType2->model_name());
+                event(new BreadDataAdded($dataType2, $data2));
 
-            //Cambiamos el request para saber la Solicitud de que solicitante?
-            $request->merge(['solicitante_id' => $data2->id]);
+                //Cambiamos el request para saber la Solicitud de que solicitante?
+                $request->merge(['solicitante_id' => $data2->id]);
+            }else{
+                $request->merge(['solicitante_id' => $request->input('old_solicitante')]);
+            }
+            
 
             if($request->input('avaluo')){
                 $request->merge(['avaluo_id' => $request->input('avaluo')]);
@@ -423,17 +450,16 @@ class SolicitudController extends VoyagerBaseController
             $data  = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
             
             event(new BreadDataAdded($dataType, $data));
-            event(new BreadDataAdded($dataType2, $data2));
+            
 
             if ($request->ajax()) { /*Checkear luego estas peticiones ajax*/ 
-                return response()->json(['success' => true, 'data' => $data, 'data2' => $data2]);
+                return response()->json(['success' => true, 'data' => $data]);
             }
 
             return redirect()
-                ->route("voyager.{$dataType->slug}.index")
+                ->back()
                 ->with([
                         'message'    => __('voyager::generic.successfully_added_new')." {$dataType->display_name_singular}",
-                        'message'    => __('voyager::generic.successfully_added_new')." {$dataType2->display_name_singular}",
                         'alert-type' => 'success',
                     ]);
         }

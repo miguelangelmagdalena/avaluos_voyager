@@ -51,7 +51,29 @@
                                         </ul>
                                     </div>
                                 @endif
+                                
 
+                                <!-- Old -->
+                                <div class="form-group  col-md-12">
+
+                                    <label for="name">¿Es un nuevo solicitante?</label>
+                                    <select class="form-control select2 select2-hidden-accessible" id="new_solicitante"  name="new_solicitante" tabindex="-1" aria-hidden="true">
+                                        <option value="true">Si, agregar nuevo solicitante</option>                       
+                                        <option value="false">No, ya existe</option>   
+                                    </select>
+                                </div>
+
+                                <div class="form-group  col-md-12 hidden" id="new_solicitante2">
+                                    <label for="name">Solicitantes</label>
+                                    <select class="form-control select2 select2-hidden-accessible" id="old_solicitante" name="old_solicitante" tabindex="-1" aria-hidden="true">
+                                        @foreach ($solicitantes_list as $row)
+                                            <option value="{{ $row->id }}">{{ $row->nombre.' '.$row->cedula.' '.$row->email}}</option>                       
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                
+                                <div id="new_solicitante3">
                                 <!-- Adding / Editing -->
                                 @php
                                     $dataTypeRows2 = $dataType2->{(!is_null($dataTypeContent2->getKey()) ? 'editRows' : 'addRows' )};
@@ -85,6 +107,7 @@
                                         </div>
                                     @endif
                                 @endforeach
+                                </div>
                         </div>
                     </div>
 
@@ -253,6 +276,23 @@
                 $('#confirm_delete_modal').modal('hide');
             });
             $('[data-toggle="tooltip"]').tooltip();
+
+
+            //Cuando pregunta si es nuevo solicitante
+            $("#new_solicitante").change(function(){
+                var valor = $(this).val();
+                //alert("s: " + valor );
+
+                if (valor == "true"){
+                    //alert("s: " + valor );
+                    $("#new_solicitante2").addClass("hidden");
+                    $("#new_solicitante3").removeClass("hidden");
+                }else{
+                    $("#new_solicitante2").removeClass("hidden");
+                    $("#new_solicitante3").addClass("hidden");
+                }
+                    
+            });
         });
     </script>
 @stop
