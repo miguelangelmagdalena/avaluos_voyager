@@ -57,7 +57,7 @@
                                 <div class="form-group  col-md-12">
 
                                     <label for="name">¿Es un nuevo solicitante?</label>
-                                    <select class="form-control select2 select2-hidden-accessible" id="new_solicitante"  name="new_solicitante" tabindex="-1" aria-hidden="true">
+                                    <select class="form-control select2 select2-hidden-accessible" id="new_solicitante"  name="new_solicitante" tabindex="-1" aria-hidden="true" data-dependent="old_solicitante">
                                         <option value="true">Si, agregar nuevo solicitante</option>                       
                                         <option value="false">No, ya existe</option>   
                                     </select>
@@ -66,9 +66,7 @@
                                 <div class="form-group  col-md-12 hidden" id="new_solicitante2">
                                     <label for="name">Solicitantes</label>
                                     <select class="form-control select2 select2-hidden-accessible" id="old_solicitante" name="old_solicitante" tabindex="-1" aria-hidden="true">
-                                        @foreach ($solicitantes_list as $row)
-                                            <option value="{{ $row->id }}">{{ $row->nombre.' '.$row->cedula.' '.$row->email}}</option>                       
-                                        @endforeach
+                                        <option value="">Selecciona un solicitante</option>
                                     </select>
                                 </div>
 
@@ -297,6 +295,23 @@
                 }else{
                     $("#new_solicitante2").removeClass("hidden");
                     $("#new_solicitante3").addClass("hidden");
+
+                    //Peticion AJAX para consultar solicitantes registrados
+                    var dependent = $(this).data('dependent');
+                    var _token = $('input[name="_token"]').val();
+                    
+                    $.ajax({
+                        url:"/solicitud/fetchOldSolicitantes",
+                        method:"POST",
+                        data:{_token:_token},
+                        success:function(result) {
+
+                            $('#'+dependent).html(result);
+                        }
+                
+                    })
+
+
                 }
                     
             });

@@ -41,6 +41,17 @@ Route::post('/user_edit/fetchAddress', 'Voyager\userController@fetchAddress')->n
 
 /*
 |--------------------------------------------------------------------------
+| Solicicitud
+|--------------------------------------------------------------------------
+|
+| Consultar solicitantes registrados con ajax
+|
+*/
+Route::post('/solicitud/fetchOldSolicitantes', 'Voyager\SolicitudController@fetchOldSolicitantes')->name('solicitud.fetchOldSolicitantes');
+
+
+/*
+|--------------------------------------------------------------------------
 | Rutas para navegacion entre secciones del avaluo
 |--------------------------------------------------------------------------
 |
