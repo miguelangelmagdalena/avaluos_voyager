@@ -25,7 +25,7 @@ class GeneralController extends VoyagerBreadController
     {  //dd($request->all());  
         
         //Obtenemos los parametros del request
-        $slug = $request->slug;
+        $actual_slug = $request->slug;
         
         if($request->avaluo_id){
             $avaluo_id = $request->avaluo_id;
@@ -41,17 +41,24 @@ class GeneralController extends VoyagerBreadController
             //Consultamos los contenidos
             $avaluo_contenido = $avaluo->contenidos()->get();
 
+            /*dd($avaluo_contenido);
+            $siguiente_slug = null;
+            //Buscamos el slug siguiente
+            foreach ($avaluo_contenido as $row) {
+                $siguiente_slug = $row->slug ;
+            }*/
+
             //Buscamos las relaciones
-            $solicitud = $avaluo->solicitud()->get();
-            $solicitud_id = -1;
-            foreach ($solicitud as $row) {
-                $solicitud_id = $row->id ;
+            $dataContent = $avaluo->relationships(1)->get();
+            
+            $data_id = -1;
+            foreach ($dataContent as $row) {
+                $data_id = $row->id ;
             }
-            if($solicitud_id != -1){
-                return redirect('/admin/solicitudes/'.$solicitud_id.'/edit');
-            }
-                
-            else{
+
+            if($data_id != -1){
+                return redirect('/admin/solicitudes/'.$data_id.'/edit');
+            }else{
                 return redirect()->route('voyager.solicitudes.create', ['avaluo_id' =>  $avaluo_id]);
                 //return redirect()->route('voyager.solicitudes.create');
                 //return redirect('/admin');
@@ -59,9 +66,6 @@ class GeneralController extends VoyagerBreadController
         }else{
             return redirect()->back();
         }
-        
-            
-
     }
     public function previous_content(Request $request){
         return redirect('/admin');
