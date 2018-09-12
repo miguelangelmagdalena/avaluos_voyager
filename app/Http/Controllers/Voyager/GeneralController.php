@@ -41,11 +41,14 @@ class GeneralController extends VoyagerBreadController
 
             //Consultamos los contenidos
             $avaluo_contenido = $avaluo->contenidos()->get();
-
+            
             $next_element = null;
             //Buscamos el siguiente elemento por el slug
             if(!$request->avaluo_id){
-                $next_element = head(head($avaluo_contenido));
+                foreach ($avaluo_contenido as $row) {
+                    $next_element = $row;
+                    break;
+                }
             }else{
                 
                 //Buscamos el siguiente
@@ -53,6 +56,7 @@ class GeneralController extends VoyagerBreadController
                 foreach ($avaluo_contenido as $row) {
                     if($bandera){
                         $next_element = $row;
+                        break;
                     }
                     //Si encontramos el slug entonces guardamos el prox element en la siguiente iteracion
                     if($actual_slug  == $row->slug){

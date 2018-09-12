@@ -52,7 +52,6 @@
 
                             @foreach($dataTypeRows as $row)
                                 <!-- GET THE DISPLAY OPTIONS -->
-                                
                                 @php
                                     $options = json_decode($row->details);
                                     $display_options = isset($options->display) ? $options->display : NULL;
@@ -80,32 +79,14 @@
                                 @endif
                             @endforeach
 
-                            <div class="form-group  col-md-12">
-                                <label for="name">Contenidos</label>
-                                <ul style="list-style-type: none; padding-left:0">
-                                @foreach ($contenidos as $contenido)
-                                    <li>
-                                        <label>
-                                            <input type="checkbox" value="{{ $contenido->id }}" name="contenido[]" {{ $avaluo_contenido->contains($contenido) ? 'checked' : '' }}/>
-                                            {{ $contenido->nombre_seccion }}
-                                        </label>
-                                         
-                                    </li>
-                                @endforeach
-                                </ul>
-                            </div>
-
                         </div><!-- panel-body -->
 
                         <div class="panel-footer">
-                            <button type="submit" class="btn btn-primary save ">{{ __('voyager::generic.save') }}</button>
-                            
+                            <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
+
                             @include('partials.navegabilidad');
                             
                         </div>
-
-
-
                     </form>
 
                     <iframe id="form_target" name="form_target" style="display:none"></iframe>
@@ -153,11 +134,6 @@
         var $image
 
         $('document').ready(function () {
-            //Text in rich text box
-            $('body#tinymce').change(function(){
-                alert('d');
-            });
-
             $('.toggleswitch').bootstrapToggle();
 
             //Init datepicker for date fields if data-datepicker attribute defined
