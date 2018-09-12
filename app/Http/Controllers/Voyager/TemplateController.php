@@ -91,7 +91,7 @@ class TemplateController extends VoyagerBaseController
             event(new BreadDataUpdated($dataType, $data));
 
             return redirect()
-                ->route("voyager.{$dataType->slug}.index")
+                ->back()
                 ->with([
                     'message'    => __('voyager::generic.successfully_updated')." {$dataType->display_name_singular}",
                     'alert-type' => 'success',
@@ -177,8 +177,7 @@ class TemplateController extends VoyagerBaseController
                 return response()->json(['success' => true, 'data' => $data]);
             }
 
-            return redirect()
-                ->route("voyager.{$dataType->slug}.index")
+            return redirect('/admin/'.$dataType->slug.'/'.$data->id.'/edit')
                 ->with([
                         'message'    => __('voyager::generic.successfully_added_new')." {$dataType->display_name_singular}",
                         'alert-type' => 'success',

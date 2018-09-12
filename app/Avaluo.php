@@ -24,6 +24,9 @@ class Avaluo extends Model
             case 3:
                 return $this->hasOne('App\Certificacione','avaluo_id','id');
                 break;
+            case 4:
+                return $this->hasOne('App\Planteamiento','avaluo_id','id');
+                break;
             default:
 
                 return null;
