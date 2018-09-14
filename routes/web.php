@@ -62,3 +62,9 @@ Route::post('/solicitud/fetchOldSolicitantes', 'Voyager\SolicitudController@fetc
 Route::get('/next_content', 'Voyager\GeneralController@next_content');
 
 Route::get('/previous_content', 'Voyager\GeneralController@previous_content');
+
+Route::get('pdf', function(){
+    $pdf = App::make('dompdf.wrapper');
+    $pdf->loadHTML('<h1>Test</h1>');
+    return $pdf->stream();
+});

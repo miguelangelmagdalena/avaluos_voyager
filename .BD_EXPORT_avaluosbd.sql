@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-09-2018 a las 20:03:42
+-- Tiempo de generación: 12-09-2018 a las 17:02:42
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -42,7 +42,7 @@ CREATE TABLE `avaluos` (
   `pie_pagina_informe` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `encabezado` text COLLATE utf8mb4_unicode_ci
+  `encabezado` varchar(10000) COLLATE utf8mb4_unicode_ci DEFAULT '<p>Hola </p>'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -57,7 +57,13 @@ INSERT INTO `avaluos` (`id`, `logo`, `num_expediente`, `num_planilla`, `lugar`, 
 (10, NULL, 'xxxxxxxxxxx', 'xxxxxxxxxxxxxxx', NULL, NULL, 'xxx', 'xxx', 'option1', NULL, '<p>x</p>', '2018-09-10 20:33:55', '2018-09-10 20:33:55', '<p>x</p>'),
 (11, NULL, 'aaaaaaaaaaaaaa', 'aaaaaaaaaaa', NULL, NULL, 'aaaa', NULL, 'option1', NULL, '<p>aaa</p>', '2018-09-10 20:35:23', '2018-09-10 20:35:23', '<p>aaaa</p>'),
 (12, 'avaluos\\September2018\\6hefwoCqSAkIUoGo1r2N.png', 'zzzzzzzzzzz', 'zzzzz', NULL, NULL, 'zzz', 'zz', 'option1', NULL, '<p>zz</p>', '2018-09-10 20:36:59', '2018-09-10 20:36:59', '<p>zzz</p>'),
-(13, NULL, '99999999999', '999999999', '999', NULL, NULL, '9', 'option1', '9', '<p>9</p>', '2018-09-10 21:22:25', '2018-09-10 21:22:25', NULL);
+(13, NULL, '99999999999', '999999999', '999', NULL, NULL, '9', 'option1', '9', '<p>9</p>', '2018-09-10 21:22:25', '2018-09-10 21:22:25', NULL),
+(14, NULL, 'ioioioioioioioioio', 'ioioioioioioioioio', 'ioioioioioioioioio', NULL, 'ioioioioioioioioio', NULL, 'option1', NULL, '<p>ioioioioioioioioio</p>', '2018-09-10 23:02:46', '2018-09-10 23:02:46', '<p>ioioioioioioioioio</p>'),
+(15, NULL, 'ioioioioioioioioio', 'ioioioioioioioioio', 'ioioioioioioioioio', NULL, 'ioioioioioioioioio', NULL, 'option1', NULL, '<p>ioioioioioioioioio</p>', '2018-09-10 23:03:27', '2018-09-10 23:03:27', '<p>ioioioioioioioioio</p>'),
+(16, NULL, 'ioioioioioioioioio', 'ioioioioioioioioio', 'ioioioioioioioioio', NULL, 'ioioioioioioioioio', NULL, 'option1', NULL, '<p>ioioioioioioioioio</p>', '2018-09-10 23:06:36', '2018-09-10 23:06:36', '<p>ioioioioioioioioio</p>'),
+(17, NULL, '2222222222', '222', '22', NULL, '2', '2', 'option1', NULL, '<p>2</p>', '2018-09-11 17:36:22', '2018-09-11 17:36:22', '<p>2</p>'),
+(18, NULL, '10', NULL, NULL, NULL, NULL, NULL, 'option1', NULL, NULL, '2018-09-11 22:32:46', '2018-09-11 22:32:46', NULL),
+(19, NULL, '..', '..', NULL, NULL, '.', NULL, 'option1', NULL, NULL, '2018-09-12 08:26:46', '2018-09-12 08:26:46', '<p>.</p>');
 
 -- --------------------------------------------------------
 
@@ -94,23 +100,87 @@ INSERT INTO `avaluo_contenido` (`id`, `avaluo_id`, `contenido_id`, `created_at`,
 (20, 4, 4, '2018-09-02 20:31:30', '2018-09-02 20:31:30', NULL),
 (21, 5, 1, '2018-09-02 21:52:16', '2018-09-02 21:52:16', NULL),
 (22, 5, 2, '2018-09-02 21:52:16', '2018-09-02 21:52:16', NULL),
-(25, 7, 1, '2018-09-02 22:18:31', '2018-09-02 22:18:31', NULL),
-(26, 7, 2, '2018-09-02 22:18:31', '2018-09-02 22:18:31', NULL),
-(27, 8, 1, '2018-09-07 06:56:21', '2018-09-07 06:56:21', NULL),
-(28, 8, 2, '2018-09-07 06:56:21', '2018-09-07 06:56:21', NULL),
-(29, 8, 3, '2018-09-07 06:56:21', '2018-09-07 06:56:21', NULL),
-(30, 6, 1, '2018-09-07 17:34:28', '2018-09-07 17:34:28', NULL),
-(31, 9, 1, '2018-09-09 22:31:25', '2018-09-09 22:31:25', NULL),
-(32, 9, 2, '2018-09-09 22:31:25', '2018-09-09 22:31:25', NULL),
-(33, 10, 1, '2018-09-10 20:33:55', '2018-09-10 20:33:55', NULL),
-(34, 10, 2, '2018-09-10 20:33:55', '2018-09-10 20:33:55', NULL),
 (35, 11, 1, '2018-09-10 20:35:23', '2018-09-10 20:35:23', NULL),
 (36, 11, 2, '2018-09-10 20:35:23', '2018-09-10 20:35:23', NULL),
 (37, 11, 3, '2018-09-10 20:35:23', '2018-09-10 20:35:23', NULL),
 (38, 12, 1, '2018-09-10 20:36:59', '2018-09-10 20:36:59', NULL),
 (39, 12, 2, '2018-09-10 20:36:59', '2018-09-10 20:36:59', NULL),
 (40, 13, 1, '2018-09-10 21:22:25', '2018-09-10 21:22:25', NULL),
-(41, 13, 3, '2018-09-10 21:22:25', '2018-09-10 21:22:25', NULL);
+(41, 13, 3, '2018-09-10 21:22:25', '2018-09-10 21:22:25', NULL),
+(44, 14, 1, '2018-09-10 23:03:18', '2018-09-10 23:03:18', NULL),
+(45, 14, 2, '2018-09-10 23:03:18', '2018-09-10 23:03:18', NULL),
+(46, 15, 1, '2018-09-10 23:03:27', '2018-09-10 23:03:27', NULL),
+(47, 15, 2, '2018-09-10 23:03:27', '2018-09-10 23:03:27', NULL),
+(48, 16, 1, '2018-09-10 23:06:36', '2018-09-10 23:06:36', NULL),
+(49, 16, 2, '2018-09-10 23:06:36', '2018-09-10 23:06:36', NULL),
+(52, 7, 1, '2018-09-11 19:11:32', '2018-09-11 19:11:32', NULL),
+(53, 7, 3, '2018-09-11 19:11:32', '2018-09-11 19:11:32', NULL),
+(58, 6, 1, '2018-09-12 08:20:29', '2018-09-12 08:20:29', NULL),
+(59, 6, 3, '2018-09-12 08:20:29', '2018-09-12 08:20:29', NULL),
+(65, 8, 1, '2018-09-12 08:34:23', '2018-09-12 08:34:23', NULL),
+(66, 8, 3, '2018-09-12 08:34:23', '2018-09-12 08:34:23', NULL),
+(72, 9, 1, '2018-09-12 08:50:23', '2018-09-12 08:50:23', NULL),
+(73, 9, 3, '2018-09-12 08:50:23', '2018-09-12 08:50:23', NULL),
+(78, 10, 1, '2018-09-12 08:51:17', '2018-09-12 08:51:17', NULL),
+(79, 10, 3, '2018-09-12 08:51:17', '2018-09-12 08:51:17', NULL),
+(80, 10, 4, '2018-09-12 08:51:17', '2018-09-12 08:51:17', NULL),
+(81, 19, 1, '2018-09-12 18:20:53', '2018-09-12 18:20:53', NULL),
+(82, 19, 3, '2018-09-12 18:20:53', '2018-09-12 18:20:53', NULL),
+(83, 19, 4, '2018-09-12 18:20:53', '2018-09-12 18:20:53', NULL),
+(84, 18, 1, '2018-09-12 18:21:01', '2018-09-12 18:21:01', NULL),
+(85, 18, 4, '2018-09-12 18:21:01', '2018-09-12 18:21:01', NULL),
+(86, 17, 4, '2018-09-12 18:21:07', '2018-09-12 18:21:07', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `bases`
+--
+
+CREATE TABLE `bases` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `bases`
+--
+
+INSERT INTO `bases` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
+(2, 'Valor de Mercado definido en las Normas Internacionales de Valuación 2017', '2018-09-12 17:30:09', '2018-09-12 17:30:09'),
+(3, 'Valor de Inversión', '2018-09-12 17:30:18', '2018-09-12 17:30:18'),
+(4, 'Valor por Efectividad', '2018-09-12 17:30:24', '2018-09-12 17:30:24'),
+(5, 'Valor Razonable definido en las Normas Internacionales de Información Financiera', '2018-09-12 17:30:35', '2018-09-12 17:30:35'),
+(6, 'Valor Razonable según los Principios de Contabilidad Generalmente Aceptados', '2018-09-12 17:30:49', '2018-09-12 17:30:49');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `certificaciones`
+--
+
+CREATE TABLE `certificaciones` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `descripcion` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `avaluo_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `certificaciones`
+--
+
+INSERT INTO `certificaciones` (`id`, `descripcion`, `created_at`, `updated_at`, `avaluo_id`) VALUES
+(1, '\'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera: \r\n\r\n1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos.', '2018-09-12 07:20:03', '2018-09-12 07:20:03', NULL),
+(5, '\'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-12 08:28:14', '2018-09-12 08:28:14', NULL),
+(6, '\'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-12 08:31:50', '2018-09-12 08:31:50', 19),
+(7, '\'1Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-12 08:34:40', '2018-09-12 08:34:40', 8),
+(8, '\'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-12 08:36:56', '2018-09-12 08:37:02', 18),
+(9, '\'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-12 08:50:50', '2018-09-12 08:50:56', 9),
+(10, '\'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-12 08:51:29', '2018-09-12 08:51:29', 10);
 
 -- --------------------------------------------------------
 
@@ -126,18 +196,19 @@ CREATE TABLE `contenidos` (
   `id_seccion` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `contenidos`
 --
 
-INSERT INTO `contenidos` (`id`, `nombre_seccion`, `nombre_titulo`, `nombre_planilla`, `id_seccion`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Datos de la solicitud del avalúo', NULL, 'Planilla HJG.IA03', NULL, '2018-08-31 20:18:05', '2018-08-31 20:18:05', NULL),
-(2, 'El dictamen valorativo conclusivo convalidado', NULL, 'Planilla HJG.IA04', NULL, '2018-08-31 20:18:45', '2018-08-31 20:18:45', NULL),
-(3, 'Certificación profesional jurada', NULL, 'Planilla HJG.IA05', NULL, '2018-08-31 20:19:10', '2018-08-31 20:19:10', NULL),
-(4, 'El planteamiento de la valuación', 'Finalidad del Avalúo', 'Planilla HJG.IA06', NULL, '2018-08-31 20:19:30', '2018-08-31 20:19:30', NULL);
+INSERT INTO `contenidos` (`id`, `nombre_seccion`, `nombre_titulo`, `nombre_planilla`, `id_seccion`, `created_at`, `updated_at`, `deleted_at`, `slug`) VALUES
+(1, 'Datos de la solicitud del avalúo', NULL, 'Planilla HJG.IA03', NULL, '2018-08-31 20:18:05', '2018-09-11 03:11:31', NULL, 'solicitudes'),
+(2, 'El dictamen valorativo conclusivo convalidado', NULL, 'Planilla HJG.IA04', NULL, '2018-08-31 20:18:45', '2018-09-11 03:12:03', NULL, 'dictamenes'),
+(3, 'Certificación profesional jurada', NULL, 'Planilla HJG.IA05', NULL, '2018-08-31 20:19:10', '2018-09-11 03:12:13', NULL, 'certificaciones'),
+(4, 'El planteamiento de la valuación', 'Finalidad del Avalúo', 'Planilla HJG.IA06', NULL, '2018-08-31 20:19:30', '2018-09-11 03:12:28', NULL, 'planteamientos');
 
 -- --------------------------------------------------------
 
@@ -278,11 +349,11 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (190, 29, 'ubicacion', 'text_area', 'Ubicacion', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 8),
 (191, 29, 'tipo_informe', 'select_dropdown', 'Tipo Informe', 0, 1, 1, 1, 1, 1, '{\"default\":\"option1\",\"options\":{\"option1\":\"Narrativo sistematizado\",\"option2\":\"Narrativo\"},\"display\":{\"width\":\"6\"}}', 10),
 (192, 29, 'referencia_informe', 'text', 'Referencia Informe', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 9),
-(193, 29, 'pie_pagina_informe', 'rich_text_box', 'Pie Pagina Informe', 0, 1, 1, 1, 1, 1, '{\"default\":\"ghfghgf\"}', 12),
+(193, 29, 'pie_pagina_informe', 'rich_text_box', 'Pie Pagina Informe', 0, 1, 1, 1, 1, 1, NULL, 12),
 (194, 29, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 13),
 (195, 29, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 14),
-(196, 29, 'encabezado', 'rich_text_box', 'Encabezado', 0, 1, 1, 1, 1, 1, '{\"default\":\"<p>ghjghjg</p>\"}', 11),
-(197, 30, 'id', 'hidden', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(196, 29, 'encabezado', 'rich_text_box', 'Encabezado', 0, 1, 1, 1, 1, 1, NULL, 11),
+(197, 30, 'id', 'hidden', 'Id', 1, 1, 1, 0, 0, 0, NULL, 1),
 (198, 30, 'nombre_seccion', 'text', 'Nombre Seccion', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"4\"}}', 2),
 (199, 30, 'nombre_titulo', 'text', 'Nombre Titulo', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"4\"}}', 3),
 (200, 30, 'nombre_planilla', 'text', 'Nombre Planilla', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"4\"}}', 4),
@@ -340,8 +411,39 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (279, 34, 'rep_celular', 'number', 'Representante Celular', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 17),
 (280, 34, 'rep_celular2', 'number', 'Representante Otro Celular', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 18),
 (281, 34, 'rep_email', 'text', 'Representante Email', 0, 1, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"nullable|email\"},\"display\":{\"width\":\"6\"}}', 19),
-(283, 30, 'solicitud_id', 'hidden', 'Solicitud Id', 0, 1, 1, 1, 1, 1, NULL, 9),
-(284, 35, 'avaluo_id', 'hidden', 'Avaluo', 0, 1, 1, 1, 1, 1, NULL, 30);
+(284, 35, 'avaluo_id', 'hidden', 'Avaluo', 0, 1, 1, 1, 1, 1, NULL, 30),
+(285, 30, 'slug', 'text', 'Nombre de la tabla correspondiente en BD.', 0, 1, 1, 1, 1, 1, NULL, 9),
+(286, 36, 'id', 'hidden', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(287, 36, 'descripcion', 'text_area', 'Descripción', 0, 1, 1, 1, 1, 1, '{\"default\":\"\'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\\n\\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \\n\\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \\n\\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \\n\\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \\n\\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.\",\"display\":{\"rows\":\"20\"}}', 2),
+(288, 36, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 3),
+(289, 36, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 4),
+(290, 36, 'avaluo_id', 'hidden', 'Avaluo Id', 0, 1, 1, 1, 1, 1, NULL, 5),
+(291, 38, 'id', 'hidden', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(292, 38, 'nombre', 'text', 'Nombre', 0, 1, 1, 1, 1, 1, NULL, 2),
+(293, 38, 'created_at', 'timestamp', 'Created At', 0, 1, 0, 0, 0, 0, NULL, 3),
+(294, 38, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 4),
+(295, 39, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(296, 39, 'nombre', 'text', 'Nombre', 0, 1, 1, 1, 1, 1, NULL, 2),
+(297, 39, 'created_at', 'timestamp', 'Created At', 0, 1, 0, 0, 0, 0, NULL, 3),
+(298, 39, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 4),
+(299, 40, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(300, 40, 'nombre', 'text', 'Nombre', 0, 1, 1, 1, 1, 1, NULL, 2),
+(301, 40, 'created_at', 'timestamp', 'Created At', 0, 1, 0, 0, 0, 0, NULL, 3),
+(302, 40, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 4),
+(303, 41, 'id', 'hidden', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(304, 41, 'finalidad_avaluo', 'text_area', 'Finalidad del Avalúo', 0, 1, 1, 1, 1, 1, '{\"default\":\"Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla. \"}', 2),
+(305, 41, 'razon_avaluo', 'text', 'Razón del Avalúo', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":6}}', 3),
+(306, 41, 'usuarios_del_ia', 'text', 'Principales usuarios a quienes el IA está dirigido', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":6}}', 4),
+(307, 41, 'organizacion', 'text_area', 'Organización de los bienes atinentes a la valuación como unidades orgánicas productivas (UOP) y premisas generales para el avalúo', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":6,\"rows\":\"21\"}}', 5),
+(308, 41, 'alcance', 'text', 'Alcance y restricciones del avalúo', 0, 1, 1, 1, 1, 1, '{\"default\":\"Alcance suficiente para satisfacer la finalidad del avalúo. \",\"display\":{\"width\":6}}', 6),
+(309, 41, 'formulacion', 'text_area', 'Formulación de la solución valuatoria', 0, 1, 1, 1, 1, 1, '{\"default\":\"1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \\n\\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.\",\"display\":{\"width\":6}}', 7),
+(310, 41, 'protocolo_valuatorio', 'text_area', 'Protocolo valuatorio procedimental', 0, 1, 1, 1, 1, 1, '{\"default\":\"Paso 1: Definición de la valuación a resolver. \\nPaso 2: Planificación del trabajo de valuación a ejecutar. \\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \\nPaso 7: Edición y entrega del Informe de Valuación. \\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.\",\"display\":{\"width\":6,\"rows\":\"10\"}}', 8),
+(311, 41, 'avaluo_id', 'hidden', 'Avaluo Id', 0, 1, 1, 1, 1, 1, NULL, 9),
+(312, 41, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 10),
+(313, 41, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 11),
+(314, 41, 'planteamiento_belongstomany_norma_relationship', 'relationship', 'Normas Aplicadas para el avalúo', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Norma\",\"table\":\"normas\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"nombre\",\"pivot_table\":\"planteamiento_norma\",\"pivot\":\"1\",\"taggable\":\"0\"}', 12),
+(315, 41, 'planteamiento_belongstomany_basis_relationship', 'relationship', 'Bases de Valor pertinentes para el avalúo', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Base\",\"table\":\"bases\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"nombre\",\"pivot_table\":\"planteamiento_base\",\"pivot\":\"1\",\"taggable\":\"on\"}', 13),
+(316, 41, 'planteamiento_belongstomany_enfoque_relationship', 'relationship', 'Enfoque(s) y Método(s) Aplicado(s) para el avalúo', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Enfoque\",\"table\":\"enfoques\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"nombre\",\"pivot_table\":\"planteamiento_enfoque\",\"pivot\":\"1\",\"taggable\":\"on\"}', 14);
 
 -- --------------------------------------------------------
 
@@ -386,9 +488,49 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (24, 'informe_contenidos', 'informe-contenidos', 'Informe Contenido', 'Informe Contenidos', NULL, '\\App\\InformeContenido', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-08-31 20:15:21', '2018-09-01 19:07:24'),
 (27, 'avaluos_contenidos', 'avaluos-contenidos', 'Avaluos Contenido', 'Avaluos Contenidos', NULL, 'App\\AvaluosContenido', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-08-31 22:36:18', '2018-08-31 22:36:18'),
 (29, 'avaluos', 'avaluos', 'Avaluo', 'Avaluos', NULL, 'App\\Avaluo', NULL, '\\App\\Http\\Controllers\\Voyager\\AvaluoController', NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-02 20:06:11', '2018-09-02 20:15:08'),
-(30, 'contenidos', 'contenidos', 'Contenido', 'Contenidos', NULL, 'App\\Contenido', NULL, '\\App\\Http\\Controllers\\Voyager\\ContenidoController', NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-02 20:12:42', '2018-09-06 00:36:03'),
+(30, 'contenidos', 'contenidos', 'Contenido', 'Contenidos', NULL, 'App\\Contenido', NULL, '\\App\\Http\\Controllers\\Voyager\\ContenidoController', 'PENDIENTE, los id son los que tienen el orden de las relaciones en /App/Avaluo.', 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-02 20:12:42', '2018-09-11 19:07:35'),
 (34, 'solicitantes', 'solicitantes', 'Solicitante', 'Solicitantes', NULL, 'App\\Solicitante', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-04 17:48:17', '2018-09-04 17:48:17'),
-(35, 'solicitudes', 'solicitudes', 'Solicitud', 'Solicitudes', NULL, 'App\\Solicitude', NULL, '\\App\\Http\\Controllers\\Voyager\\SolicitudController', NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-04 18:24:50', '2018-09-04 19:10:40');
+(35, 'solicitudes', 'solicitudes', 'Solicitud', 'Solicitudes', NULL, 'App\\Solicitude', NULL, '\\App\\Http\\Controllers\\Voyager\\SolicitudController', NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-04 18:24:50', '2018-09-04 19:10:40'),
+(36, 'certificaciones', 'certificaciones', 'Certificación', 'Certificaciones', NULL, 'App\\Certificacione', NULL, '\\App\\Http\\Controllers\\Voyager\\CertificacionController', NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-12 02:49:21', '2018-09-12 04:08:10'),
+(38, 'bases', 'bases', 'Base', 'Bases', NULL, 'App\\Base', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-12 16:43:57', '2018-09-12 16:43:57'),
+(39, 'normas', 'normas', 'Norma', 'Normas', NULL, 'App\\Norma', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-12 16:44:38', '2018-09-12 16:44:38'),
+(40, 'enfoques', 'enfoques', 'Enfoque', 'Enfoques', NULL, 'App\\Enfoque', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-12 16:45:08', '2018-09-12 16:45:08'),
+(41, 'planteamientos', 'planteamientos', 'Planteamiento', 'Planteamientos', NULL, 'App\\Planteamiento', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-12 17:02:21', '2018-09-12 18:49:10');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `enfoques`
+--
+
+CREATE TABLE `enfoques` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nombre` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `enfoques`
+--
+
+INSERT INTO `enfoques` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
+(1, 'Enfoque de comparación de los precios', '2018-09-12 17:34:08', '2018-09-12 17:37:07'),
+(2, 'Enfoque del costo', '2018-09-12 17:37:43', '2018-09-12 17:37:43'),
+(3, 'Enfoque de la renta', '2018-09-12 17:37:50', '2018-09-12 17:37:50'),
+(4, 'Enfoque de la conjunción valorativa ECV', '2018-09-12 17:37:59', '2018-09-12 17:37:59'),
+(5, 'Método Residual Estático', '2018-09-12 17:38:06', '2018-09-12 17:38:06'),
+(6, 'Método Residual Dinámico', '2018-09-12 17:38:17', '2018-09-12 17:38:17'),
+(7, 'Método Econométrico del Valor Estándar Ajustado MEVEA', '2018-09-12 17:38:27', '2018-09-12 17:38:27'),
+(8, 'Método Valorativo Matricial MVM', '2018-09-12 17:38:37', '2018-09-12 17:38:37'),
+(9, 'Método de las Proporcionalidades de los Precios MPP', '2018-09-12 17:38:47', '2018-09-12 17:38:47'),
+(10, 'Método de las Rentabilidades Comparativas MRC', '2018-09-12 17:38:55', '2018-09-12 17:38:55'),
+(11, 'Método del Valor de Avalúo en Riesgo', '2018-09-12 17:39:06', '2018-09-12 17:39:06'),
+(12, 'Método Multicriterio AHP', '2018-09-12 17:39:18', '2018-09-12 17:39:18'),
+(13, 'PM', '2018-09-12 17:39:26', '2018-09-12 17:39:26'),
+(14, 'CRITIC', '2018-09-12 17:39:33', '2018-09-12 17:39:33'),
+(15, 'Método de Valoración por Efectividad', '2018-09-12 17:39:39', '2018-09-12 17:39:39'),
+(16, 'Método del Valor en Riesgo en el Avalúo VaRA', '2018-09-12 17:39:47', '2018-09-12 17:39:47');
 
 -- --------------------------------------------------------
 
@@ -486,25 +628,30 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 5, '2018-08-13 17:29:11', '2018-09-05 21:40:24', 'voyager.media.index', NULL),
 (3, 1, 'Usuarios', '', '_self', 'voyager-person', '#000000', NULL, 3, '2018-08-13 17:29:11', '2018-09-05 21:40:24', 'voyager.users.index', 'null'),
 (4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 4, '2018-08-13 17:29:11', '2018-09-05 21:40:24', 'voyager.roles.index', NULL),
-(5, 1, 'Herramientas', '', '_self', 'voyager-tools', '#000000', NULL, 6, '2018-08-13 17:29:11', '2018-09-05 21:40:24', NULL, ''),
+(5, 1, 'Herramientas', '', '_self', 'voyager-tools', '#000000', NULL, 6, '2018-08-13 17:29:11', '2018-09-12 18:51:58', NULL, ''),
 (6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 1, '2018-08-13 17:29:11', '2018-08-31 20:20:49', 'voyager.menus.index', NULL),
 (7, 1, 'Base de Datos', '', '_self', 'voyager-data', '#000000', 5, 2, '2018-08-13 17:29:11', '2018-08-31 20:20:51', 'voyager.database.index', 'null'),
 (8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 3, '2018-08-13 17:29:11', '2018-08-31 20:20:51', 'voyager.compass.index', NULL),
 (9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 4, '2018-08-13 17:29:11', '2018-08-31 20:20:51', 'voyager.bread.index', NULL),
 (10, 1, 'Configuración del Sitio', '', '_self', 'voyager-settings', '#000000', 22, 1, '2018-08-13 17:29:11', '2018-08-21 16:58:36', 'voyager.settings.index', 'null'),
 (14, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 5, '2018-08-13 17:29:14', '2018-08-31 20:20:51', 'voyager.hooks', NULL),
-(22, 1, 'Configuración', '', '_self', 'voyager-settings', '#000000', NULL, 7, '2018-08-14 01:41:36', '2018-09-05 21:40:24', NULL, ''),
+(22, 1, 'Configuración', '', '_self', 'voyager-settings', '#000000', NULL, 7, '2018-08-14 01:41:36', '2018-09-12 18:51:58', NULL, ''),
 (23, 1, 'Estados', '', '_self', NULL, '#000000', 26, 1, '2018-08-14 03:18:04', '2018-08-21 16:34:45', 'voyager.states.index', 'null'),
 (24, 1, 'Municipios', '', '_self', NULL, NULL, 26, 2, '2018-08-14 04:33:28', '2018-08-21 16:34:46', 'voyager.municipios.index', NULL),
 (25, 1, 'Parroquias', '', '_self', NULL, NULL, 26, 3, '2018-08-14 05:04:41', '2018-08-21 16:34:47', 'voyager.parroquias.index', NULL),
 (28, 1, 'Municipios', '/admin/municipios', '_self', NULL, '#000000', 22, 3, '2018-08-21 16:43:33', '2018-08-21 16:48:46', NULL, ''),
 (29, 1, 'Parroquias', '/admin/parroquias', '_self', NULL, '#000000', 22, 4, '2018-08-21 16:43:48', '2018-08-21 16:48:46', NULL, ''),
-(30, 1, 'Planilla de datos PD', '', '_self', 'voyager-documentation', '#ffff00', NULL, 2, '2018-08-22 00:57:04', '2018-08-22 00:57:42', NULL, ''),
+(30, 1, 'Avaluos', '', '_self', 'voyager-documentation', '#ffff00', NULL, 2, '2018-08-22 00:57:04', '2018-09-12 18:58:48', NULL, ''),
 (33, 1, 'Estados', '', '_self', NULL, NULL, 22, 2, '2018-08-31 00:34:28', '2018-08-31 00:42:26', 'voyager.estados.index', NULL),
 (39, 1, 'Avaluos', '', '_self', 'voyager-file-text', '#0080ff', 30, 1, '2018-09-02 20:06:11', '2018-09-09 22:40:20', 'voyager.avaluos.index', 'null'),
-(40, 1, 'Contenidos', '', '_self', 'voyager-list', '#000000', 30, 2, '2018-09-02 20:12:42', '2018-09-09 22:42:59', 'voyager.contenidos.index', 'null'),
-(43, 1, 'Clientes', '', '_self', 'voyager-people', '#000000', 30, 4, '2018-09-04 17:48:17', '2018-09-09 22:40:53', 'voyager.solicitantes.index', 'null'),
-(44, 1, 'Solicitudes', '', '_self', 'voyager-pen', '#000000', 30, 3, '2018-09-04 18:24:51', '2018-09-09 22:42:28', 'voyager.solicitudes.index', 'null');
+(40, 1, 'Contenidos del Avaluo', '', '_self', 'voyager-list', '#000000', 30, 3, '2018-09-02 20:12:42', '2018-09-12 16:46:35', 'voyager.contenidos.index', 'null'),
+(43, 1, 'Clientes', '', '_self', 'voyager-people', '#000000', 30, 2, '2018-09-04 17:48:17', '2018-09-12 16:46:35', 'voyager.solicitantes.index', 'null'),
+(44, 1, '1. Solicitudes', '', '_self', 'voyager-pen', '#000000', 30, 4, '2018-09-04 18:24:51', '2018-09-12 16:47:04', 'voyager.solicitudes.index', 'null'),
+(45, 1, '3. Certificaciones', '', '_self', 'voyager-pen', '#000000', 30, 5, '2018-09-12 02:49:22', '2018-09-12 18:59:47', 'voyager.certificaciones.index', 'null'),
+(46, 1, '4.1. Bases', '', '_self', NULL, '#000000', 30, 7, '2018-09-12 16:43:57', '2018-09-12 18:52:18', 'voyager.bases.index', 'null'),
+(47, 1, '4.2. Normas', '', '_self', NULL, '#000000', 30, 8, '2018-09-12 16:44:38', '2018-09-12 18:52:27', 'voyager.normas.index', 'null'),
+(48, 1, '4.3. Enfoques', '', '_self', NULL, '#000000', 30, 9, '2018-09-12 16:45:08', '2018-09-12 18:52:37', 'voyager.enfoques.index', 'null'),
+(49, 1, '4. Planteamientos', '', '_self', 'voyager-pen', '#000000', 30, 6, '2018-09-12 17:02:21', '2018-09-12 18:59:35', 'voyager.planteamientos.index', 'null');
 
 -- --------------------------------------------------------
 
@@ -930,6 +1077,39 @@ INSERT INTO `municipios` (`id`, `municipio`, `created_at`, `updated_at`, `id_est
 (460, 'Sucre', NULL, NULL, 23),
 (461, 'Valmore Rodríguez', NULL, NULL, 23),
 (462, 'Libertador', NULL, NULL, 24);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `normas`
+--
+
+CREATE TABLE `normas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `normas`
+--
+
+INSERT INTO `normas` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
+(1, 'Normas Internacionales de Valuación 2017', '2018-09-12 17:13:20', '2018-09-12 17:13:20'),
+(2, 'Normas Argentinas de Tasaciones IRAM', '2018-09-12 17:13:31', '2018-09-12 17:13:31'),
+(3, 'Normas Australianas de Avalúos', '2018-09-12 17:13:37', '2018-09-12 17:13:37'),
+(4, 'Normas Brasileñas de Valuación', '2018-09-12 17:13:45', '2018-09-12 17:13:45'),
+(5, 'Normas Britanicas de Valuación', '2018-09-12 17:13:51', '2018-09-12 17:13:51'),
+(6, 'Normas Colombianas de Valuación', '2018-09-12 17:13:58', '2018-09-12 17:13:58'),
+(7, 'Normas Españolas de Tasación', '2018-09-12 17:14:04', '2018-09-12 17:14:04'),
+(8, 'Normas Estadounidense de Avalúos', '2018-09-12 17:14:12', '2018-09-12 17:14:12'),
+(9, 'Normas Europeas de Valuación 2016', '2018-09-12 17:14:20', '2018-09-12 17:14:20'),
+(10, 'Normas Mexicanas de Valuación', '2018-09-12 17:14:27', '2018-09-12 17:14:27'),
+(11, 'Normas Mexicanas INDAABIN', '2018-09-12 17:14:35', '2018-09-12 17:14:35'),
+(12, 'Normas de Gestión de Valor', '2018-09-12 17:14:44', '2018-09-12 17:15:00'),
+(13, 'Normas Internacionales de Información Financiera', '2018-09-12 17:15:08', '2018-09-12 17:15:08'),
+(14, 'Principios de Contabilidad Generalmente Aceptados', '2018-09-12 17:15:14', '2018-09-12 17:15:14');
 
 -- --------------------------------------------------------
 
@@ -2238,7 +2418,32 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (138, 'read_solicitudes', 'solicitudes', '2018-09-04 18:24:51', '2018-09-04 18:24:51'),
 (139, 'edit_solicitudes', 'solicitudes', '2018-09-04 18:24:51', '2018-09-04 18:24:51'),
 (140, 'add_solicitudes', 'solicitudes', '2018-09-04 18:24:51', '2018-09-04 18:24:51'),
-(141, 'delete_solicitudes', 'solicitudes', '2018-09-04 18:24:51', '2018-09-04 18:24:51');
+(141, 'delete_solicitudes', 'solicitudes', '2018-09-04 18:24:51', '2018-09-04 18:24:51'),
+(142, 'browse_certificaciones', 'certificaciones', '2018-09-12 02:49:22', '2018-09-12 02:49:22'),
+(143, 'read_certificaciones', 'certificaciones', '2018-09-12 02:49:22', '2018-09-12 02:49:22'),
+(144, 'edit_certificaciones', 'certificaciones', '2018-09-12 02:49:22', '2018-09-12 02:49:22'),
+(145, 'add_certificaciones', 'certificaciones', '2018-09-12 02:49:22', '2018-09-12 02:49:22'),
+(146, 'delete_certificaciones', 'certificaciones', '2018-09-12 02:49:22', '2018-09-12 02:49:22'),
+(147, 'browse_bases', 'bases', '2018-09-12 16:43:57', '2018-09-12 16:43:57'),
+(148, 'read_bases', 'bases', '2018-09-12 16:43:57', '2018-09-12 16:43:57'),
+(149, 'edit_bases', 'bases', '2018-09-12 16:43:57', '2018-09-12 16:43:57'),
+(150, 'add_bases', 'bases', '2018-09-12 16:43:57', '2018-09-12 16:43:57'),
+(151, 'delete_bases', 'bases', '2018-09-12 16:43:57', '2018-09-12 16:43:57'),
+(152, 'browse_normas', 'normas', '2018-09-12 16:44:38', '2018-09-12 16:44:38'),
+(153, 'read_normas', 'normas', '2018-09-12 16:44:38', '2018-09-12 16:44:38'),
+(154, 'edit_normas', 'normas', '2018-09-12 16:44:38', '2018-09-12 16:44:38'),
+(155, 'add_normas', 'normas', '2018-09-12 16:44:38', '2018-09-12 16:44:38'),
+(156, 'delete_normas', 'normas', '2018-09-12 16:44:38', '2018-09-12 16:44:38'),
+(157, 'browse_enfoques', 'enfoques', '2018-09-12 16:45:08', '2018-09-12 16:45:08'),
+(158, 'read_enfoques', 'enfoques', '2018-09-12 16:45:08', '2018-09-12 16:45:08'),
+(159, 'edit_enfoques', 'enfoques', '2018-09-12 16:45:08', '2018-09-12 16:45:08'),
+(160, 'add_enfoques', 'enfoques', '2018-09-12 16:45:08', '2018-09-12 16:45:08'),
+(161, 'delete_enfoques', 'enfoques', '2018-09-12 16:45:08', '2018-09-12 16:45:08'),
+(162, 'browse_planteamientos', 'planteamientos', '2018-09-12 17:02:21', '2018-09-12 17:02:21'),
+(163, 'read_planteamientos', 'planteamientos', '2018-09-12 17:02:21', '2018-09-12 17:02:21'),
+(164, 'edit_planteamientos', 'planteamientos', '2018-09-12 17:02:21', '2018-09-12 17:02:21'),
+(165, 'add_planteamientos', 'planteamientos', '2018-09-12 17:02:21', '2018-09-12 17:02:21'),
+(166, 'delete_planteamientos', 'planteamientos', '2018-09-12 17:02:21', '2018-09-12 17:02:21');
 
 -- --------------------------------------------------------
 
@@ -2342,7 +2547,148 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (138, 1),
 (139, 1),
 (140, 1),
-(141, 1);
+(141, 1),
+(142, 1),
+(143, 1),
+(144, 1),
+(145, 1),
+(146, 1),
+(147, 1),
+(148, 1),
+(149, 1),
+(150, 1),
+(151, 1),
+(152, 1),
+(153, 1),
+(154, 1),
+(155, 1),
+(156, 1),
+(157, 1),
+(158, 1),
+(159, 1),
+(160, 1),
+(161, 1),
+(162, 1),
+(163, 1),
+(164, 1),
+(165, 1),
+(166, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `planteamientos`
+--
+
+CREATE TABLE `planteamientos` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `finalidad_avaluo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `razon_avaluo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `usuarios_del_ia` text COLLATE utf8mb4_unicode_ci,
+  `organizacion` text COLLATE utf8mb4_unicode_ci,
+  `alcance` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `formulacion` text COLLATE utf8mb4_unicode_ci,
+  `protocolo_valuatorio` text COLLATE utf8mb4_unicode_ci,
+  `avaluo_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `planteamientos`
+--
+
+INSERT INTO `planteamientos` (`id`, `finalidad_avaluo`, `razon_avaluo`, `usuarios_del_ia`, `organizacion`, `alcance`, `formulacion`, `protocolo_valuatorio`, `avaluo_id`, `created_at`, `updated_at`) VALUES
+(1, 'Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', NULL, '2018-09-12 17:17:11', '2018-09-12 17:17:11'),
+(2, 'Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, NULL, 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', NULL, '2018-09-12 17:18:39', '2018-09-12 17:18:39'),
+(3, 'Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, NULL, 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', NULL, '2018-09-12 17:28:43', '2018-09-12 17:28:43'),
+(4, 'Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, NULL, 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', NULL, '2018-09-12 17:29:07', '2018-09-12 17:29:07'),
+(5, 'Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, NULL, 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', NULL, '2018-09-12 17:40:19', '2018-09-12 17:40:19'),
+(6, 'Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, 'aa', 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', NULL, '2018-09-12 18:00:00', '2018-09-12 18:18:19'),
+(7, 'Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, NULL, 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', NULL, '2018-09-12 18:18:34', '2018-09-12 18:18:34'),
+(8, '1Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, NULL, 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', 19, '2018-09-12 18:21:34', '2018-09-12 18:21:34'),
+(9, 'Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, NULL, 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', 18, '2018-09-12 18:33:27', '2018-09-12 18:33:27'),
+(10, 'Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, NULL, 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', 17, '2018-09-12 18:33:49', '2018-09-12 18:33:49');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `planteamiento_base`
+--
+
+CREATE TABLE `planteamiento_base` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `planteamiento_id` int(11) DEFAULT NULL,
+  `base_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `planteamiento_base`
+--
+
+INSERT INTO `planteamiento_base` (`id`, `planteamiento_id`, `base_id`, `created_at`, `updated_at`) VALUES
+(1, 5, 2, NULL, NULL),
+(2, 5, 4, NULL, NULL),
+(3, 8, 2, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `planteamiento_enfoque`
+--
+
+CREATE TABLE `planteamiento_enfoque` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `planteamiento_id` int(11) DEFAULT NULL,
+  `enfoque_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `planteamiento_enfoque`
+--
+
+INSERT INTO `planteamiento_enfoque` (`id`, `planteamiento_id`, `enfoque_id`, `created_at`, `updated_at`) VALUES
+(1, 5, 4, NULL, NULL),
+(2, 5, 5, NULL, NULL),
+(3, 6, 4, NULL, NULL),
+(4, 7, 4, NULL, NULL),
+(5, 8, 4, NULL, NULL),
+(6, 10, 5, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `planteamiento_norma`
+--
+
+CREATE TABLE `planteamiento_norma` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `planteamiento_id` int(11) DEFAULT NULL,
+  `norma_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `planteamiento_norma`
+--
+
+INSERT INTO `planteamiento_norma` (`id`, `planteamiento_id`, `norma_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, NULL, NULL),
+(2, 1, 2, NULL, NULL),
+(3, 1, 5, NULL, NULL),
+(4, 2, 3, NULL, NULL),
+(5, 2, 4, NULL, NULL),
+(6, 3, 1, NULL, NULL),
+(7, 4, 1, NULL, NULL),
+(8, 5, 1, NULL, NULL),
+(9, 5, 2, NULL, NULL),
+(10, 8, 1, NULL, NULL),
+(11, 9, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2499,7 +2845,11 @@ INSERT INTO `solicitudes` (`id`, `requerimiento_informe`, `finalidad_informe`, `
 (13, 'qqqqqqqqqqqqqqq', 'qqqqq', NULL, NULL, NULL, NULL, NULL, NULL, 'qqq', NULL, NULL, NULL, NULL, NULL, NULL, 'qqq', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'option1', '2018-09-10 20:34:38', '2018-09-10 20:34:38', 3, 10),
 (14, 'aaaaaa', NULL, NULL, 'aaaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'aaaaaa', NULL, NULL, NULL, NULL, NULL, NULL, '2018-09-10', '2018-09-10', 'option1', '2018-09-10 20:35:56', '2018-09-10 20:35:56', 3, 11),
 (15, 'zzzzzzzzzzzzzzz', 'zzz', 'zzz', 'zzz', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'zzzz', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'option1', '2018-09-10 20:38:07', '2018-09-10 20:38:07', 12, 12),
-(16, 'fffffffffffffffffffff', 'fffffffffffffffffffffff', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'option1', '2018-09-10 21:23:07', '2018-09-10 21:56:45', 13, 13);
+(16, 'fffffffffffffffffffff', 'fffffffffffffffffffffff', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'option1', '2018-09-10 21:23:07', '2018-09-10 21:56:45', 13, 13),
+(17, 'ioioiooioo', 'ioioi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ioio', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'option1', '2018-09-10 23:07:19', '2018-09-11 17:08:57', 3, 16),
+(18, '2222222', '2', NULL, '2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'option1', '2018-09-11 17:36:39', '2018-09-11 17:36:39', 1, 17),
+(19, '..', NULL, NULL, '..', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '..', NULL, NULL, NULL, NULL, NULL, NULL, 'option1', '2018-09-12 08:27:03', '2018-09-12 08:27:03', 1, 19),
+(20, '.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'option1', '2018-09-12 08:36:47', '2018-09-12 08:36:47', 1, 18);
 
 -- --------------------------------------------------------
 
@@ -2581,7 +2931,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`, `id_estado`, `id_municipio`, `id_parroquia`) VALUES
-(1, 1, 'Admin', 'admin@admin.com', 'users/default.png', '$2y$10$Bdte22LQ7DMRxiAtojqoQeP6Ve3/22LFiFrXG8AVxFtn3DLjQRumq', 'eYHzcjrkPqbXvO2S2Yer5zFGPxEfESpwAQAfLM55GEC4W8wvx6obZnuFmL7J', '{\"locale\":\"es\"}', '2018-08-13 17:29:13', '2018-08-13 18:48:45', NULL, NULL, NULL),
+(1, 1, 'Admin', 'admin@admin.com', 'users/default.png', '$2y$10$Bdte22LQ7DMRxiAtojqoQeP6Ve3/22LFiFrXG8AVxFtn3DLjQRumq', 'sOyJMn3kFk5OkdneljNf9NdCJnO2Z2Ku49xTrLoRvd0XzDPWaQV3ZCv7UXKg', '{\"locale\":\"es\"}', '2018-08-13 17:29:13', '2018-08-13 18:48:45', NULL, NULL, NULL),
 (2, 1, 'Miguel Magdalena2', 'miguelangelmagdalena@gmail.com', 'users/default.png', '$2y$10$Cf39lX9.wVoe8cToy03gtOMGw/UfSnKdNHzOyQehML/ZICRa6MqMS', 'wywpozuvHd6tSLi9rgvGdrpoXmiViSdEGFK1ZJWQwgMBQqMVbOYjLhSpDZlV', '{\"locale\":\"es\"}', '2018-08-13 18:49:26', '2018-08-22 13:30:19', NULL, NULL, NULL),
 (4, 2, 'Miguel Angel', 'miguel@gmail.com', 'users/default.png', '$2y$10$9xpiNR2KDkzAlLLaWPU5gunTa13su0FHS7GxzCrA43k0gJ1Hna2cy', '2FgRsRH9hz5LzYV3fw9FpIAacyburfM43kda4IWKYSBiSBRdQmlmohEJ3kOY', NULL, '2018-08-15 22:24:33', '2018-08-15 22:24:33', NULL, NULL, NULL),
 (6, 2, 'Mitchell2', 'mitch@gmail.com', 'users/default.png', '$2y$10$TDmonoYeDJYDTdAn.ZRkMuP232SXqoDRn9iEqzKH0GOrJu48ezHJu', 'xCQW1AHjCLUsptNtbZHfmkT8tmBEfxaxhvFST5L4BoWGXQVxNNy1E0S6UI1L', NULL, '2018-08-20 19:33:45', '2018-08-20 20:58:12', 24, 462, 1137),
@@ -2589,7 +2939,7 @@ INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `password`, `re
 (9, 2, 'Miguel', 'asdasdasdsa@gmail.com', 'users/default.png', '$2y$10$7TsY/f4V0z6GBSqn3bHbbeEE0/olKZ9MWOyt6Q8Xm4vUI1UbQQ8K2', 'MEt2ZaseaimYx8sQSnOKWBoU2nMivOcJG1FQtqrh7NZFQWJNjksiPh2ruPIQ', NULL, '2018-08-21 18:51:46', '2018-08-21 23:38:30', 1, 1, 1),
 (11, 2, 'Miguel Magdalena', 'miguelanasdasdgelmagdalena@gmail.com', 'users/default.png', '$2y$10$SsZBuyXDf9CYHrKj6fg9RuZB6a7S93aiYBkhufwHj8Ak6kRgYaOsy', 'xJRP0MnLT2isOj61Gar3Es1RDADCWsJuRzVQygviEps6d8yTxWJX7Fr6Nej4', NULL, '2018-08-22 12:53:08', '2018-08-22 12:53:08', 24, NULL, NULL),
 (12, 2, 'miguel angel', 'asamiguelangelmagdalena@gmail.com', 'users/default.png', '$2y$10$hYoA8Mui9SL96JV1zDRywORd5LrQVdHgO/p8mVjisuu4D1DSmAmZq', '03dqlLlGvOQdBPxyCkNIrby5vQzjBVlsfDG2G7Fmzf2snk6iapfOTUlgYScw', NULL, '2018-08-22 13:17:26', '2018-08-22 13:31:36', NULL, NULL, NULL),
-(13, 2, 'Miguel Magdalen', 'miguelangelmagalena@gmail.com', 'users/default.png', '$2y$10$0pDxFK2.N3I.HzBcWnyZ0O0PMYOwGdLcTqDNGJb/.WJvW2TDFBg2O', NULL, NULL, '2018-08-31 00:41:54', '2018-08-31 00:41:54', 24, 462, 1133);
+(13, 2, 'Miguel Magdalen', 'miguelangelmagalena123@gmail.com', 'users/default.png', '$2y$10$0pDxFK2.N3I.HzBcWnyZ0O0PMYOwGdLcTqDNGJb/.WJvW2TDFBg2O', 'E2Vk7LuTPkXbus7nTKcWBT2EXMFQRYf3tdhi839JYMAxSLiVBIJn7JKZ7EUJ', NULL, '2018-08-31 00:41:54', '2018-09-11 17:32:39', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2619,6 +2969,18 @@ ALTER TABLE `avaluo_contenido`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `bases`
+--
+ALTER TABLE `bases`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `certificaciones`
+--
+ALTER TABLE `certificaciones`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `contenidos`
 --
 ALTER TABLE `contenidos`
@@ -2638,6 +3000,12 @@ ALTER TABLE `data_types`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `data_types_name_unique` (`name`),
   ADD UNIQUE KEY `data_types_slug_unique` (`slug`);
+
+--
+-- Indices de la tabla `enfoques`
+--
+ALTER TABLE `enfoques`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `estados`
@@ -2674,6 +3042,12 @@ ALTER TABLE `municipios`
   ADD KEY `id_estado` (`id_estado`);
 
 --
+-- Indices de la tabla `normas`
+--
+ALTER TABLE `normas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `pages`
 --
 ALTER TABLE `pages`
@@ -2708,6 +3082,30 @@ ALTER TABLE `permission_role`
   ADD PRIMARY KEY (`permission_id`,`role_id`),
   ADD KEY `permission_role_permission_id_index` (`permission_id`),
   ADD KEY `permission_role_role_id_index` (`role_id`);
+
+--
+-- Indices de la tabla `planteamientos`
+--
+ALTER TABLE `planteamientos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `planteamiento_base`
+--
+ALTER TABLE `planteamiento_base`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `planteamiento_enfoque`
+--
+ALTER TABLE `planteamiento_enfoque`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `planteamiento_norma`
+--
+ALTER TABLE `planteamiento_norma`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `roles`
@@ -2772,13 +3170,25 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT de la tabla `avaluos`
 --
 ALTER TABLE `avaluos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `avaluo_contenido`
 --
 ALTER TABLE `avaluo_contenido`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+
+--
+-- AUTO_INCREMENT de la tabla `bases`
+--
+ALTER TABLE `bases`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `certificaciones`
+--
+ALTER TABLE `certificaciones`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `contenidos`
@@ -2790,13 +3200,19 @@ ALTER TABLE `contenidos`
 -- AUTO_INCREMENT de la tabla `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=285;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=317;
 
 --
 -- AUTO_INCREMENT de la tabla `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
+-- AUTO_INCREMENT de la tabla `enfoques`
+--
+ALTER TABLE `enfoques`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `estados`
@@ -2814,7 +3230,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT de la tabla `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
@@ -2827,6 +3243,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `municipios`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=463;
+
+--
+-- AUTO_INCREMENT de la tabla `normas`
+--
+ALTER TABLE `normas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `pages`
@@ -2844,7 +3266,31 @@ ALTER TABLE `parroquias`
 -- AUTO_INCREMENT de la tabla `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
+
+--
+-- AUTO_INCREMENT de la tabla `planteamientos`
+--
+ALTER TABLE `planteamientos`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `planteamiento_base`
+--
+ALTER TABLE `planteamiento_base`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `planteamiento_enfoque`
+--
+ALTER TABLE `planteamiento_enfoque`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `planteamiento_norma`
+--
+ALTER TABLE `planteamiento_norma`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -2868,7 +3314,7 @@ ALTER TABLE `solicitantes`
 -- AUTO_INCREMENT de la tabla `solicitudes`
 --
 ALTER TABLE `solicitudes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `translations`
