@@ -309,6 +309,11 @@ class TemplateController extends VoyagerBaseController
         }
 
         if (!$request->has('_validate')) {
+            //Pasar por parametro en la ruta del form
+            if($request->input('avaluo')){
+                $request->merge(['avaluo_id' => $request->input('avaluo')]);
+            }
+            
             $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
 
             event(new BreadDataAdded($dataType, $data));

@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Voyager;
 
 use App\Avaluo;
 use App\Contenido;
-use App\AvaluoContenido;
-use App\Solicitude;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use TCG\Voyager\Database\Schema\SchemaManager;
@@ -80,8 +78,6 @@ class GeneralController extends VoyagerBreadController
                     return redirect('/admin/'.$next_element->slug.'/'.$data_id.'/edit');
                 }else{
                     return redirect()->route('voyager.'.$next_element->slug.'.create', ['avaluo_id' =>  $avaluo_id]);
-                    //return redirect()->route('voyager.solicitudes.create');
-                    //return redirect('/admin');
                 }
             }else{
                 return redirect()->back();
