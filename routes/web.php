@@ -27,42 +27,26 @@ Route::group(['prefix' => 'admin'], function () {
 
 Auth::routes();
 
-/*
-|--------------------------------------------------------------------------
-| More Auth routes
-|--------------------------------------------------------------------------
-|
-| Auth routes Ajax
-|
-*/
+/*--------------------------------------------------------------------------
+| More Auth routes / Auth routes Ajax
+|--------------------------------------------------------------------------*/
 Route::post('/register/fetchAddress', 'Auth\RegisterController@fetchAddress')->name('register.fetchAddress');
-
 Route::post('/user_edit/fetchAddress', 'Voyager\userController@fetchAddress')->name('user_edit.fetchAddress');
 
-/*
-|--------------------------------------------------------------------------
-| Solicicitud
-|--------------------------------------------------------------------------
-|
-| Consultar solicitantes registrados con ajax
-|
-*/
-Route::post('/solicitud/fetchOldSolicitantes', 'Voyager\SolicitudController@fetchOldSolicitantes')->name('solicitud.fetchOldSolicitantes');
+/*--------------------------------------------------------------------------
+| Solicicitud / Consultar solicitantes registrados con ajax
+|--------------------------------------------------------------------------*/
+Route::post('/solicitud/fetchOldSolicitantes', 'Voyager\MyBreadController@fetchOldSolicitantes')->name('solicitud.fetchOldSolicitantes');
 
+/*--------------------------------------------------------------------------
+| Rutas para navegacion entre contenidos del avaluo
+|--------------------------------------------------------------------------*/
+Route::get('/next_content', 'Voyager\MyBreadController@next_content');
+Route::get('/previous_content', 'Voyager\MyBreadController@previous_content');
 
-/*
-|--------------------------------------------------------------------------
-| Rutas para navegacion entre secciones del avaluo
-|--------------------------------------------------------------------------
-|
-| Secciones
-|
-*/
-
-Route::get('/next_content', 'Voyager\GeneralController@next_content');
-
-Route::get('/previous_content', 'Voyager\GeneralController@previous_content');
-
+/*--------------------------------------------------------------------------
+| PROBANDO
+|--------------------------------------------------------------------------*/
 Route::get('pdf', function(){
     $pdf = App::make('dompdf.wrapper');
     $pdf->loadHTML('<h1>Test</h1>');
