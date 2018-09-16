@@ -16,25 +16,33 @@
 
 @section('content')
     <div class="page-content edit-add container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+        <!-- form start -->
+        <form role="form"
+                class="form-edit-add"
+                action="@if(!is_null($dataTypeContent->getKey())){{ route('voyager.'.$dataType->slug.'.update', $dataTypeContent->getKey()) }}@else{{ route('voyager.'.$dataType->slug.'.store', ['avaluo' => Request::get('avaluo_id')]) }}@endif"
+                method="POST" enctype="multipart/form-data">
+            <!-- PUT Method if we are editing -->
+            @if(!is_null($dataTypeContent->getKey()))
+                {{ method_field("PUT") }}
+            @endif
 
-                <div class="panel panel-bordered">
-                    <!-- form start -->
-                    <form role="form"
-                            class="form-edit-add"
-                            action="@if(!is_null($dataTypeContent->getKey())){{ route('voyager.'.$dataType->slug.'.update', $dataTypeContent->getKey()) }}@else{{ route('voyager.'.$dataType->slug.'.store', ['avaluo' => Request::get('avaluo_id')]) }}@endif"
-                            method="POST" enctype="multipart/form-data">
-                        <!-- PUT Method if we are editing -->
-                        @if(!is_null($dataTypeContent->getKey()))
-                            {{ method_field("PUT") }}
-                        @endif
+            <!-- CSRF TOKEN -->
+            {{ csrf_field() }}
+            <div class="row">
+                <!-- ### Dictamen ### -->
+                <div class="col-lg-5">
 
-                        <!-- CSRF TOKEN -->
-                        {{ csrf_field() }}
+                    
+                    <div class="panel panel-bordered panel-warning">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="icon wb-image"></i> {{ $dataType->display_name_singular }}</h3>
+                            <div class="panel-actions">
+                                <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
 
                         <div class="panel-body">
-
                             @if (count($errors) > 0)
                                 <div class="alert alert-danger">
                                     <ul>
@@ -80,27 +88,72 @@
                             @endforeach
 
                         </div><!-- panel-body -->
+                    </div>           
+                </div> 
 
-                        <div class="panel-footer">
-                            <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
+                <!-- ### Unidades Organicas UOP ### -->
+                <div class="col-lg-7">  
+                    <div class="panel panel-bordered panel-primary">
 
-                            @include('partials.navegabilidad');
-                            
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="icon wb-image"></i> Unidades Orgánicas Productivas</h3>
+                            <div class="panel-actions">
+                                <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
                         </div>
-                    </form>
 
-                    <iframe id="form_target" name="form_target" style="display:none"></iframe>
-                    <form id="my_form" action="{{ route('voyager.upload') }}" target="form_target" method="post"
-                            enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
-                        <input name="image" id="upload_file" type="file"
-                                 onchange="$('#my_form').submit();this.value='';">
-                        <input type="hidden" name="type_slug" id="type_slug" value="{{ $dataType->slug }}">
-                        {{ csrf_field() }}
-                    </form>
+                        <div class="panel-body">
+                            @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
-                </div>
+                            <div class="table-repsonsive">
+                                <span id="error"></span>
+                                <table class="table table-bordered" id="item_table">
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Descripción</th>
+                                        <th>Metros Cuadrados M2</th>
+                                        <th>Costo</th>
+                                        <th><button type="button" id="add_uop" class="btn btn-success btn-sm add"><span class="glyphicon glyphicon-plus"></span> Agregar UOP</button></th>
+                                    </tr>
+                                    @foreach ($uop as $row)
+                                        <tr>
+                                            <td><input type="text" name="item_uop[nombre][]" class="form-control" placeholder="Nombre" value="{{$row->nombre}}" required/></td>
+                                            <td><input type="text" name="item_uop[descripcion][]" class="form-control" placeholder="Descripción" value="{{$row->descripcion}}"/></td>
+                                            <td><input type="number" name="item_uop[metros_cuadrados][]" class="form-control" placeholder="Metros Cuadrados M2" value="{{$row->metros_cuadrados}}"/></td>
+                                            <td><input type="number" name="item_uop[costo][]" class="form-control" placeholder="Costo" value="{{$row->costo}}" required/></td>        
+                                            <td><button type="button" name="remove" class="btn btn-danger btn-sm remove_uop"><span class="glyphicon glyphicon-minus"></span> Borrar</button></td>
+                                        </tr>
+                                     @endforeach
+                                </table>
+
+                            </div>
+
+                        </div><!-- panel-body -->
+
+                    </div>
+                </div>            
             </div>
-        </div>
+            <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
+
+            @include('partials.navegabilidad');
+        </form>
+
+        <iframe id="form_target" name="form_target" style="display:none"></iframe>
+        <form id="my_form" action="{{ route('voyager.upload') }}" target="form_target" method="post"
+                enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
+            <input name="image" id="upload_file" type="file"
+                    onchange="$('#my_form').submit();this.value='';">
+            <input type="hidden" name="type_slug" id="type_slug" value="{{ $dataType->slug }}">
+            {{ csrf_field() }}
+        </form>
     </div>
 
     <div class="modal fade modal-danger" id="confirm_delete_modal">
@@ -186,6 +239,24 @@
                 $('#confirm_delete_modal').modal('hide');
             });
             $('[data-toggle="tooltip"]').tooltip();
+
+
+            //To do list para unidades organicas productivas
+            //1. Agregar
+            $(document).on('click', '#add_uop', function(){
+                var html = '';
+                html += '<tr>';
+                html += '<td><input type="text" name="item_uop[nombre][]" class="form-control" placeholder="Nombre" value="UOP" required/></td>';
+                html += '<td><input type="text" name="item_uop[descripcion][]" class="form-control" placeholder="Descripción" /></td>';
+                html += '<td><input type="number" name="item_uop[metros_cuadrados][]" class="form-control" placeholder="Metros Cuadrados M2" /></td>';
+                html += '<td><input type="number" name="item_uop[costo][]" class="form-control" placeholder="Costo" required/></td>';        
+                html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove_uop"><span class="glyphicon glyphicon-minus"></span> Borrar</button></td></tr>';
+                $('#item_table').append(html);
+            });
+            //2. Borrar
+            $(document).on('click', '.remove_uop', function(){
+                $(this).closest('tr').remove();
+            });
         });
     </script>
 @stop

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-09-2018 a las 17:02:42
+-- Tiempo de generación: 16-09-2018 a las 19:03:39
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -52,18 +52,14 @@ CREATE TABLE `avaluos` (
 INSERT INTO `avaluos` (`id`, `logo`, `num_expediente`, `num_planilla`, `lugar`, `fecha`, `nombre_avaluo`, `ubicacion`, `tipo_informe`, `referencia_informe`, `pie_pagina_informe`, `created_at`, `updated_at`, `encabezado`) VALUES
 (6, 'avaluos\\September2018\\XJ5KTdeliAfdRIUGOhWl.png', 'yth', 'fgh', 'fgh', NULL, 'fgh', NULL, 'option1', NULL, '<p>gh</p>', '2018-09-02 22:14:05', '2018-09-02 22:14:05', '<p>gh</p>'),
 (7, 'avaluos\\September2018\\GpGiQU1Kw1zLYwf8nA4t.png', 'yth', 'fgh', 'fgh', NULL, 'fgh', NULL, 'option1', NULL, '<p>gh</p>', '2018-09-02 22:14:53', '2018-09-02 22:15:12', '<p>gh</p>'),
-(8, 'avaluos\\September2018\\cCDViVzU6IFRKPOFiz5N.png', 'otra', 'fghfgh', 'fgh', '2018-09-06', 'sd', 'sd', 'option1', 'sd', '<p>sd</p>', '2018-09-07 06:56:21', '2018-09-07 06:56:21', '<p>sd</p>'),
+(8, 'avaluos\\September2018\\cCDViVzU6IFRKPOFiz5N.png', 'otr', 'fghfgh', 'fgh', '2018-09-06', 'sd', 'sd', 'option1', 'sd', '<p>sd</p>', '2018-09-07 06:56:21', '2018-09-15 21:47:16', '<p>sd</p>'),
 (9, 'avaluos\\September2018\\VbpU8znqQfloRM9W5wpV.jpg', '1', '1', '1', '2018-09-09', '1', '1', 'option2', '1', '<p>1</p>', '2018-09-09 22:31:25', '2018-09-09 22:31:25', '<p>1</p>'),
 (10, NULL, 'xxxxxxxxxxx', 'xxxxxxxxxxxxxxx', NULL, NULL, 'xxx', 'xxx', 'option1', NULL, '<p>x</p>', '2018-09-10 20:33:55', '2018-09-10 20:33:55', '<p>x</p>'),
 (11, NULL, 'aaaaaaaaaaaaaa', 'aaaaaaaaaaa', NULL, NULL, 'aaaa', NULL, 'option1', NULL, '<p>aaa</p>', '2018-09-10 20:35:23', '2018-09-10 20:35:23', '<p>aaaa</p>'),
 (12, 'avaluos\\September2018\\6hefwoCqSAkIUoGo1r2N.png', 'zzzzzzzzzzz', 'zzzzz', NULL, NULL, 'zzz', 'zz', 'option1', NULL, '<p>zz</p>', '2018-09-10 20:36:59', '2018-09-10 20:36:59', '<p>zzz</p>'),
 (13, NULL, '99999999999', '999999999', '999', NULL, NULL, '9', 'option1', '9', '<p>9</p>', '2018-09-10 21:22:25', '2018-09-10 21:22:25', NULL),
-(14, NULL, 'ioioioioioioioioio', 'ioioioioioioioioio', 'ioioioioioioioioio', NULL, 'ioioioioioioioioio', NULL, 'option1', NULL, '<p>ioioioioioioioioio</p>', '2018-09-10 23:02:46', '2018-09-10 23:02:46', '<p>ioioioioioioioioio</p>'),
-(15, NULL, 'ioioioioioioioioio', 'ioioioioioioioioio', 'ioioioioioioioioio', NULL, 'ioioioioioioioioio', NULL, 'option1', NULL, '<p>ioioioioioioioioio</p>', '2018-09-10 23:03:27', '2018-09-10 23:03:27', '<p>ioioioioioioioioio</p>'),
-(16, NULL, 'ioioioioioioioioio', 'ioioioioioioioioio', 'ioioioioioioioioio', NULL, 'ioioioioioioioioio', NULL, 'option1', NULL, '<p>ioioioioioioioioio</p>', '2018-09-10 23:06:36', '2018-09-10 23:06:36', '<p>ioioioioioioioioio</p>'),
-(17, NULL, '2222222222', '222', '22', NULL, '2', '2', 'option1', NULL, '<p>2</p>', '2018-09-11 17:36:22', '2018-09-11 17:36:22', '<p>2</p>'),
 (18, NULL, '10', NULL, NULL, NULL, NULL, NULL, 'option1', NULL, NULL, '2018-09-11 22:32:46', '2018-09-11 22:32:46', NULL),
-(19, NULL, '..', '..', NULL, NULL, '.', NULL, 'option1', NULL, NULL, '2018-09-12 08:26:46', '2018-09-12 08:26:46', '<p>.</p>');
+(20, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'option1', NULL, '<p>option1 {!! html_entity_decode($dataType-&gt;display_name_singular) !!}</p>', '2018-09-14 20:29:41', '2018-09-14 22:57:48', '<p>option1</p>');
 
 -- --------------------------------------------------------
 
@@ -100,9 +96,6 @@ INSERT INTO `avaluo_contenido` (`id`, `avaluo_id`, `contenido_id`, `created_at`,
 (20, 4, 4, '2018-09-02 20:31:30', '2018-09-02 20:31:30', NULL),
 (21, 5, 1, '2018-09-02 21:52:16', '2018-09-02 21:52:16', NULL),
 (22, 5, 2, '2018-09-02 21:52:16', '2018-09-02 21:52:16', NULL),
-(35, 11, 1, '2018-09-10 20:35:23', '2018-09-10 20:35:23', NULL),
-(36, 11, 2, '2018-09-10 20:35:23', '2018-09-10 20:35:23', NULL),
-(37, 11, 3, '2018-09-10 20:35:23', '2018-09-10 20:35:23', NULL),
 (38, 12, 1, '2018-09-10 20:36:59', '2018-09-10 20:36:59', NULL),
 (39, 12, 2, '2018-09-10 20:36:59', '2018-09-10 20:36:59', NULL),
 (40, 13, 1, '2018-09-10 21:22:25', '2018-09-10 21:22:25', NULL),
@@ -115,10 +108,6 @@ INSERT INTO `avaluo_contenido` (`id`, `avaluo_id`, `contenido_id`, `created_at`,
 (49, 16, 2, '2018-09-10 23:06:36', '2018-09-10 23:06:36', NULL),
 (52, 7, 1, '2018-09-11 19:11:32', '2018-09-11 19:11:32', NULL),
 (53, 7, 3, '2018-09-11 19:11:32', '2018-09-11 19:11:32', NULL),
-(58, 6, 1, '2018-09-12 08:20:29', '2018-09-12 08:20:29', NULL),
-(59, 6, 3, '2018-09-12 08:20:29', '2018-09-12 08:20:29', NULL),
-(65, 8, 1, '2018-09-12 08:34:23', '2018-09-12 08:34:23', NULL),
-(66, 8, 3, '2018-09-12 08:34:23', '2018-09-12 08:34:23', NULL),
 (72, 9, 1, '2018-09-12 08:50:23', '2018-09-12 08:50:23', NULL),
 (73, 9, 3, '2018-09-12 08:50:23', '2018-09-12 08:50:23', NULL),
 (78, 10, 1, '2018-09-12 08:51:17', '2018-09-12 08:51:17', NULL),
@@ -129,7 +118,22 @@ INSERT INTO `avaluo_contenido` (`id`, `avaluo_id`, `contenido_id`, `created_at`,
 (83, 19, 4, '2018-09-12 18:20:53', '2018-09-12 18:20:53', NULL),
 (84, 18, 1, '2018-09-12 18:21:01', '2018-09-12 18:21:01', NULL),
 (85, 18, 4, '2018-09-12 18:21:01', '2018-09-12 18:21:01', NULL),
-(86, 17, 4, '2018-09-12 18:21:07', '2018-09-12 18:21:07', NULL);
+(86, 17, 4, '2018-09-12 18:21:07', '2018-09-12 18:21:07', NULL),
+(90, 20, 1, '2018-09-14 22:57:49', '2018-09-14 22:57:49', NULL),
+(92, 22, 2, '2018-09-15 18:43:11', '2018-09-15 18:43:11', NULL),
+(93, 22, 3, '2018-09-15 18:43:11', '2018-09-15 18:43:11', NULL),
+(96, 8, 1, '2018-09-15 21:47:23', '2018-09-15 21:47:23', NULL),
+(97, 8, 2, '2018-09-15 21:47:23', '2018-09-15 21:47:23', NULL),
+(98, 8, 3, '2018-09-15 21:47:23', '2018-09-15 21:47:23', NULL),
+(99, 8, 4, '2018-09-15 21:47:23', '2018-09-15 21:47:23', NULL),
+(100, 11, 1, '2018-09-15 21:51:14', '2018-09-15 21:51:14', NULL),
+(101, 11, 2, '2018-09-15 21:51:14', '2018-09-15 21:51:14', NULL),
+(102, 11, 3, '2018-09-15 21:51:14', '2018-09-15 21:51:14', NULL),
+(103, 11, 4, '2018-09-15 21:51:14', '2018-09-15 21:51:14', NULL),
+(107, 6, 1, '2018-09-16 21:01:59', '2018-09-16 21:01:59', NULL),
+(108, 6, 2, '2018-09-16 21:01:59', '2018-09-16 21:01:59', NULL),
+(109, 6, 3, '2018-09-16 21:01:59', '2018-09-16 21:01:59', NULL),
+(110, 6, 4, '2018-09-16 21:01:59', '2018-09-16 21:01:59', NULL);
 
 -- --------------------------------------------------------
 
@@ -177,10 +181,13 @@ INSERT INTO `certificaciones` (`id`, `descripcion`, `created_at`, `updated_at`, 
 (1, '\'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera: \r\n\r\n1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos.', '2018-09-12 07:20:03', '2018-09-12 07:20:03', NULL),
 (5, '\'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-12 08:28:14', '2018-09-12 08:28:14', NULL),
 (6, '\'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-12 08:31:50', '2018-09-12 08:31:50', 19),
-(7, '\'1Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-12 08:34:40', '2018-09-12 08:34:40', 8),
+(7, 'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-12 08:34:40', '2018-09-15 21:46:35', 8),
 (8, '\'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-12 08:36:56', '2018-09-12 08:37:02', 18),
 (9, '\'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-12 08:50:50', '2018-09-12 08:50:56', 9),
-(10, '\'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-12 08:51:29', '2018-09-12 08:51:29', 10);
+(10, '\'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-12 08:51:29', '2018-09-12 08:51:29', 10),
+(11, 'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-15 18:44:29', '2018-09-15 18:44:43', 22),
+(12, 'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-15 21:50:31', '2018-09-15 21:51:40', 11),
+(13, 'Quien suscribe y firma el presente Informe de Avalúo, en su condición de Valuador Responsable del trabajo, certifica, bajo fe de Juramento y confidencialidad institucional, que para la formulación del dictamen valorativo conclusivo y el proceso que lo genera:\r\n\r\n 1. Está en posesión de la titulación y capacidad profesional requerida para efectuar los trabajos de valuación encomendados por el solicitante de los mismos. \r\n\r\n 2. Goza de independencia respecto al solicitante del presente Informe de Avalúo y empresas relacionadas, no ostentando cargos directivos, ni siendo empleado, ni existiendo vinculación financiera o patrimonial, como tampoco vínculos de consanguinidad o afinidad hasta segundo grado con el empresario, directivos o administradores de dicha entidad. \r\n\r\n 3.Ha cumplido con la normativa aplicable para la emisión del informe requerido por el solicitante, según su finalidad, razón que lo motiva y empleo previsto. \r\n\r\n 4.\'La justificación de los supuestos razonables aplicados en las valoraciones practicadas aparece reflejada en el Informe de Avalúo suscrito, en el entendido que las asunciones e hipótesis pertinentes se consideran siempre de conformidad con las Normas de Regulación vigentes y con los principios generales aplicados en la elaboración de valoraciones, informes y respectivos apoyos documentales incorporados como anexos en los casos convenientes y necesarios, de acuerdo con la finalidad, razón y uso del IA. \r\n\r\n 5. Para sus concreciones no se juzgan los aspectos legales y administrativos inherentes al empleo de los bienes valorados, ni se emite opinión sobre aspectos para los cuales fueren indispensables estudios y/o peritajes técnicos ad hoc, según requerimientos y convenimientos expresos y formales, por escrito, de la(s) persona(s) interesada(s) y autorizadas para la respectiva solicitud; tampoco, se garantiza la factibilidad de alcanzar propósitos extraordinarios a los planteados específicamente para el Estudio de Valoración efectuado.', '2018-09-15 21:55:47', '2018-09-15 21:56:06', 6);
 
 -- --------------------------------------------------------
 
@@ -349,10 +356,10 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (190, 29, 'ubicacion', 'text_area', 'Ubicacion', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 8),
 (191, 29, 'tipo_informe', 'select_dropdown', 'Tipo Informe', 0, 1, 1, 1, 1, 1, '{\"default\":\"option1\",\"options\":{\"option1\":\"Narrativo sistematizado\",\"option2\":\"Narrativo\"},\"display\":{\"width\":\"6\"}}', 10),
 (192, 29, 'referencia_informe', 'text', 'Referencia Informe', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"6\"}}', 9),
-(193, 29, 'pie_pagina_informe', 'rich_text_box', 'Pie Pagina Informe', 0, 1, 1, 1, 1, 1, NULL, 12),
+(193, 29, 'pie_pagina_informe', 'rich_text_box', 'Pie Pagina Informe', 0, 1, 1, 1, 1, 1, '{\"default\":\"<p> Pie de página del informe </p>\"}', 12),
 (194, 29, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 13),
 (195, 29, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 14),
-(196, 29, 'encabezado', 'rich_text_box', 'Encabezado', 0, 1, 1, 1, 1, 1, NULL, 11),
+(196, 29, 'encabezado', 'rich_text_box', 'Encabezado', 0, 1, 1, 1, 1, 1, '{\"default\":\"<p> Título del encabezado </p>\"}', 11),
 (197, 30, 'id', 'hidden', 'Id', 1, 1, 1, 0, 0, 0, NULL, 1),
 (198, 30, 'nombre_seccion', 'text', 'Nombre Seccion', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"4\"}}', 2),
 (199, 30, 'nombre_titulo', 'text', 'Nombre Titulo', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":\"4\"}}', 3),
@@ -443,7 +450,21 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (313, 41, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 11),
 (314, 41, 'planteamiento_belongstomany_norma_relationship', 'relationship', 'Normas Aplicadas para el avalúo', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Norma\",\"table\":\"normas\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"nombre\",\"pivot_table\":\"planteamiento_norma\",\"pivot\":\"1\",\"taggable\":\"0\"}', 12),
 (315, 41, 'planteamiento_belongstomany_basis_relationship', 'relationship', 'Bases de Valor pertinentes para el avalúo', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Base\",\"table\":\"bases\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"nombre\",\"pivot_table\":\"planteamiento_base\",\"pivot\":\"1\",\"taggable\":\"on\"}', 13),
-(316, 41, 'planteamiento_belongstomany_enfoque_relationship', 'relationship', 'Enfoque(s) y Método(s) Aplicado(s) para el avalúo', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Enfoque\",\"table\":\"enfoques\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"nombre\",\"pivot_table\":\"planteamiento_enfoque\",\"pivot\":\"1\",\"taggable\":\"on\"}', 14);
+(316, 41, 'planteamiento_belongstomany_enfoque_relationship', 'relationship', 'Enfoque(s) y Método(s) Aplicado(s) para el avalúo', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Enfoque\",\"table\":\"enfoques\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"nombre\",\"pivot_table\":\"planteamiento_enfoque\",\"pivot\":\"1\",\"taggable\":\"on\"}', 14),
+(317, 42, 'id', 'hidden', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(318, 42, 'descripcion', 'text_area', 'Descripción', 0, 1, 1, 1, 1, 1, '{\"default\":\"Según el planteamiento de la valuación pertinentemente explicada para el caso que se reporta en este IA, se formula el dictamen valorativo conclusivo que se expone mas abajo, valido para la fecha de avalúo, a precios corrientes de igual fecha y en el tipo de moneda indicada. \\n\\nDebe apuntarse que dicho dictamen es el producto de la síntesis valorativa de resultados procesales debidamente conciliados, convalidados y acotados según advertencias y condicionantes pertinentes, todo lo cual se expone en este mismo Informe, en [la Planilla IA-HJG12 (Resultados conclusivos).]\",\"display\":{\"rows\":\"8\"}}', 2),
+(319, 42, 'descripcion2', 'text', 'Descripción de precios', 0, 1, 1, 1, 1, 1, '{\"default\":\"Dictamen valorativo conclusivo, a precios corrientes de la fecha de avalúo\"}', 3),
+(320, 42, 'avaluo_id', 'hidden', 'Avaluo Id', 0, 1, 1, 1, 1, 1, NULL, 4),
+(321, 42, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 5),
+(322, 42, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 6),
+(323, 44, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, NULL, 1),
+(324, 44, 'nombre', 'text', 'Nombre', 0, 1, 1, 1, 1, 1, '{\"default\":\"UOP\",\"display\":{\"width\":4}}', 2),
+(325, 44, 'descripcion', 'text_area', 'Descripción', 0, 1, 1, 1, 1, 1, '{\"display\":{\"rows\":10}}', 5),
+(326, 44, 'metros_cuadrados', 'number', 'Metros Cuadrados M2', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":4}}', 3),
+(327, 44, 'costo', 'number', 'Costo', 0, 1, 1, 1, 1, 1, '{\"display\":{\"width\":4}}', 4),
+(328, 44, 'dictamen_id', 'hidden', 'Dictamen Id', 0, 1, 1, 1, 1, 1, NULL, 6),
+(329, 44, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 7),
+(330, 44, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 8);
 
 -- --------------------------------------------------------
 
@@ -487,15 +508,42 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (22, 'informe_avaluos', 'informe-avaluos', 'Informe Avaluo', 'Informe Avaluos', NULL, '\\App\\InformeAvaluo', NULL, '\\App\\Http\\Controllers\\Voyager\\InformeAvaluoController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-08-31 19:22:58', '2018-09-01 19:07:10'),
 (24, 'informe_contenidos', 'informe-contenidos', 'Informe Contenido', 'Informe Contenidos', NULL, '\\App\\InformeContenido', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-08-31 20:15:21', '2018-09-01 19:07:24'),
 (27, 'avaluos_contenidos', 'avaluos-contenidos', 'Avaluos Contenido', 'Avaluos Contenidos', NULL, 'App\\AvaluosContenido', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-08-31 22:36:18', '2018-08-31 22:36:18'),
-(29, 'avaluos', 'avaluos', 'Avaluo', 'Avaluos', NULL, 'App\\Avaluo', NULL, '\\App\\Http\\Controllers\\Voyager\\AvaluoController', NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-02 20:06:11', '2018-09-02 20:15:08'),
-(30, 'contenidos', 'contenidos', 'Contenido', 'Contenidos', NULL, 'App\\Contenido', NULL, '\\App\\Http\\Controllers\\Voyager\\ContenidoController', 'PENDIENTE, los id son los que tienen el orden de las relaciones en /App/Avaluo.', 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-02 20:12:42', '2018-09-11 19:07:35'),
+(29, 'avaluos', 'avaluos', 'Avaluo', 'Avaluos', NULL, 'App\\Avaluo', NULL, '\\App\\Http\\Controllers\\Voyager\\MyBreadController', NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-02 20:06:11', '2018-09-15 20:02:57'),
+(30, 'contenidos', 'contenidos', 'Contenido', 'Contenidos', NULL, 'App\\Contenido', NULL, NULL, 'PENDIENTE, los id son los que tienen el orden de las relaciones en /App/Avaluo.', 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-02 20:12:42', '2018-09-15 18:34:12'),
 (34, 'solicitantes', 'solicitantes', 'Solicitante', 'Solicitantes', NULL, 'App\\Solicitante', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-04 17:48:17', '2018-09-04 17:48:17'),
-(35, 'solicitudes', 'solicitudes', 'Solicitud', 'Solicitudes', NULL, 'App\\Solicitude', NULL, '\\App\\Http\\Controllers\\Voyager\\SolicitudController', NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-04 18:24:50', '2018-09-04 19:10:40'),
-(36, 'certificaciones', 'certificaciones', 'Certificación', 'Certificaciones', NULL, 'App\\Certificacione', NULL, '\\App\\Http\\Controllers\\Voyager\\CertificacionController', NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-12 02:49:21', '2018-09-12 04:08:10'),
+(35, 'solicitudes', 'solicitudes', 'Solicitud', 'Solicitudes', NULL, 'App\\Solicitude', NULL, '\\App\\Http\\Controllers\\Voyager\\MyBreadController', NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-04 18:24:50', '2018-09-15 21:45:35'),
+(36, 'certificaciones', 'certificaciones', 'Certificación', 'Certificaciones', NULL, 'App\\Certificacione', NULL, '\\App\\Http\\Controllers\\Voyager\\MyBreadController', NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-12 02:49:21', '2018-09-15 21:45:28'),
 (38, 'bases', 'bases', 'Base', 'Bases', NULL, 'App\\Base', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-12 16:43:57', '2018-09-12 16:43:57'),
 (39, 'normas', 'normas', 'Norma', 'Normas', NULL, 'App\\Norma', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-12 16:44:38', '2018-09-12 16:44:38'),
 (40, 'enfoques', 'enfoques', 'Enfoque', 'Enfoques', NULL, 'App\\Enfoque', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-12 16:45:08', '2018-09-12 16:45:08'),
-(41, 'planteamientos', 'planteamientos', 'Planteamiento', 'Planteamientos', NULL, 'App\\Planteamiento', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-12 17:02:21', '2018-09-12 18:49:10');
+(41, 'planteamientos', 'planteamientos', 'Planteamiento', 'Planteamientos', NULL, 'App\\Planteamiento', NULL, '\\App\\Http\\Controllers\\Voyager\\MyBreadController', NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-12 17:02:21', '2018-09-15 21:53:38'),
+(42, 'dictamenes', 'dictamenes', 'Dictamen', 'Dictamenes', NULL, 'App\\Dictamene', NULL, '\\App\\Http\\Controllers\\Voyager\\MyBreadController', NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-15 17:50:52', '2018-09-15 21:45:46'),
+(44, 'unidades_organicasproductivas', 'unidades-organicasproductivas', 'Unidad Orgánica Productiva', 'Unidades Orgánicas Productivas', NULL, 'App\\UnidadesOrganicasproductiva', NULL, NULL, NULL, 1, 1, '{\"order_column\":null,\"order_display_column\":null}', '2018-09-16 00:56:23', '2018-09-16 00:56:23');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `dictamenes`
+--
+
+CREATE TABLE `dictamenes` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `descripcion` text COLLATE utf8mb4_unicode_ci,
+  `descripcion2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `avaluo_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `dictamenes`
+--
+
+INSERT INTO `dictamenes` (`id`, `descripcion`, `descripcion2`, `avaluo_id`, `created_at`, `updated_at`) VALUES
+(2, 'Según el planteamiento de la valuación pertinentemente explicada para el caso que se reporta en este IA, se formula el dictamen valorativo conclusivo que se expone mas abajo, valido para la fecha de avalúo, a precios corrientes de igual fecha y en el tipo de moneda indicada. \r\n\r\nDebe apuntarse que dicho dictamen es el producto de la síntesis valorativa de resultados procesales debidamente conciliados, convalidados y acotados según advertencias y condicionantes pertinentes, todo lo cual se expone en este mismo Informe, en [la Planilla IA-HJG12 (Resultados conclusivos).]', 'Dictamen valorativo conclusivo, a precios corrientes de la fecha de avalúo', 22, '2018-09-15 18:42:54', '2018-09-15 18:42:54'),
+(3, 'Según el planteamiento de la valuación pertinentemente explicada para el caso que se reporta en este IA, se formula el dictamen valorativo conclusivo que se expone mas abajo, valido para la fecha de avalúo, a precios corrientes de igual fecha y en el tipo de moneda indicada. \r\n\r\nDebe apuntarse que dicho dictamen es el producto de la síntesis valorativa de resultados procesales debidamente conciliados, convalidados y acotados según advertencias y condicionantes pertinentes, todo lo cual se expone en este mismo Informe, en [la Planilla IA-HJG12 (Resultados conclusivos).]', 'Dictamen valorativo conclusivo, a precios corrientes de la fecha de avalúo', 8, '2018-09-15 21:48:30', '2018-09-15 21:48:30'),
+(4, 'Según el planteamiento de la valuación pertinentemente explicada para el caso que se reporta en este IA, se formula el dictamen valorativo conclusivo que se expone mas abajo, valido para la fecha de avalúo, a precios corrientes de igual fecha y en el tipo de moneda indicada. \r\n\r\nDebe apuntarse que dicho dictamen es el producto de la síntesis valorativa de resultados procesales debidamente conciliados, convalidados y acotados según advertencias y condicionantes pertinentes, todo lo cual se expone en este mismo Informe, en [la Planilla IA-HJG12 (Resultados conclusivos).', 'Dictamen valorativo conclusivo, a precios corrientes de la fecha de avalúo', 11, '2018-09-15 21:49:51', '2018-09-15 21:51:57'),
+(10, 'Según el planteamiento de la valuación pertinentemente explicada para el caso que se reporta en este IA, se formula el dictamen valorativo conclusivo que se expone mas abajo, valido para la fecha de avalúo, a precios corrientes de igual fecha y en el tipo de moneda indicada. \r\n\r\nDebe apuntarse que dicho dictamen es el producto de la síntesis valorativa de resultados procesales debidamente conciliados, convalidados y acotados según advertencias y condicionantes pertinentes, todo lo cual se expone en este mismo Informe, en [la Planilla IA-HJG12 (Resultados conclusivos).]', 'Dictamen valorativo conclusivo, a precios corrientes de la fecha de avalúo', 6, '2018-09-16 21:02:26', '2018-09-16 21:02:26');
 
 -- --------------------------------------------------------
 
@@ -628,14 +676,14 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (2, 1, 'Media', '', '_self', 'voyager-images', NULL, NULL, 5, '2018-08-13 17:29:11', '2018-09-05 21:40:24', 'voyager.media.index', NULL),
 (3, 1, 'Usuarios', '', '_self', 'voyager-person', '#000000', NULL, 3, '2018-08-13 17:29:11', '2018-09-05 21:40:24', 'voyager.users.index', 'null'),
 (4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 4, '2018-08-13 17:29:11', '2018-09-05 21:40:24', 'voyager.roles.index', NULL),
-(5, 1, 'Herramientas', '', '_self', 'voyager-tools', '#000000', NULL, 6, '2018-08-13 17:29:11', '2018-09-12 18:51:58', NULL, ''),
+(5, 1, 'Herramientas', '', '_self', 'voyager-tools', '#000000', NULL, 6, '2018-08-13 17:29:11', '2018-09-16 21:00:26', NULL, ''),
 (6, 1, 'Menu Builder', '', '_self', 'voyager-list', NULL, 5, 1, '2018-08-13 17:29:11', '2018-08-31 20:20:49', 'voyager.menus.index', NULL),
 (7, 1, 'Base de Datos', '', '_self', 'voyager-data', '#000000', 5, 2, '2018-08-13 17:29:11', '2018-08-31 20:20:51', 'voyager.database.index', 'null'),
 (8, 1, 'Compass', '', '_self', 'voyager-compass', NULL, 5, 3, '2018-08-13 17:29:11', '2018-08-31 20:20:51', 'voyager.compass.index', NULL),
 (9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 4, '2018-08-13 17:29:11', '2018-08-31 20:20:51', 'voyager.bread.index', NULL),
 (10, 1, 'Configuración del Sitio', '', '_self', 'voyager-settings', '#000000', 22, 1, '2018-08-13 17:29:11', '2018-08-21 16:58:36', 'voyager.settings.index', 'null'),
 (14, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, 5, 5, '2018-08-13 17:29:14', '2018-08-31 20:20:51', 'voyager.hooks', NULL),
-(22, 1, 'Configuración', '', '_self', 'voyager-settings', '#000000', NULL, 7, '2018-08-14 01:41:36', '2018-09-12 18:51:58', NULL, ''),
+(22, 1, 'Configuración', '', '_self', 'voyager-settings', '#000000', NULL, 7, '2018-08-14 01:41:36', '2018-09-16 21:00:26', NULL, ''),
 (23, 1, 'Estados', '', '_self', NULL, '#000000', 26, 1, '2018-08-14 03:18:04', '2018-08-21 16:34:45', 'voyager.states.index', 'null'),
 (24, 1, 'Municipios', '', '_self', NULL, NULL, 26, 2, '2018-08-14 04:33:28', '2018-08-21 16:34:46', 'voyager.municipios.index', NULL),
 (25, 1, 'Parroquias', '', '_self', NULL, NULL, 26, 3, '2018-08-14 05:04:41', '2018-08-21 16:34:47', 'voyager.parroquias.index', NULL),
@@ -647,11 +695,13 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (40, 1, 'Contenidos del Avaluo', '', '_self', 'voyager-list', '#000000', 30, 3, '2018-09-02 20:12:42', '2018-09-12 16:46:35', 'voyager.contenidos.index', 'null'),
 (43, 1, 'Clientes', '', '_self', 'voyager-people', '#000000', 30, 2, '2018-09-04 17:48:17', '2018-09-12 16:46:35', 'voyager.solicitantes.index', 'null'),
 (44, 1, '1. Solicitudes', '', '_self', 'voyager-pen', '#000000', 30, 4, '2018-09-04 18:24:51', '2018-09-12 16:47:04', 'voyager.solicitudes.index', 'null'),
-(45, 1, '3. Certificaciones', '', '_self', 'voyager-pen', '#000000', 30, 5, '2018-09-12 02:49:22', '2018-09-12 18:59:47', 'voyager.certificaciones.index', 'null'),
-(46, 1, '4.1. Bases', '', '_self', NULL, '#000000', 30, 7, '2018-09-12 16:43:57', '2018-09-12 18:52:18', 'voyager.bases.index', 'null'),
-(47, 1, '4.2. Normas', '', '_self', NULL, '#000000', 30, 8, '2018-09-12 16:44:38', '2018-09-12 18:52:27', 'voyager.normas.index', 'null'),
-(48, 1, '4.3. Enfoques', '', '_self', NULL, '#000000', 30, 9, '2018-09-12 16:45:08', '2018-09-12 18:52:37', 'voyager.enfoques.index', 'null'),
-(49, 1, '4. Planteamientos', '', '_self', 'voyager-pen', '#000000', 30, 6, '2018-09-12 17:02:21', '2018-09-12 18:59:35', 'voyager.planteamientos.index', 'null');
+(45, 1, '3. Certificaciones', '', '_self', 'voyager-pen', '#000000', 30, 7, '2018-09-12 02:49:22', '2018-09-16 21:01:27', 'voyager.certificaciones.index', 'null'),
+(46, 1, '4.1. Bases', '', '_self', NULL, '#000000', 30, 9, '2018-09-12 16:43:57', '2018-09-16 21:01:27', 'voyager.bases.index', 'null'),
+(47, 1, '4.2. Normas', '', '_self', NULL, '#000000', 30, 10, '2018-09-12 16:44:38', '2018-09-16 21:01:27', 'voyager.normas.index', 'null'),
+(48, 1, '4.3. Enfoques', '', '_self', NULL, '#000000', 30, 11, '2018-09-12 16:45:08', '2018-09-16 21:01:27', 'voyager.enfoques.index', 'null'),
+(49, 1, '4. Planteamientos', '', '_self', 'voyager-pen', '#000000', 30, 8, '2018-09-12 17:02:21', '2018-09-16 21:01:27', 'voyager.planteamientos.index', 'null'),
+(50, 1, '2. Dictamenes', '', '_self', 'voyager-pen', '#000000', 30, 5, '2018-09-15 17:50:53', '2018-09-16 00:06:09', 'voyager.dictamenes.index', 'null'),
+(51, 1, '2.1. UOP', '', '_self', NULL, '#000000', 30, 6, '2018-09-16 00:56:24', '2018-09-16 21:01:27', 'voyager.unidades-organicasproductivas.index', 'null');
 
 -- --------------------------------------------------------
 
@@ -2443,7 +2493,17 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (163, 'read_planteamientos', 'planteamientos', '2018-09-12 17:02:21', '2018-09-12 17:02:21'),
 (164, 'edit_planteamientos', 'planteamientos', '2018-09-12 17:02:21', '2018-09-12 17:02:21'),
 (165, 'add_planteamientos', 'planteamientos', '2018-09-12 17:02:21', '2018-09-12 17:02:21'),
-(166, 'delete_planteamientos', 'planteamientos', '2018-09-12 17:02:21', '2018-09-12 17:02:21');
+(166, 'delete_planteamientos', 'planteamientos', '2018-09-12 17:02:21', '2018-09-12 17:02:21'),
+(167, 'browse_dictamenes', 'dictamenes', '2018-09-15 17:50:53', '2018-09-15 17:50:53'),
+(168, 'read_dictamenes', 'dictamenes', '2018-09-15 17:50:53', '2018-09-15 17:50:53'),
+(169, 'edit_dictamenes', 'dictamenes', '2018-09-15 17:50:53', '2018-09-15 17:50:53'),
+(170, 'add_dictamenes', 'dictamenes', '2018-09-15 17:50:53', '2018-09-15 17:50:53'),
+(171, 'delete_dictamenes', 'dictamenes', '2018-09-15 17:50:53', '2018-09-15 17:50:53'),
+(172, 'browse_unidades_organicasproductivas', 'unidades_organicasproductivas', '2018-09-16 00:56:23', '2018-09-16 00:56:23'),
+(173, 'read_unidades_organicasproductivas', 'unidades_organicasproductivas', '2018-09-16 00:56:23', '2018-09-16 00:56:23'),
+(174, 'edit_unidades_organicasproductivas', 'unidades_organicasproductivas', '2018-09-16 00:56:23', '2018-09-16 00:56:23'),
+(175, 'add_unidades_organicasproductivas', 'unidades_organicasproductivas', '2018-09-16 00:56:23', '2018-09-16 00:56:23'),
+(176, 'delete_unidades_organicasproductivas', 'unidades_organicasproductivas', '2018-09-16 00:56:23', '2018-09-16 00:56:23');
 
 -- --------------------------------------------------------
 
@@ -2572,7 +2632,17 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (163, 1),
 (164, 1),
 (165, 1),
-(166, 1);
+(166, 1),
+(167, 1),
+(168, 1),
+(169, 1),
+(170, 1),
+(171, 1),
+(172, 1),
+(173, 1),
+(174, 1),
+(175, 1),
+(176, 1);
 
 -- --------------------------------------------------------
 
@@ -2608,7 +2678,10 @@ INSERT INTO `planteamientos` (`id`, `finalidad_avaluo`, `razon_avaluo`, `usuario
 (7, 'Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, NULL, 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', NULL, '2018-09-12 18:18:34', '2018-09-12 18:18:34'),
 (8, '1Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, NULL, 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', 19, '2018-09-12 18:21:34', '2018-09-12 18:21:34'),
 (9, 'Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, NULL, 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', 18, '2018-09-12 18:33:27', '2018-09-12 18:33:27'),
-(10, 'Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, NULL, 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', 17, '2018-09-12 18:33:49', '2018-09-12 18:33:49');
+(10, 'Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, NULL, 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', 17, '2018-09-12 18:33:49', '2018-09-12 18:33:49'),
+(11, 'Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, NULL, 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', NULL, '2018-09-15 21:49:02', '2018-09-15 21:49:02'),
+(12, 'Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, NULL, 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', NULL, '2018-09-15 21:52:13', '2018-09-15 21:52:13'),
+(13, 'Valuar los derechos de propiedad sobre la globalidad de los bienes definidos en la Carátula de este IA, considerando como base(s) de valor la(s) definida(s) para el caso, especificadas mas adelante en esta misma Planilla.', NULL, NULL, NULL, 'Alcance suficiente para satisfacer la finalidad del avalúo.', '1. Avalúo del derecho de propiedad sobre las UOP aplicando el enfoque de comparación de los precios. \r\n\r\n2. Avalúo del derecho de propiedad sobre el edificio como un único inmueble según la suma algebráica de los valores atribuidos a las UOP1, UOP2 y UOP3.', 'Paso 1: Definición de la valuación a resolver. \r\nPaso 2: Planificación del trabajo de valuación a ejecutar. \r\nPaso 3: Recolección, registro y verificación de datos en oficina y en campo, incluyendo inspección de los bienes. \r\nPaso 4: Estimación de los valores de avalúo según el o los enfoques y métodos pertinentes.  \r\nPaso 5: Revisión, validación y conciliación de resultados valorativos.  \r\nPaso 6: Formulación del Dictamen Valorativo razonadamente convalidado. \r\nPaso 7: Edición y entrega del Informe de Valuación. \r\nPaso 8: Actividades ex-post según fueren necesarias y/o convenientes de realizar mediante acuerdos específicos.', 6, '2018-09-15 21:56:16', '2018-09-15 21:56:16');
 
 -- --------------------------------------------------------
 
@@ -2631,7 +2704,8 @@ CREATE TABLE `planteamiento_base` (
 INSERT INTO `planteamiento_base` (`id`, `planteamiento_id`, `base_id`, `created_at`, `updated_at`) VALUES
 (1, 5, 2, NULL, NULL),
 (2, 5, 4, NULL, NULL),
-(3, 8, 2, NULL, NULL);
+(3, 8, 2, NULL, NULL),
+(4, 13, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2688,7 +2762,10 @@ INSERT INTO `planteamiento_norma` (`id`, `planteamiento_id`, `norma_id`, `create
 (8, 5, 1, NULL, NULL),
 (9, 5, 2, NULL, NULL),
 (10, 8, 1, NULL, NULL),
-(11, 9, 1, NULL, NULL);
+(11, 9, 1, NULL, NULL),
+(12, 11, 1, NULL, NULL),
+(13, 12, 1, NULL, NULL),
+(14, 13, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2840,7 +2917,7 @@ CREATE TABLE `solicitudes` (
 INSERT INTO `solicitudes` (`id`, `requerimiento_informe`, `finalidad_informe`, `necesidad_informe`, `pais`, `estado`, `ciudad`, `municipio`, `parroquia`, `urbanizacion`, `calle`, `edificio`, `piso`, `local`, `parcela`, `catastro`, `uso_potencial`, `uso_factico`, `orden_trabajo`, `periodo_entrevistas_inicio`, `periodo_entrevistas_fin`, `periodo_revision_inicio`, `periodo_revision_fin`, `periodo_inspeccion_inicio`, `periodo_inspeccion_fin`, `moneda`, `created_at`, `updated_at`, `solicitante_id`, `avaluo_id`) VALUES
 (8, 'sdfsdf', NULL, NULL, 'Venezuela', 'Distrito Capital', 'Caracas', 'Caracas', 'Caracas', NULL, 'Catia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'option1', '2018-09-07 06:11:19', '2018-09-07 06:11:19', 9, 6),
 (9, 'fghfgh', 'tryrty', NULL, 'fghfgh', 'Distrito Capital', 'Caracas', 'Caracas', 'Caracas', NULL, 'Catia', NULL, NULL, 'fgh', NULL, NULL, 'fgh', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'option1', '2018-09-07 06:25:10', '2018-09-07 06:25:10', 10, NULL),
-(10, 'xxxxxxxxxxxxx', 'ghjghjh', 'ert', 'ert', 'ert', 'Caracas', 'Caracas', 'Caracas', 'hjhg', 'Catia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-09-08', NULL, 'option1', '2018-09-09 19:50:40', '2018-09-09 19:51:06', 11, 8),
+(10, 'xxxxxxxxxxxx', 'ghjghj', 'ert', 'ert', 'ert', 'Caracas', 'Caracas', 'Caracas', 'hjhg', 'Catia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-09-08', NULL, 'option1', '2018-09-09 19:50:40', '2018-09-15 21:46:57', 1, 8),
 (11, 'aaaaaaaaaaaaaaaa', 'aaaaaaaaa', NULL, 'fg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'aaa', 'aa', NULL, NULL, NULL, NULL, NULL, '2018-09-10', NULL, 'option1', '2018-09-10 20:25:38', '2018-09-10 20:25:38', 1, 9),
 (13, 'qqqqqqqqqqqqqqq', 'qqqqq', NULL, NULL, NULL, NULL, NULL, NULL, 'qqq', NULL, NULL, NULL, NULL, NULL, NULL, 'qqq', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'option1', '2018-09-10 20:34:38', '2018-09-10 20:34:38', 3, 10),
 (14, 'aaaaaa', NULL, NULL, 'aaaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'aaaaaa', NULL, NULL, NULL, NULL, NULL, NULL, '2018-09-10', '2018-09-10', 'option1', '2018-09-10 20:35:56', '2018-09-10 20:35:56', 3, 11),
@@ -2907,6 +2984,34 @@ INSERT INTO `translations` (`id`, `table_name`, `column_name`, `foreign_key`, `l
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `unidades_organicasproductivas`
+--
+
+CREATE TABLE `unidades_organicasproductivas` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nombre` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `descripcion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `metros_cuadrados` int(11) DEFAULT NULL,
+  `costo` double DEFAULT NULL,
+  `dictamen_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `unidades_organicasproductivas`
+--
+
+INSERT INTO `unidades_organicasproductivas` (`id`, `nombre`, `descripcion`, `metros_cuadrados`, `costo`, `dictamen_id`, `created_at`, `updated_at`) VALUES
+(9, 'UOP11', NULL, NULL, 123, 8, NULL, NULL),
+(10, 'UOP33', NULL, NULL, 3, 8, NULL, NULL),
+(11, 'UOP', NULL, NULL, 1, 8, NULL, NULL),
+(12, 'UOP', NULL, NULL, 2, 8, NULL, NULL),
+(14, 'UOP1', NULL, 123, 12, 10, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -2931,7 +3036,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`, `id_estado`, `id_municipio`, `id_parroquia`) VALUES
-(1, 1, 'Admin', 'admin@admin.com', 'users/default.png', '$2y$10$Bdte22LQ7DMRxiAtojqoQeP6Ve3/22LFiFrXG8AVxFtn3DLjQRumq', 'sOyJMn3kFk5OkdneljNf9NdCJnO2Z2Ku49xTrLoRvd0XzDPWaQV3ZCv7UXKg', '{\"locale\":\"es\"}', '2018-08-13 17:29:13', '2018-08-13 18:48:45', NULL, NULL, NULL),
+(1, 1, 'Admin', 'admin@admin.com', 'users/default.png', '$2y$10$Bdte22LQ7DMRxiAtojqoQeP6Ve3/22LFiFrXG8AVxFtn3DLjQRumq', '1aLAXt76A9x79naAbgZOH6oq7MatcMca1WTCvtb2P3Pj83kr1xMsIWxOEMpm', '{\"locale\":\"es\"}', '2018-08-13 17:29:13', '2018-09-12 20:57:26', 3, 30, 87),
 (2, 1, 'Miguel Magdalena2', 'miguelangelmagdalena@gmail.com', 'users/default.png', '$2y$10$Cf39lX9.wVoe8cToy03gtOMGw/UfSnKdNHzOyQehML/ZICRa6MqMS', 'wywpozuvHd6tSLi9rgvGdrpoXmiViSdEGFK1ZJWQwgMBQqMVbOYjLhSpDZlV', '{\"locale\":\"es\"}', '2018-08-13 18:49:26', '2018-08-22 13:30:19', NULL, NULL, NULL),
 (4, 2, 'Miguel Angel', 'miguel@gmail.com', 'users/default.png', '$2y$10$9xpiNR2KDkzAlLLaWPU5gunTa13su0FHS7GxzCrA43k0gJ1Hna2cy', '2FgRsRH9hz5LzYV3fw9FpIAacyburfM43kda4IWKYSBiSBRdQmlmohEJ3kOY', NULL, '2018-08-15 22:24:33', '2018-08-15 22:24:33', NULL, NULL, NULL),
 (6, 2, 'Mitchell2', 'mitch@gmail.com', 'users/default.png', '$2y$10$TDmonoYeDJYDTdAn.ZRkMuP232SXqoDRn9iEqzKH0GOrJu48ezHJu', 'xCQW1AHjCLUsptNtbZHfmkT8tmBEfxaxhvFST5L4BoWGXQVxNNy1E0S6UI1L', NULL, '2018-08-20 19:33:45', '2018-08-20 20:58:12', 24, 462, 1137),
@@ -3000,6 +3105,12 @@ ALTER TABLE `data_types`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `data_types_name_unique` (`name`),
   ADD UNIQUE KEY `data_types_slug_unique` (`slug`);
+
+--
+-- Indices de la tabla `dictamenes`
+--
+ALTER TABLE `dictamenes`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `enfoques`
@@ -3144,6 +3255,12 @@ ALTER TABLE `translations`
   ADD UNIQUE KEY `translations_table_name_column_name_foreign_key_locale_unique` (`table_name`,`column_name`,`foreign_key`,`locale`);
 
 --
+-- Indices de la tabla `unidades_organicasproductivas`
+--
+ALTER TABLE `unidades_organicasproductivas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -3170,13 +3287,13 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT de la tabla `avaluos`
 --
 ALTER TABLE `avaluos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `avaluo_contenido`
 --
 ALTER TABLE `avaluo_contenido`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT de la tabla `bases`
@@ -3188,7 +3305,7 @@ ALTER TABLE `bases`
 -- AUTO_INCREMENT de la tabla `certificaciones`
 --
 ALTER TABLE `certificaciones`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `contenidos`
@@ -3200,13 +3317,19 @@ ALTER TABLE `contenidos`
 -- AUTO_INCREMENT de la tabla `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=317;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=331;
 
 --
 -- AUTO_INCREMENT de la tabla `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT de la tabla `dictamenes`
+--
+ALTER TABLE `dictamenes`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `enfoques`
@@ -3230,7 +3353,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT de la tabla `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
@@ -3266,19 +3389,19 @@ ALTER TABLE `parroquias`
 -- AUTO_INCREMENT de la tabla `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- AUTO_INCREMENT de la tabla `planteamientos`
 --
 ALTER TABLE `planteamientos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `planteamiento_base`
 --
 ALTER TABLE `planteamiento_base`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `planteamiento_enfoque`
@@ -3290,7 +3413,7 @@ ALTER TABLE `planteamiento_enfoque`
 -- AUTO_INCREMENT de la tabla `planteamiento_norma`
 --
 ALTER TABLE `planteamiento_norma`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -3321,6 +3444,12 @@ ALTER TABLE `solicitudes`
 --
 ALTER TABLE `translations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT de la tabla `unidades_organicasproductivas`
+--
+ALTER TABLE `unidades_organicasproductivas`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

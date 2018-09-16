@@ -213,6 +213,12 @@ class MyBreadController extends VoyagerBaseController
 
                 return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','dataType2', 'dataTypeContent2', 'isModelTranslatable2','solicitantes_list'));
             break;
+            case "dictamenes":
+                $uop =  DB::table('unidades_organicasproductivas')
+                    ->where('dictamen_id', $id)
+                    ->get();
+                return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','uop'));
+            break;
             default:
                 return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
             break;
@@ -282,6 +288,16 @@ class MyBreadController extends VoyagerBaseController
                     }else{
                         $request->merge(['solicitante_id' => $request->input('old_solicitante')]);
                     }
+                }
+            break;
+            case "dictamenes":
+                if (!$request->ajax()) {
+                    //Limpiamos todo los contenidos
+                    $uop =  DB::table('unidades_organicasproductivas')
+                                ->where('dictamen_id', $id)
+                                ->delete();
+                    //Insertamos si hay al menos un contenido seleccionado
+                    $this->insertUOP($request, $id);
                 }
             break;
             default:
@@ -386,6 +402,10 @@ class MyBreadController extends VoyagerBaseController
                 
                 return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','dataType2', 'dataTypeContent2', 'isModelTranslatable2','solicitantes_list'));
             break;
+            case "dictamenes":
+                $uop = collect([]);
+                return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','uop'));
+            break;
             default:
                 return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
             break;
@@ -457,6 +477,21 @@ class MyBreadController extends VoyagerBaseController
                     $data  = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
                     
                     event(new BreadDataAdded($dataType, $data));
+                }
+            break;
+            case "dictamenes":
+                if (!$request->has('_validate')) {
+                    //Pasar por parametro en la ruta del form
+                    if($request->input('avaluo')){
+                        $request->merge(['avaluo_id' => $request->input('avaluo')]);
+                    }
+                    
+                    $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
+        
+                    event(new BreadDataAdded($dataType, $data));
+
+                    //Insertamos
+                    $this->insertUOP($request, $data->id);
                 }
             break;
             default:
@@ -661,6 +696,34 @@ class MyBreadController extends VoyagerBaseController
         }
         echo $output;
 
+    }
+
+    //Funcion para insertar o cuando se modifica las UOP en dictamen
+    protected function insertUOP(Request $request, $id)
+    {
+
+        if (isset($request->item_uop)){
+
+            //Hacemos el array para insertar varios
+            $newArray = array();
+            foreach (array_keys($request->item_uop) as $fieldKey) {
+                foreach ($request->item_uop[$fieldKey] as $key=>$value) {
+                    $newArray[$key]["dictamen_id"] = $id;
+                    $newArray[$key][$fieldKey] = $value;
+                    
+                }
+            } 
+            /*
+            Datos recibidos de la vista en forma de array y transformados de esta forma para insertarlos
+            $data = array(
+                array('nombre'=>'UOP', 'descripcion'=> 'algo', 'metros_cuadrados'=>100, 'costo'=> 4096),
+                array('nombre'=>'UOP', 'descripcion'=> 'algo', 'metros_cuadrados'=>100, 'costo'=> 4096),
+                //...
+            );*/
+
+            DB::table('unidades_organicasproductivas')->insert($newArray);
+
+        }
     }
     
 }
