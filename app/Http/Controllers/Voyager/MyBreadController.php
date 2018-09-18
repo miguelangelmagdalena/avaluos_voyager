@@ -22,13 +22,6 @@ class MyBreadController extends VoyagerBaseController
 {
     use BreadRelationshipParser;
 
-    /*switch ($slug) {
-        case "avaluos":
-        break;
-        default:
-        break;
-    }*/
-    
     //***************************************
     //                _____
     //               |  __ \
@@ -219,6 +212,9 @@ class MyBreadController extends VoyagerBaseController
                     ->get();
                 return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','uop'));
             break;
+            case "informes-valoraciones":
+
+            break;
             default:
                 return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
             break;
@@ -405,6 +401,57 @@ class MyBreadController extends VoyagerBaseController
             case "dictamenes":
                 $uop = collect([]);
                 return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','uop'));
+            break;
+            case "informes-valoraciones":
+             // ###Buscamos la tabla inspectores###
+             $slug2 = "inspectores";
+             $dataType2 = Voyager::model('DataType')->where('slug', '=', $slug2)->first();
+             // Check permission
+             $this->authorize('add', app($dataType2->model_name));
+             $dataTypeContent2 = (strlen($dataType2->model_name) != 0)
+                                 ? new $dataType2->model_name()
+                                 : false;
+             foreach ($dataType2->addRows as $key => $row) {
+                 $details2 = json_decode($row->details);
+                 $dataType2->addRows[$key]['col_width'] = isset($details2->width) ? $details2->width : 100;
+             }
+             // If a column has a relationship associated with it, we do not want to show that field
+             $this->removeRelationshipField($dataType2, 'add');
+             //Consultamos todos los inspectores existentes
+             $inspectores_list =  DB::table($slug2)
+                             ->get();
+             
+            // ###Buscamos la tabla bienes###
+            $slug3 = "bienes";
+            $dataType3 = Voyager::model('DataType')->where('slug', '=', $slug3)->first();
+            // Check permission
+            $this->authorize('add', app($dataType3->model_name));
+            $dataTypeContent3 = (strlen($dataType3->model_name) != 0)
+                                ? new $dataType3->model_name()
+                                : false;
+            foreach ($dataType3->addRows as $key => $row) {
+                $details3 = json_decode($row->details);
+                $dataType3->addRows[$key]['col_width'] = isset($details3->width) ? $details3->width : 100;
+            }
+            // If a column has a relationship associated with it, we do not want to show that field
+            $this->removeRelationshipField($dataType3, 'add');
+
+            // ###Buscamos la tabla inspedificacionesectores###
+            $slug4 = "edificaciones";
+            $dataType4 = Voyager::model('DataType')->where('slug', '=', $slug4)->first();
+            // Check permission
+            $this->authorize('add', app($dataType4->model_name));
+            $dataTypeContent4 = (strlen($dataType4->model_name) != 0)
+                                ? new $dataType4->model_name()
+                                : false;
+            foreach ($dataType4->addRows as $key => $row) {
+                $details4 = json_decode($row->details);
+                $dataType4->addRows[$key]['col_width'] = isset($details4->width) ? $details4->width : 100;
+            }
+            // If a column has a relationship associated with it, we do not want to show that field
+            $this->removeRelationshipField($dataType4, 'add');
+             
+             return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','dataType2', 'dataTypeContent2','inspectores_list','dataType3', 'dataTypeContent3','dataType4', 'dataTypeContent4'));
             break;
             default:
                 return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
