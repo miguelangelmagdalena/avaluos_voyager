@@ -91,6 +91,103 @@
                             </div><!-- panel-body -->
                     </div>
 
+                    <!-- ### Componentes de la Obra ### -->
+                    <div class="panel panel-bordered panel-primary">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="icon wb-image"></i> Componentes de la Obra</h3>
+                            <div class="panel-actions">
+                                <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+                            @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                            <div class="table-repsonsive">
+                                <span id="error"></span>
+                                <table class="table table-bordered" id="item_componentes">
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>%f</th>
+                                        <th>Costo Fuente</th>
+                                        <th>Costo Depreciado</th>
+                                        <th>% Costo Depreciado</th>
+                                        <th>Costo Ajustado</th>
+                                        <th>% Costo Ajustado</th>
+                                        <th><button type="button" id="add_componente_obra" class="btn btn-success btn-sm add"><span class="glyphicon glyphicon-plus"></span> Agregar</button></th>
+                                    </tr>
+                                    @foreach ($componentes_list as $row)
+                                        <tr>
+                                            <td><input type="text"   name="item_componente[nombre][]" class="form-control" placeholder="Nombre" value="{{$row->nombre}}"/></td>
+                                            <td><input type="number" name="item_componente[valor_f][]" class="form-control" placeholder="%f" value="{{$row->valor_f}}"/></td>
+                                            <td><input type="number" name="item_componente[costo_fuente][]" class="form-control" placeholder="Costo Fuente" value="{{$row->costo_fuente}}"/></td>
+
+                                            <td><input type="number" name="item_componente[costo_depreciado_componente][]" class="form-control" placeholder="Costo Depreciado" value="{{$row->costo_depreciado_componente}}" disabled/></td>
+                                            <td><input type="number" name="item_componente[porcentaje_costo_fuente][]" class="form-control" placeholder="% Costo Depreciado" value="{{$row->porcentaje_costo_fuente}}" disabled/></td>
+                                            <td><input type="number" name="item_componente[costo_ajustado][]" class="form-control" placeholder="Costo Ajustado" value="{{$row->costo_ajustado}}" disabled/></td>
+                                            <td><input type="number" name="item_componente[porcentaje_costo_ajustado][]" class="form-control" placeholder="% Costo Ajustado" value="{{$row->porcentaje_costo_ajustado}}" disabled/></td>
+                                            <td><button type="button" name="remove" class="btn btn-danger btn-sm remove_componente_obra"><span class="glyphicon glyphicon-minus"></span> Borrar</button></td>
+                                        </tr>                
+                                     @endforeach
+
+                                </table>
+
+                            </div>
+
+                        </div><!-- panel-body -->
+
+                    </div>
+
+                    <!-- ### Construcciones ### -->
+                    <div class="panel panel-bordered panel-primary">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="icon wb-image"></i> Construcciones</h3>
+                            <div class="panel-actions">
+                                <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+                            @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                            <div class="table-repsonsive">
+                                <span id="error"></span>
+                                <table class="table table-bordered" id="item_construcciones">
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Tipo</th>
+                                        <th>C</th>
+                                        <th>A</th>
+                                        <th>e%</th>
+                                        <th>k%</th>
+                                        <th><button type="button" id="add_construccion" class="btn btn-success btn-sm add"><span class="glyphicon glyphicon-plus"></span> Agregar</button></th>
+                                    </tr>
+
+                                </table>
+
+                            </div>
+
+                        </div><!-- panel-body -->
+
+                    </div>
 
                 </div>
                 <div class="col-sm-4">
@@ -115,6 +212,25 @@
                                         </ul>
                                     </div>
                                 @endif
+
+                                <!-- Old -->
+                                <div class="form-group  col-md-12">
+
+                                    <label for="name">¿Es un nuevo inspector?</label>
+                                    <select class="form-control select2 select2-hidden-accessible" id="new_inspector"  name="new_inspector" tabindex="-1" aria-hidden="true" data-dependent="old_inspector">
+                                        <option value="true">Si, agregar nuevo inspector</option>                       
+                                        <option value="false">No, ya existe</option>   
+                                    </select>
+                                </div>
+
+                                <div class="form-group  col-md-12 hidden" id="new_inspector2">
+                                    <label for="name">Inspectores</label>
+                                    <select class="form-control select2 select2-hidden-accessible" id="old_inspector" name="old_inspector" tabindex="-1" aria-hidden="true">
+                                        <option value="">Selecciona un inspector</option>
+                                    </select>
+                                </div>
+
+                                <div id="new_inspector3">
 
                                 <!-- Adding / Editing -->
                                 @php
@@ -149,7 +265,7 @@
                                         </div>
                                     @endif
                                 @endforeach
-
+                                </div>
                             </div><!-- panel-body -->
                     </div>
 
@@ -177,10 +293,10 @@
 
                                 <!-- Adding / Editing -->
                                 @php
-                                    $dataTypeRows = $dataType3->{(!is_null($dataTypeContent3->getKey()) ? 'editRows' : 'addRows' )};
+                                    $dataTypeRows3 = $dataType3->{(!is_null($dataTypeContent3->getKey()) ? 'editRows' : 'addRows' )};
                                 @endphp
 
-                                @foreach($dataTypeRows as $row)
+                                @foreach($dataTypeRows3 as $row)
                                     <!-- GET THE DISPLAY OPTIONS -->
                                     @php
                                         $options = json_decode($row->details);
@@ -192,7 +308,7 @@
                                     @if ($options && isset($options->formfields_custom))
                                         @include('voyager::formfields.custom.' . $options->formfields_custom)
                                     @else
-                                        <div class="form-group @if($row->type == 'hidden') hidden @endif col-md-{{ $display_options->width or 12 }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
+                                        <div class="form-group @if($row->type == 'hidden') hidden @endif col-lg-{{ $display_options->width or 12 }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
                                             {{ $row->slugify }}
                                             <label for="name">{{ $row->display_name }}</label>
                                             @include('voyager::multilingual.input-hidden-bread-edit-add')
@@ -251,7 +367,7 @@
                                     @if ($options && isset($options->formfields_custom))
                                         @include('voyager::formfields.custom.' . $options->formfields_custom)
                                     @else
-                                        <div class="form-group @if($row->type == 'hidden') hidden @endif col-md-{{ $display_options->width or 12 }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
+                                        <div class="form-group @if($row->type == 'hidden') hidden @endif col-lg-{{ $display_options->width or 12 }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
                                             {{ $row->slugify }}
                                             <label for="name">{{ $row->display_name }}</label>
                                             @include('voyager::multilingual.input-hidden-bread-edit-add')
@@ -272,91 +388,7 @@
                     </div>
                     
                 </div>
-                <div class="col-sm-8">
-                    <div class="panel panel-bordered panel-primary">
 
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="icon wb-image"></i> Componentes de la Obra</h3>
-                            <div class="panel-actions">
-                                <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
-                            </div>
-                        </div>
-
-                        <div class="panel-body">
-                            @if (count($errors) > 0)
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-
-                            <div class="table-repsonsive">
-                                <span id="error"></span>
-                                <table class="table table-bordered" id="item_componentes">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Nombre</th>
-                                        <th>%f</th>
-                                        <th>Costo Fuente</th>
-                                        <th>Costo Depreciado</th>
-                                        <th>% Costo Depreciado</th>
-                                        <th>Costo Ajustado</th>
-                                        <th>% Costo Ajustado</th>
-                                        <th><button type="button" id="add_componente_obra" class="btn btn-success btn-sm add"><span class="glyphicon glyphicon-plus"></span> Agregar</button></th>
-                                    </tr>
-
-                                </table>
-
-                            </div>
-
-                        </div><!-- panel-body -->
-
-                    </div>
-
-                    <div class="panel panel-bordered panel-primary">
-
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="icon wb-image"></i> Construcciones</h3>
-                            <div class="panel-actions">
-                                <a class="panel-action voyager-angle-down" data-toggle="panel-collapse" aria-hidden="true"></a>
-                            </div>
-                        </div>
-
-                        <div class="panel-body">
-                            @if (count($errors) > 0)
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-
-                            <div class="table-repsonsive">
-                                <span id="error"></span>
-                                <table class="table table-bordered" id="item_construcciones">
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Tipo</th>
-                                        <th>C</th>
-                                        <th>A</th>
-                                        <th>e%</th>
-                                        <th>k%</th>
-                                        <th><button type="button" id="add_construccion" class="btn btn-success btn-sm add"><span class="glyphicon glyphicon-plus"></span> Agregar</button></th>
-                                    </tr>
-
-                                </table>
-
-                            </div>
-
-                        </div><!-- panel-body -->
-
-                    </div>
-                </div>
 
             </div>
         
@@ -460,35 +492,65 @@
             });
             $('[data-toggle="tooltip"]').tooltip();
 
+
+            //Cuando pregunta si es nuevo inspector
+            $("#new_inspector").change(function(){
+                var valor = $(this).val();
+                //alert("s: " + valor );
+
+                if (valor == "true"){
+                    //alert("s: " + valor );
+                    $("#new_inspector2").addClass("hidden");
+                    $("#new_inspector3").removeClass("hidden");
+                }else{
+                    $("#new_inspector2").removeClass("hidden");
+                    $("#new_inspector3").addClass("hidden");
+
+                    //Peticion AJAX para consultar solicitantes registrados
+                    var dependent = $(this).data('dependent');
+                    var _token = $('input[name="_token"]').val();
+                    
+                    $.ajax({
+                        url:"/inspectores/fetchOldInspectores",
+                        method:"POST",
+                        data:{_token:_token},
+                        success:function(result) {
+
+                            $('#'+dependent).html(result);
+                        }
+                    })
+                }
+            });
+
+
             //To do list 
-            var num_comp = 1;
             //1. Agregar Componentes Obra
             $(document).on('click', '#add_componente_obra', function(){
                 var html = '';
                 html += '<tr>';
-                html += '<td><input type="number" name="item_componente_id" class="form-control" value="'+num_comp+'" disabled/></td>';
                 html += '<td><input type="text"   name="item_componente[nombre][]" class="form-control" placeholder="Nombre"/></td>';
                 html += '<td><input type="number" name="item_componente[valor_f][]" class="form-control" placeholder="%f" /></td>';
                 html += '<td><input type="number" name="item_componente[costo_fuente][]" class="form-control" placeholder="Costo Fuente"/></td>'; 
-                html += '<td><input type="number" name="item_componente[costo_depreciado][]" class="form-control" placeholder="Costo Depreciado" disabled/></td>';
+                html += '<td><input type="number" name="item_componente[costo_depreciado_componente][]" class="form-control" placeholder="Costo Depreciado" disabled/></td>';
                 html += '<td><input type="number" name="item_componente[porcentaje_costo_fuente][]" class="form-control" placeholder="% Costo Depreciado" disabled/></td>';
                 html += '<td><input type="number" name="item_componente[costo_ajustado][]" class="form-control" placeholder="Costo Ajustado" disabled/></td>';
                 html += '<td><input type="number" name="item_componente[porcentaje_costo_ajustado][]" class="form-control" placeholder="% Costo Ajustado" disabled/></td>';       
                 html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove_componente_obra"><span class="glyphicon glyphicon-minus"></span> Borrar</button></td></tr>';
                 $('#item_componentes').append(html);
-                num_comp++;
             });
             //2. Borrar
             $(document).on('click', '.remove_componente_obra', function(){
                 $(this).closest('tr').remove();
             });
+            
+            var construcciones = ["Saab", "Volvo", "BMW"];
 
             //1. Agregar Construcción
             $(document).on('click', '#add_construccion', function(){
                 var html = '';
                 html += '<tr>';
                 html += '<td><input type="text"   name="item_construccion[nombre][]" class="form-control" placeholder="Nombre"/></td>';
-                html += '<td><select name="item_construccion[tipo][]" class="form-control" placeholder="Tipo"> <option value="Urbanismo" selected="true">Urbanismo</option> <option value="Movimiento de Tierra">Movimiento de Tierra</option> <option value="Obras Preliminares">Obras Preliminares</option> <option value="Infraestructura">Infraestructura</option> <option value="Supraestructura">Supraestructura</option> <option value="Instalaciones Eléctricas">Instalaciones Eléctricas</option></select></td>';
+                html += '<td><select name="item_construccion[tipo][]" class="form-control" placeholder="Tipo"> <option value="Urbanismo" selected="true">Urbanismo</option> <option value="Movimiento de Tierra">Movimiento de Tierra</option> <option value="Obras Preliminares">Obras Preliminares</option> <option value="Infraestructura">Infraestructura</option> <option value="Supraestructura">Supraestructura</option> <option value="Instalaciones Eléctricas">Instalaciones Eléctricas</option> <option value=""></option></select></td>';
                 html += '<td><input type="number" name="item_construccion[valor_ind1][]" class="form-control" placeholder=""/></td>'; 
                 html += '<td><input type="number" name="item_construccion[valor_ind2][]" class="form-control" placeholder="" /></td>';
                 html += '<td><input type="number" name="item_construccion[valor_ind3][]" class="form-control" placeholder="" /></td>';

@@ -7,6 +7,7 @@ use App\Contenido;
 use App\AvaluoContenido;
 use App\Solicitude;
 use App\Solicitante;
+use App\InformesValoracione;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use TCG\Voyager\Database\Schema\SchemaManager;
@@ -200,11 +201,7 @@ class MyBreadController extends VoyagerBaseController
                 // Check if BREAD is Translatable
                 $isModelTranslatable2 = is_bread_translatable($dataTypeContent2);
 
-                //Consultamos todos los solicitantes/ clientes existentes
-                $solicitantes_list =  DB::table($slug2)
-                                ->get();
-
-                return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','dataType2', 'dataTypeContent2', 'isModelTranslatable2','solicitantes_list'));
+                return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','dataType2', 'dataTypeContent2', 'isModelTranslatable2'));
             break;
             case "dictamenes":
                 $uop =  DB::table('unidades_organicasproductivas')
@@ -214,6 +211,69 @@ class MyBreadController extends VoyagerBaseController
             break;
             case "informes-valoraciones":
 
+                // ###Buscamos la tabla inspectores###
+                $slug2 = "inspectores";
+                $dataType2 = Voyager::model('DataType')->where('slug', '=', $slug2)->first();
+                $relationships2 = $this->getRelationships($dataType2);
+                //BUSCAMOS EL ID de la relacion
+                //2. Usamos dataTypeContent que ya hizo el query para consultar
+                $id2 = $dataTypeContent->inspector_id;
+                $dataTypeContent2 = (strlen($dataType2->model_name) != 0)
+                    ? app($dataType2->model_name)->with($relationships2)->findOrFail($id2)
+                    : DB::table($dataType2->name)->where('id', $id2)->first(); // If Model doest exist, get data from table name
+                foreach ($dataType2->editRows as $key => $row) {
+                    $details2 = json_decode($row->details);
+                    $dataType2->editRows[$key]['col_width'] = isset($details2->width) ? $details2->width : 100;
+                }
+                // If a column has a relationship associated with it, we do not want to show that field
+                $this->removeRelationshipField($dataType2, 'edit');
+                // Check permission
+                $this->authorize('edit', $dataTypeContent2);
+
+                // ###Buscamos la tabla bienes###
+                $slug3 = "bienes";
+                $dataType3 = Voyager::model('DataType')->where('slug', '=', $slug3)->first();
+                $relationships3 = $this->getRelationships($dataType3);
+                //BUSCAMOS EL ID de la relacion
+                $bien = InformesValoracione::find($id)->bien;
+                $id3 = $bien->id;
+                $dataTypeContent3 = (strlen($dataType3->model_name) != 0)
+                    ? app($dataType3->model_name)->with($relationships3)->findOrFail($id3)
+                    : DB::table($dataType3->name)->where('id', $id3)->first(); // If Model doest exist, get data from table name
+                foreach ($dataType3->editRows as $key => $row) {
+                    $details3 = json_decode($row->details);
+                    $dataType3->editRows[$key]['col_width'] = isset($details3->width) ? $details3->width : 100;
+                }
+                // If a column has a relationship associated with it, we do not want to show that field
+                $this->removeRelationshipField($dataType3, 'edit');
+                // Check permission
+                $this->authorize('edit', $dataTypeContent3);
+
+
+                // ###Buscamos la tabla edificaciones###
+                $slug4 = "edificaciones";
+                $dataType4 = Voyager::model('DataType')->where('slug', '=', $slug4)->first();
+                $relationships4 = $this->getRelationships($dataType4);
+                //BUSCAMOS EL ID de la relacion
+                $edificacion = InformesValoracione::find($id)->edificacion;
+                $id4 = $edificacion->id;
+                $dataTypeContent4 = (strlen($dataType4->model_name) != 0)
+                    ? app($dataType4->model_name)->with($relationships4)->findOrFail($id4)
+                    : DB::table($dataType4->name)->where('id', $id4)->first(); // If Model doest exist, get data from table name
+                foreach ($dataType4->editRows as $key => $row) {
+                    $details4 = json_decode($row->details);
+                    $dataType4->editRows[$key]['col_width'] = isset($details4->width) ? $details4->width : 100;
+                }
+                // If a column has a relationship associated with it, we do not want to show that field
+                $this->removeRelationshipField($dataType3, 'edit');
+                // Check permission
+                $this->authorize('edit', $dataTypeContent3);
+
+
+                $componentes_list =  DB::table('obra_componentes')
+                    ->where('informe_valoracion_id', $id)
+                    ->get();
+                return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','dataType2', 'dataTypeContent2','dataType3', 'dataTypeContent3','dataType4', 'dataTypeContent4','componentes_list'));
             break;
             default:
                 return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
@@ -223,20 +283,14 @@ class MyBreadController extends VoyagerBaseController
     public function update(Request $request, $id)
     {
         $slug = $this->getSlug($request);
-
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
-
         // Compatibility with Model binding.
         $id = $id instanceof Model ? $id->{$id->getKeyName()} : $id;
-
         $data = call_user_func([$dataType->model_name, 'findOrFail'], $id);
-
         // Check permission
         $this->authorize('edit', $data);
-
         // Validate fields with ajax
         $val = $this->validateBread($request->all(), $dataType->editRows, $dataType->name, $id);
-
         if ($val->fails()) {
             return response()->json(['errors' => $val->messages()]);
         }
@@ -294,6 +348,80 @@ class MyBreadController extends VoyagerBaseController
                                 ->delete();
                     //Insertamos si hay al menos un contenido seleccionado
                     $this->insertUOP($request, $id);
+                }
+            break;
+            case "informes-valoraciones":
+                // ###Buscamos la tabla inspectores###
+                $new_inspector = $request->input('new_inspector');
+                if($new_inspector=="true"){
+                    $slug2 = "inspectores";
+                    $dataType2 = Voyager::model('DataType')->where('slug', '=', $slug2)->first();
+                    // ID de inspector
+                    $id2 = $data->inspector_id;
+                    $data2 = call_user_func([$dataType2->model_name, 'findOrFail'], $id2);
+                    // Check permission
+                    $this->authorize('edit', $data2);
+                    // Validate fields with ajax
+                    $val2 = $this->validateBread($request->all(), $dataType2->editRows, $dataType2->name, $id2);
+                    if ($val2->fails()) {
+                        return response()->json(['errors' => $val2->messages()]);
+                    }
+                }
+
+                // ###Buscamos la tabla bienes###
+                $slug3 = "bienes";
+                $dataType3 = Voyager::model('DataType')->where('slug', '=', $slug3)->first();
+                //BUSCAMOS EL ID de la relacion
+                $bien = InformesValoracione::find($id)->bien;
+                $id3 = $bien->id;
+                $data3 = call_user_func([$dataType3->model_name, 'findOrFail'], $id3);
+                // Check permission
+                $this->authorize('edit', $data3);
+                // Validate fields with ajax
+                $val3 = $this->validateBread($request->all(), $dataType3->editRows, $dataType3->name, $id3);
+                if ($val3->fails()) {
+                    return response()->json(['errors' => $val3->messages()]);
+                }
+
+                // ###Buscamos la tabla edificaciones###
+                $slug4 = "edificaciones";
+                $dataType4 = Voyager::model('DataType')->where('slug', '=', $slug4)->first();
+                //BUSCAMOS EL ID de la relacion
+                $edificacion = InformesValoracione::find($id)->edificacion;
+                $id4 = $edificacion->id;
+                $data4 = call_user_func([$dataType4->model_name, 'findOrFail'], $id4);
+                // Check permission
+                $this->authorize('edit', $data4);
+                // Validate fields with ajax
+                $val4 = $this->validateBread($request->all(), $dataType4->editRows, $dataType4->name, $id4);
+                if ($val4->fails()) {
+                    return response()->json(['errors' => $val4->messages()]);
+                }
+
+                if (!$request->ajax()) {
+
+                    //Modificamos el inspector
+                    if($new_inspector=="true"){
+                        $this->insertUpdateData($request, $slug2, $dataType2->editRows, $data2);
+                        event(new BreadDataUpdated($dataType2, $data2));
+                    }else{
+                        $request->merge(['inspector_id' => $request->input('old_inspector')]);
+                    }
+
+                    //Modificamos bien
+                    $this->insertUpdateData($request, $slug3, $dataType3->editRows, $data3);
+                    event(new BreadDataUpdated($dataType3, $data3));
+
+                    //Modificamos edificaciones
+                    $this->insertUpdateData($request, $slug4, $dataType4->editRows, $data4);
+                    event(new BreadDataUpdated($dataType4, $data4));
+
+                    //Limpiamos todo los componentes
+                    $componentes_list =  DB::table('obra_componentes')
+                                ->where('informe_valoracion_id', $id)
+                                ->delete();
+                    //Insertamos si hay al menos un contenido seleccionado
+                    $this->insertComponentes($request, $id);
                 }
             break;
             default:
@@ -390,68 +518,61 @@ class MyBreadController extends VoyagerBaseController
 
                 // Check if BREAD is Translatable
                 $isModelTranslatable2 = is_bread_translatable($dataTypeContent2);
-
-                //Consultamos todos los solicitantes/ clientes existentes
-                $solicitantes_list =  DB::table($slug2)
-                                ->get();
-                //dd($solicitantes_list);
                 
-                return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','dataType2', 'dataTypeContent2', 'isModelTranslatable2','solicitantes_list'));
+                return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','dataType2', 'dataTypeContent2', 'isModelTranslatable2'));
             break;
             case "dictamenes":
                 $uop = collect([]);
                 return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','uop'));
             break;
             case "informes-valoraciones":
-             // ###Buscamos la tabla inspectores###
-             $slug2 = "inspectores";
-             $dataType2 = Voyager::model('DataType')->where('slug', '=', $slug2)->first();
-             // Check permission
-             $this->authorize('add', app($dataType2->model_name));
-             $dataTypeContent2 = (strlen($dataType2->model_name) != 0)
-                                 ? new $dataType2->model_name()
-                                 : false;
-             foreach ($dataType2->addRows as $key => $row) {
-                 $details2 = json_decode($row->details);
-                 $dataType2->addRows[$key]['col_width'] = isset($details2->width) ? $details2->width : 100;
-             }
-             // If a column has a relationship associated with it, we do not want to show that field
-             $this->removeRelationshipField($dataType2, 'add');
-             //Consultamos todos los inspectores existentes
-             $inspectores_list =  DB::table($slug2)
-                             ->get();
-             
-            // ###Buscamos la tabla bienes###
-            $slug3 = "bienes";
-            $dataType3 = Voyager::model('DataType')->where('slug', '=', $slug3)->first();
-            // Check permission
-            $this->authorize('add', app($dataType3->model_name));
-            $dataTypeContent3 = (strlen($dataType3->model_name) != 0)
-                                ? new $dataType3->model_name()
-                                : false;
-            foreach ($dataType3->addRows as $key => $row) {
-                $details3 = json_decode($row->details);
-                $dataType3->addRows[$key]['col_width'] = isset($details3->width) ? $details3->width : 100;
-            }
-            // If a column has a relationship associated with it, we do not want to show that field
-            $this->removeRelationshipField($dataType3, 'add');
+                // ###Buscamos la tabla inspectores###
+                $slug2 = "inspectores";
+                $dataType2 = Voyager::model('DataType')->where('slug', '=', $slug2)->first();
+                // Check permission
+                $this->authorize('add', app($dataType2->model_name));
+                $dataTypeContent2 = (strlen($dataType2->model_name) != 0)
+                                    ? new $dataType2->model_name()
+                                    : false;
+                foreach ($dataType2->addRows as $key => $row) {
+                    $details2 = json_decode($row->details);
+                    $dataType2->addRows[$key]['col_width'] = isset($details2->width) ? $details2->width : 100;
+                }
+                // If a column has a relationship associated with it, we do not want to show that field
+                $this->removeRelationshipField($dataType2, 'add');
+                
+                // ###Buscamos la tabla bienes###
+                $slug3 = "bienes";
+                $dataType3 = Voyager::model('DataType')->where('slug', '=', $slug3)->first();
+                // Check permission
+                $this->authorize('add', app($dataType3->model_name));
+                $dataTypeContent3 = (strlen($dataType3->model_name) != 0)
+                                    ? new $dataType3->model_name()
+                                    : false;
+                foreach ($dataType3->addRows as $key => $row) {
+                    $details3 = json_decode($row->details);
+                    $dataType3->addRows[$key]['col_width'] = isset($details3->width) ? $details3->width : 100;
+                }
+                // If a column has a relationship associated with it, we do not want to show that field
+                $this->removeRelationshipField($dataType3, 'add');
 
-            // ###Buscamos la tabla inspedificacionesectores###
-            $slug4 = "edificaciones";
-            $dataType4 = Voyager::model('DataType')->where('slug', '=', $slug4)->first();
-            // Check permission
-            $this->authorize('add', app($dataType4->model_name));
-            $dataTypeContent4 = (strlen($dataType4->model_name) != 0)
-                                ? new $dataType4->model_name()
-                                : false;
-            foreach ($dataType4->addRows as $key => $row) {
-                $details4 = json_decode($row->details);
-                $dataType4->addRows[$key]['col_width'] = isset($details4->width) ? $details4->width : 100;
-            }
-            // If a column has a relationship associated with it, we do not want to show that field
-            $this->removeRelationshipField($dataType4, 'add');
-             
-             return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','dataType2', 'dataTypeContent2','inspectores_list','dataType3', 'dataTypeContent3','dataType4', 'dataTypeContent4'));
+                // ###Buscamos la tabla edificaciones###
+                $slug4 = "edificaciones";
+                $dataType4 = Voyager::model('DataType')->where('slug', '=', $slug4)->first();
+                // Check permission
+                $this->authorize('add', app($dataType4->model_name));
+                $dataTypeContent4 = (strlen($dataType4->model_name) != 0)
+                                    ? new $dataType4->model_name()
+                                    : false;
+                foreach ($dataType4->addRows as $key => $row) {
+                    $details4 = json_decode($row->details);
+                    $dataType4->addRows[$key]['col_width'] = isset($details4->width) ? $details4->width : 100;
+                }
+                // If a column has a relationship associated with it, we do not want to show that field
+                $this->removeRelationshipField($dataType4, 'add');
+                
+                $componentes_list = collect([]);
+                return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','dataType2', 'dataTypeContent2','dataType3', 'dataTypeContent3','dataType4', 'dataTypeContent4','componentes_list'));
             break;
             default:
                 return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
@@ -539,6 +660,82 @@ class MyBreadController extends VoyagerBaseController
 
                     //Insertamos
                     $this->insertUOP($request, $data->id);
+                }
+            break;
+            case "informes-valoraciones":
+                //## Inspector
+                $new_inspector = $request->input('new_inspector');
+                if($new_inspector=="true"){
+                    $slug2 = "inspectores";
+                    $dataType2 = Voyager::model('DataType')->where('slug', '=', $slug2)->first();
+
+                    // Check permission
+                    $this->authorize('add', app($dataType2->model_name));
+
+                    // Validate fields with ajax
+                    $val2 = $this->validateBread($request->all(), $dataType2->addRows);
+
+                    if ($val2->fails()) {
+                        return response()->json(['errors' => $val2->messages()]);
+                    }
+                }
+
+                //## Bienes
+                $slug3 = "bienes";
+                $dataType3 = Voyager::model('DataType')->where('slug', '=', $slug3)->first();
+                // Check permission
+                $this->authorize('add', app($dataType3->model_name));
+                // Validate fields with ajax
+                $val3 = $this->validateBread($request->all(), $dataType3->addRows);
+                if ($val3->fails()) {
+                    return response()->json(['errors' => $val3->messages()]);
+                }
+
+                //## Edificaciones
+                $slug4 = "edificaciones";
+                $dataType4 = Voyager::model('DataType')->where('slug', '=', $slug4)->first();
+                // Check permission
+                $this->authorize('add', app($dataType4->model_name));
+                // Validate fields with ajax
+                $val4 = $this->validateBread($request->all(), $dataType4->addRows);
+                if ($val4->fails()) {
+                    return response()->json(['errors' => $val4->messages()]);
+                }
+
+                if (!$request->has('_validate')) {
+                    if($new_inspector=="true"){
+                        //Insertamos solicitante
+                        $data2 = $this->insertUpdateData($request, $slug2, $dataType2->addRows, new $dataType2->model_name());
+                        event(new BreadDataAdded($dataType2, $data2));
+        
+                        //Cambiamos el request para saber la Solicitud de que solicitante?
+                        $request->merge(['inspector_id' => $data2->id]);
+                    }else{
+                        $request->merge(['inspector_id' => $request->input('old_inspector')]);
+                    }
+                    
+                    //Pasar por parametro en la ruta del form
+                    if($request->input('avaluo')){
+                        $request->merge(['avaluo_id' => $request->input('avaluo')]);
+                    }
+                        
+                    //Insertamos Informe de valoracion
+                    $data  = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
+                    event(new BreadDataAdded($dataType, $data));
+
+                    //Luego insertamos los otros valores con este id
+                    $request->merge(['informe_valoracion_id' => $data->id]);
+
+                    //## Bienes
+                    $data3  = $this->insertUpdateData($request, $slug3, $dataType3->addRows, new $dataType3->model_name());
+                    event(new BreadDataAdded($dataType3, $data3));
+
+                    //## Edificaciones
+                    $data4  = $this->insertUpdateData($request, $slug4, $dataType4->addRows, new $dataType4->model_name());
+                    event(new BreadDataAdded($dataType4, $data4));
+
+                    //## Componentes
+                    $this->insertComponentes($request, $data->id);
                 }
             break;
             default:
@@ -745,6 +942,24 @@ class MyBreadController extends VoyagerBaseController
 
     }
 
+    //Ajax para consultar todos los inspectores registrados
+    public function fetchOldInspectores(Request $request) 
+    {
+
+        //Consultamos todos los solicitantes/ clientes existentes
+        $inspectores_list =  DB::table('inspectores')
+            ->get();
+        
+
+        $output = '<option value="">Selecciona un inspector</option>';
+        foreach($inspectores_list as $row)
+        {
+            $output .= '<option value="'.$row->id.'">'.$row->nombre.' '.$row->v_b.' '.$row->email.'</option>';
+        }
+        echo $output;
+
+    }
+
     //Funcion para insertar o cuando se modifica las UOP en dictamen
     protected function insertUOP(Request $request, $id)
     {
@@ -769,6 +984,27 @@ class MyBreadController extends VoyagerBaseController
             );*/
 
             DB::table('unidades_organicasproductivas')->insert($newArray);
+
+        }
+    }
+
+    //Funcion para insertar o cuando se modifica los componentes en Informes Valoraciones
+    protected function insertComponentes(Request $request, $id)
+    {
+
+        if (isset($request->item_componente)){
+
+            //Hacemos el array para insertar varios
+            $newArray = array();
+            foreach (array_keys($request->item_componente) as $fieldKey) {
+                foreach ($request->item_componente[$fieldKey] as $key=>$value) {
+                    $newArray[$key]["informe_valoracion_id"] = $id;
+                    $newArray[$key][$fieldKey] = $value;
+                    
+                }
+            } 
+
+            DB::table('obra_componentes')->insert($newArray);
 
         }
     }

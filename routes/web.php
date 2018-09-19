@@ -39,6 +39,11 @@ Route::post('/user_edit/fetchAddress', 'Voyager\userController@fetchAddress')->n
 Route::post('/solicitud/fetchOldSolicitantes', 'Voyager\MyBreadController@fetchOldSolicitantes')->name('solicitud.fetchOldSolicitantes');
 
 /*--------------------------------------------------------------------------
+| Informes Valoracion / Consultar inspectores registrados con ajax
+|--------------------------------------------------------------------------*/
+Route::post('/inspectores/fetchOldInspectores', 'Voyager\MyBreadController@fetchOldInspectores')->name('inspectores.fetchOldInspectores');
+
+/*--------------------------------------------------------------------------
 | Rutas para navegacion entre contenidos del avaluo
 |--------------------------------------------------------------------------*/
 Route::get('/next_content', 'Voyager\MyBreadController@next_content');

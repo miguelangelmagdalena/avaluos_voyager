@@ -303,12 +303,8 @@
 
                             $('#'+dependent).html(result);
                         }
-                
                     })
-
-
                 }
-                    
             });
         });
     </script>
