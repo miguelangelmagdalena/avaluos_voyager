@@ -42,6 +42,7 @@ Route::post('/solicitud/fetchOldSolicitantes', 'Voyager\MyBreadController@fetchO
 | Informes Valoracion / Consultar inspectores registrados con ajax
 |--------------------------------------------------------------------------*/
 Route::post('/inspectores/fetchOldInspectores', 'Voyager\MyBreadController@fetchOldInspectores')->name('inspectores.fetchOldInspectores');
+Route::get('/construcciones/new', 'Voyager\MyBreadController@newConstruccion')->name('construcciones.new');
 
 /*--------------------------------------------------------------------------
 | Rutas para navegacion entre contenidos del avaluo

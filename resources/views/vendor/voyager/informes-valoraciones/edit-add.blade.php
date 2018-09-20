@@ -53,12 +53,12 @@
                                         </ul>
                                     </div>
                                 @endif
-
+                                
                                 <!-- Adding / Editing -->
                                 @php
                                     $dataTypeRows = $dataType->{(!is_null($dataTypeContent->getKey()) ? 'editRows' : 'addRows' )};
                                 @endphp
-
+                                
                                 @foreach($dataTypeRows as $row)
                                     <!-- GET THE DISPLAY OPTIONS -->
                                     @php
@@ -174,6 +174,7 @@
                                     <tr>
                                         <th>Nombre</th>
                                         <th>Tipo</th>
+                                        <th>Subtitulo</th>
                                         <th>C</th>
                                         <th>A</th>
                                         <th>e%</th>
@@ -431,6 +432,8 @@
         </div>
     </div>
     <!-- End Delete File Modal -->
+
+
 @stop
 
 @section('javascript')
@@ -527,15 +530,15 @@
             //1. Agregar Componentes Obra
             $(document).on('click', '#add_componente_obra', function(){
                 var html = '';
-                html += '<tr>';
-                html += '<td><input type="text"   name="item_componente[nombre][]" class="form-control" placeholder="Nombre"/></td>';
-                html += '<td><input type="number" name="item_componente[valor_f][]" class="form-control" placeholder="%f" /></td>';
-                html += '<td><input type="number" name="item_componente[costo_fuente][]" class="form-control" placeholder="Costo Fuente"/></td>'; 
-                html += '<td><input type="number" name="item_componente[costo_depreciado_componente][]" class="form-control" placeholder="Costo Depreciado" disabled/></td>';
-                html += '<td><input type="number" name="item_componente[porcentaje_costo_fuente][]" class="form-control" placeholder="% Costo Depreciado" disabled/></td>';
-                html += '<td><input type="number" name="item_componente[costo_ajustado][]" class="form-control" placeholder="Costo Ajustado" disabled/></td>';
-                html += '<td><input type="number" name="item_componente[porcentaje_costo_ajustado][]" class="form-control" placeholder="% Costo Ajustado" disabled/></td>';       
-                html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove_componente_obra"><span class="glyphicon glyphicon-minus"></span> Borrar</button></td></tr>';
+                html += `<tr>
+                <td><input type="text"   name="item_componente[nombre][]" class="form-control" placeholder="Nombre"/></td>
+                <td><input type="number" name="item_componente[valor_f][]" class="form-control" placeholder="%f" /></td>
+                <td><input type="number" name="item_componente[costo_fuente][]" class="form-control" placeholder="Costo Fuente"/></td>
+                <td><input type="number" name="item_componente[costo_depreciado_componente][]" class="form-control" placeholder="Costo Depreciado" disabled/></td>
+                <td><input type="number" name="item_componente[porcentaje_costo_fuente][]" class="form-control" placeholder="% Costo Depreciado" disabled/></td>
+                <td><input type="number" name="item_componente[costo_ajustado][]" class="form-control" placeholder="Costo Ajustado" disabled/></td>
+                <td><input type="number" name="item_componente[porcentaje_costo_ajustado][]" class="form-control" placeholder="% Costo Ajustado" disabled/></td>       
+                <td><button type="button" name="remove" class="btn btn-danger btn-sm remove_componente_obra"><span class="glyphicon glyphicon-minus"></span> Borrar</button></td></tr>`;
                 $('#item_componentes').append(html);
             });
             //2. Borrar
@@ -543,25 +546,35 @@
                 $(this).closest('tr').remove();
             });
             
-            var construcciones = ["Saab", "Volvo", "BMW"];
-
             //1. Agregar Construcción
             $(document).on('click', '#add_construccion', function(){
-                var html = '';
-                html += '<tr>';
-                html += '<td><input type="text"   name="item_construccion[nombre][]" class="form-control" placeholder="Nombre"/></td>';
-                html += '<td><select name="item_construccion[tipo][]" class="form-control" placeholder="Tipo"> <option value="Urbanismo" selected="true">Urbanismo</option> <option value="Movimiento de Tierra">Movimiento de Tierra</option> <option value="Obras Preliminares">Obras Preliminares</option> <option value="Infraestructura">Infraestructura</option> <option value="Supraestructura">Supraestructura</option> <option value="Instalaciones Eléctricas">Instalaciones Eléctricas</option> <option value=""></option></select></td>';
-                html += '<td><input type="number" name="item_construccion[valor_ind1][]" class="form-control" placeholder=""/></td>'; 
-                html += '<td><input type="number" name="item_construccion[valor_ind2][]" class="form-control" placeholder="" /></td>';
-                html += '<td><input type="number" name="item_construccion[valor_ind3][]" class="form-control" placeholder="" /></td>';
-                html += '<td><input type="number" name="item_construccion[valor_ind4][]" class="form-control" placeholder="" /></td>';       
-                html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove_construccion"><span class="glyphicon glyphicon-minus"></span> Borrar</button></td></tr>';
-                $('#item_construcciones').append(html);
+
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+                    url:"/construcciones/new",
+                    method:"GET",
+                    data:{_token:_token, new: true, informe_valoracion_id: @json($dataTypeContent->id)},
+                    success:function(result) {
+                        $('#item_construcciones').append(result);
+                    }
+                })
+
             });
             //2. Borrar Construcción
             $(document).on('click', '.remove_construccion', function(){
                 $(this).closest('tr').remove();
             });
+
+            //3. Consultamos las Construccion para editar AJAX
+            var _token = $('input[name="_token"]').val();
+                $.ajax({
+                    url:"/construcciones/new",
+                    method:"GET",
+                    data:{_token:_token, new: false, informe_valoracion_id: @json($dataTypeContent->id)},
+                    success:function(result) {
+                        $('#item_construcciones').append(result);
+                    }
+                })
         });
     </script>
 @stop

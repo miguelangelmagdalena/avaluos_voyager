@@ -422,6 +422,13 @@ class MyBreadController extends VoyagerBaseController
                                 ->delete();
                     //Insertamos si hay al menos un contenido seleccionado
                     $this->insertComponentes($request, $id);
+
+                    //Limpiamos todo los construcciones
+                    $construcciones_list =  DB::table('construcciones')
+                                ->where('informe_valoracion_id', $id)
+                                ->delete();
+                    //Insertamos si hay al menos un contenido seleccionado
+                    $this->insertConstrucciones($request, $id);
                 }
             break;
             default:
@@ -572,6 +579,7 @@ class MyBreadController extends VoyagerBaseController
                 $this->removeRelationshipField($dataType4, 'add');
                 
                 $componentes_list = collect([]);
+
                 return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable','dataType2', 'dataTypeContent2','dataType3', 'dataTypeContent3','dataType4', 'dataTypeContent4','componentes_list'));
             break;
             default:
@@ -736,6 +744,9 @@ class MyBreadController extends VoyagerBaseController
 
                     //## Componentes
                     $this->insertComponentes($request, $data->id);
+
+                    //## Construcciones
+                    $this->insertConstrucciones($request, $data->id);
                 }
             break;
             default:
@@ -960,6 +971,111 @@ class MyBreadController extends VoyagerBaseController
 
     }
 
+    //Ajax para agregar construccion
+    public function newConstruccion(Request $request) 
+    {
+        //dd($request);
+        //Parametro para difererciar si esta editando o agregando
+        $new = $request->new;
+        $informe_valoracion_id = $request->informe_valoracion_id;
+        
+        // ###Buscamos la tabla construcciones###
+        $slug5 = "construcciones";
+
+        //Salida
+        $output = '';
+        
+        if($new == "true"){
+            $dataType5 = Voyager::model('DataType')->where('slug', '=', $slug5)->first();
+            // Check permission
+            $this->authorize('add', app($dataType5->model_name));
+            $dataTypeContent5 = (strlen($dataType5->model_name) != 0)
+                                ? new $dataType5->model_name()
+                                : false;
+            foreach ($dataType5->addRows as $key => $row) {
+                $details5 = json_decode($row->details);
+                $dataType5->addRows[$key]['col_width'] = isset($details5->width) ? $details5->width : 100;
+            }
+            // If a column has a relationship associated with it, we do not want to show that field
+            $this->removeRelationshipField($dataType5, 'add');
+
+            //Adding / Editing 
+            $dataTypeRows = $dataType5->{(!is_null($dataTypeContent5->getKey()) ? 'editRows' : 'addRows' )};
+
+            $output .= '<tr>';
+            foreach($dataTypeRows as $row){
+                //GET THE DISPLAY OPTIONS
+                $options = json_decode($row->details);
+                $display_options = isset($options->display) ? $options->display : NULL;
+
+                //Agregamos el name para los input
+                $row->setAttribute('name', 'item_construccion['.$row->field.'][]');
+                if ($options && isset($options->formfields_custom)){
+                    //include('voyager::formfields.custom.' . $options->formfields_custom)
+                }else{
+                    //@include('voyager::multilingual.input-hidden-bread-edit-add')
+                    if($row->type == 'relationship'){
+                        //@include('voyager::formfields.relationship')
+                    }elseif ($row->type != 'hidden'){
+                        $output .= '<td>'.app('voyager')->formField($row, $dataType5, $dataTypeContent5).'</td>';
+                    }
+                }
+            }
+            $output .= '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove_construccion"><span class="glyphicon glyphicon-minus"></span> Borrar</button></td></tr>';
+
+        }else{
+            // ###Buscamos la tabla construcciones###
+            $dataType5 = Voyager::model('DataType')->where('slug', '=', $slug5)->first();
+            $relationships5 = $this->getRelationships($dataType5);
+            
+            //BUSCAMOS EL ID de la relacion
+            $construcciones = InformesValoracione::find($informe_valoracion_id)->construcciones;
+            
+            foreach($construcciones as $construccion){
+                $id5 = $construccion->id;
+        
+                $dataTypeContent5 = (strlen($dataType5->model_name) != 0)
+                    ? app($dataType5->model_name)->with($relationships5)->findOrFail($id5)
+                    : DB::table($dataType5->name)->where('id', $id5)->first(); // If Model doest exist, get data from table name
+                foreach ($dataType5->editRows as $key => $row) {
+                    $details5 = json_decode($row->details);
+                    $dataType5->editRows[$key]['col_width'] = isset($details5->width) ? $details5->width : 100;
+                }
+                // If a column has a relationship associated with it, we do not want to show that field
+                $this->removeRelationshipField($dataType5, 'edit');
+                // Check permission
+                $this->authorize('edit', $dataTypeContent5);
+
+                //Adding / Editing 
+                $dataTypeRows = $dataType5->{(!is_null($dataTypeContent5->getKey()) ? 'editRows' : 'addRows' )};
+
+                $output .= '<tr>';
+                foreach($dataTypeRows as $row){
+                    //GET THE DISPLAY OPTIONS
+                    $options = json_decode($row->details);
+                    $display_options = isset($options->display) ? $options->display : NULL;
+
+                    //Agregamos el name para los input
+                    $row->setAttribute('name', 'item_construccion['.$row->field.'][]');
+                    if ($options && isset($options->formfields_custom)){
+                        //include('voyager::formfields.custom.' . $options->formfields_custom)
+                    }else{
+                        //@include('voyager::multilingual.input-hidden-bread-edit-add')
+                        if($row->type == 'relationship'){
+                            //@include('voyager::formfields.relationship')
+                        }elseif ($row->type != 'hidden'){
+                            $output .= '<td>'.app('voyager')->formField($row, $dataType5, $dataTypeContent5).'</td>';
+                        }
+                    }
+                }
+                $output .= '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove_construccion"><span class="glyphicon glyphicon-minus"></span> Borrar</button></td></tr>';
+
+            }
+        }
+
+        echo $output;
+
+    }
     //Funcion para insertar o cuando se modifica las UOP en dictamen
     protected function insertUOP(Request $request, $id)
     {
@@ -1009,4 +1125,23 @@ class MyBreadController extends VoyagerBaseController
         }
     }
     
+     //Funcion para insertar o cuando se modifica los construcciones en Informes Valoraciones
+     protected function insertConstrucciones(Request $request, $id)
+     {
+ 
+         if (isset($request->item_construccion)){
+ 
+             //Hacemos el array para insertar varios
+             $newArray = array();
+             foreach (array_keys($request->item_construccion) as $fieldKey) {
+                 foreach ($request->item_construccion[$fieldKey] as $key=>$value) {
+                     $newArray[$key]["informe_valoracion_id"] = $id;
+                     $newArray[$key][$fieldKey] = $value;                    
+                 }
+             } 
+ 
+             DB::table('construcciones')->insert($newArray);
+ 
+         }
+     }
 }

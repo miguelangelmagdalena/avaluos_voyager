@@ -18,6 +18,9 @@ class Avaluo extends Model
     public function dictamen(){
         return $this->hasOne('App\Dictamene','avaluo_id','id');
     }
+    public function informesValoraciones(){
+        return $this->hasOne('App\Dictamene','avaluo_id','id');
+    }
     //Guarda todas las relaciones con contenido (cada vez que se agrege contenido se debe agregar un modelo relacionado aqui para mantener la navegabilidad)
     public function relationships(int $relation){
         switch ($relation) {
@@ -32,6 +35,9 @@ class Avaluo extends Model
                 break;
             case 4:
                 return $this->hasOne('App\Planteamiento','avaluo_id','id');
+                break;
+            case 5:
+                return $this->hasOne('App\InformesValoracione','avaluo_id','id');
                 break;
             default:
                 return null;
