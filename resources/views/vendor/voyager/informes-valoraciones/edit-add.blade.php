@@ -525,8 +525,7 @@
                 }
             });
 
-
-            //To do list 
+            //##### To do list  #####
             //1. Agregar Componentes Obra
             $(document).on('click', '#add_componente_obra', function(){
                 var html = '';
@@ -541,6 +540,7 @@
                 <td><button type="button" name="remove" class="btn btn-danger btn-sm remove_componente_obra"><span class="glyphicon glyphicon-minus"></span> Borrar</button></td></tr>`;
                 $('#item_componentes').append(html);
             });
+
             //2. Borrar
             $(document).on('click', '.remove_componente_obra', function(){
                 $(this).closest('tr').remove();
@@ -548,7 +548,6 @@
             
             //1. Agregar Construcción
             $(document).on('click', '#add_construccion', function(){
-
                 var _token = $('input[name="_token"]').val();
                 $.ajax({
                     url:"/construcciones/new",
@@ -558,8 +557,8 @@
                         $('#item_construcciones').append(result);
                     }
                 })
-
             });
+
             //2. Borrar Construcción
             $(document).on('click', '.remove_construccion', function(){
                 $(this).closest('tr').remove();
@@ -575,6 +574,7 @@
                         $('#item_construcciones').append(result);
                     }
                 })
+            
         });
     </script>
 @stop
