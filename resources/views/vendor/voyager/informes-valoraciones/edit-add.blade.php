@@ -548,15 +548,7 @@
             
             //1. Agregar Construcción
             $(document).on('click', '#add_construccion', function(){
-                var _token = $('input[name="_token"]').val();
-                $.ajax({
-                    url:"/construcciones/new",
-                    method:"GET",
-                    data:{_token:_token, new: true, informe_valoracion_id: @json($dataTypeContent->id)},
-                    success:function(result) {
-                        $('#item_construcciones').append(result);
-                    }
-                })
+                add_edit_construccion(true);
             });
 
             //2. Borrar Construcción
@@ -565,15 +557,19 @@
             });
 
             //3. Consultamos las Construccion para editar AJAX
-            var _token = $('input[name="_token"]').val();
+            add_edit_construccion(false);
+                
+            function add_edit_construccion (add_new){
+                var _token = $('input[name="_token"]').val();
                 $.ajax({
                     url:"/construcciones/new",
                     method:"GET",
-                    data:{_token:_token, new: false, informe_valoracion_id: @json($dataTypeContent->id)},
+                    data:{_token:_token, new: add_new, informe_valoracion_id: @json($dataTypeContent->id)},
                     success:function(result) {
                         $('#item_construcciones').append(result);
                     }
                 })
+            }
             
         });
     </script>

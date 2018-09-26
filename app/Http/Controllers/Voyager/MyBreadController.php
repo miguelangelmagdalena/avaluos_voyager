@@ -833,14 +833,89 @@ class MyBreadController extends VoyagerBaseController
         $slug = $this->getSlug($request);
 
         switch ($slug) {
-            case "algo":
-            break;
-            default:
+            case "informes-valoraciones":
+                $slugs = ["bienes","edificaciones","obra-componentes","construcciones"];
+                $slugs_cantidad = 4;
+
                 $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
 
+                $dataTypes = [];
+                foreach ($slugs as $key=>$singleSlug){
+                    $dataTypes[$key] = Voyager::model('DataType')->where('slug', '=', $singleSlug)->first();
+                    $this->authorize('delete', app($dataTypes[$key]->model_name));
+                }
                 // Check permission
                 $this->authorize('delete', app($dataType->model_name));
         
+                // Init array of IDs
+                $ids = [];
+                if (empty($id)) {
+                    // Bulk delete, get IDs from POST
+                    $ids = explode(',', $request->ids);
+                } else {
+                    // Single item delete, get ID from URL
+                    $ids[] = $id;
+                }
+
+                //Id de relaciones
+                $ids_slugs = array(array());
+                
+                for ($i = 0; $i < $slugs_cantidad; $i++) {
+                    $ids_slugs[$i] = [];
+                }
+                
+                foreach ($ids as $id) {
+                    $data = call_user_func([$dataType->model_name, 'findOrFail'], $id);
+                    $this->cleanup($dataType, $data);
+
+                    //##Buscamos todas las tablas relacionadas
+                    for ($i = 0; $i < $slugs_cantidad; $i++) {
+                        $this->queryInformesValoraciones($i,$id,$ids_slugs[$i]);
+                    }
+                    
+                }
+                $datas = [];
+                foreach ($ids_slugs as $key=>$idSlug) {
+                    foreach ($idSlug as $id) {
+                        $datas[$key] = call_user_func([$dataTypes[$key]->model_name, 'findOrFail'], $id);
+                        $this->cleanup($dataTypes[$key], $datas);
+                    }
+                }
+
+                $displayName = count($ids) > 1 ? $dataType->display_name_plural : $dataType->display_name_singular;
+  
+                $res = $data->destroy($ids);
+                
+
+                for ($i = 0; $i < $slugs_cantidad; $i++) {
+                    if(isset($datas[$i])){
+                        $res2[$i] = $datas[$i]->destroy($ids_slugs[$i]);
+                        if ($res2[$i]) {
+                            event(new BreadDataDeleted($dataTypes[$i], $datas[$i]));
+                        }
+                    }
+                }   
+                
+                $data = $res
+                    ? [
+                        'message'    => __('voyager::generic.successfully_deleted')." {$displayName}",
+                        'alert-type' => 'success',
+                    ]
+                    : [
+                        'message'    => __('voyager::generic.error_deleting')." {$displayName}",
+                        'alert-type' => 'error',
+                    ];
+        
+                if ($res) {
+                    event(new BreadDataDeleted($dataType, $data));
+                }
+        
+                return redirect()->route("voyager.{$dataType->slug}.index")->with($data);
+            break;
+            default:
+                $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
+                // Check permission
+                $this->authorize('delete', app($dataType->model_name));
                 // Init array of IDs
                 $ids = [];
                 if (empty($id)) {
@@ -854,10 +929,7 @@ class MyBreadController extends VoyagerBaseController
                     $data = call_user_func([$dataType->model_name, 'findOrFail'], $id);
                     $this->cleanup($dataType, $data);
                 }
-                //dd($data);
-
                 $displayName = count($ids) > 1 ? $dataType->display_name_plural : $dataType->display_name_singular;
-        
                 $res = $data->destroy($ids);
                 $data = $res
                     ? [
@@ -874,7 +946,25 @@ class MyBreadController extends VoyagerBaseController
                 }
         
                 return redirect()->route("voyager.{$dataType->slug}.index")->with($data);
-                break;
+            break;
+        }
+    }
+    protected function queryInformesValoraciones ($relation, $id, &$array){
+        $query = InformesValoracione::find($id)->relationships($relation)->get();
+        foreach ($query as $row) {
+            $aux = [$row->id];
+            $array  = array_merge($array, $aux);
+        }
+        
+    }
+
+    protected function queryMerge($query, $old_array, $data, $dataType, $id)
+    {
+        foreach ($query as $row) {
+            $array = [$row->id];
+            $old_array  = array_merge($old_array, $array);
+            $data = call_user_func([$dataType->model_name, 'findOrFail'], $id);
+            $this->cleanup($dataType, $data);
         }
     }
 
