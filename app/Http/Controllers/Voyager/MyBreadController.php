@@ -18,7 +18,8 @@ use TCG\Voyager\Events\BreadImagesDeleted;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 use TCG\Voyager\Http\Controllers\VoyagerBaseController;
-
+use App;
+use PDF;
 class MyBreadController extends VoyagerBaseController
 {
     use BreadRelationshipParser;
@@ -72,11 +73,16 @@ class MyBreadController extends VoyagerBaseController
                 }
 
                 //Probando visualizacion en pdf
-            
-                $view = Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
-                $pdf = \App::make('dompdf.wrapper');
-                $pdf->loadHTML($view);
-                return $pdf->stream('Ava');
+                
+                $view2 = Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
+                /*$pdf = App::make('snappy.pdf.wrapper');
+                $pdf->loadHTML($view2);*/
+
+                $pdf = PDF::loadView($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
+
+
+
+                return $pdf->inline();
             break;
             default:
                 $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();

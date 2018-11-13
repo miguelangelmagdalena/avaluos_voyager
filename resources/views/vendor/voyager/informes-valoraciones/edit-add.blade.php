@@ -71,7 +71,7 @@
                                     @if ($options && isset($options->formfields_custom))
                                         @include('voyager::formfields.custom.' . $options->formfields_custom)
                                     @else
-                                        <div class="form-group @if($row->type == 'hidden') hidden @endif col-md-{{ $display_options->width or 12 }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
+                                        <div class="form-group @if($row->type == 'hidden') hidden @endif col-md-{{ $display_options->width or 12 }} @if(isset($display_options->class)) {{ $display_options->class }} @endif" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
                                             {{ $row->slugify }}
                                             <label for="name">{{ $row->display_name }}</label>
                                             @include('voyager::multilingual.input-hidden-bread-edit-add')

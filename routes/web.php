@@ -53,7 +53,7 @@ Route::get('/previous_content', 'Voyager\MyBreadController@previous_content');
 /*--------------------------------------------------------------------------
 | PROBANDO
 |--------------------------------------------------------------------------*/
-Route::get('pdf', function(){
+Route::get('/pdf', function(){
     $pdf = App::make('dompdf.wrapper');
     $pdf->loadHTML('<h1>Test</h1>');
     return $pdf->stream();
